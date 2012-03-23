@@ -1,0 +1,63 @@
+@charset"utf-8";
+
+.print{
+	float:left;
+	width:676px;
+	height:18px;
+	}
+	
+.print_text{
+	float:right;
+	width:200px;
+}
+
+.print_text span{
+	float:right;
+	padding-right:10px;}
+	
+.print_text  img{
+	float:left;
+	margin-right:5px;}
+	
+.panel{
+	float:left;
+	width:676px;
+	}
+	
+.panel-top{
+	float:left;
+	width:676px;
+	height:8px;
+	background:url(../imgaes/statistics_top.jpg) no-repeat;}
+
+.panel-middle{
+	float:left;
+	width:676px;
+	background:url(../imgaes/statistics_middle.jpg) repeat-y;}
+	
+	
+.panel-bottom{
+	float:left;
+	width:676px;
+	height:8px;
+	background:url(../imgaes/statistics_bottom.jpg) no-repeat;}
+	
+.panel-input{
+	float:left;
+	width:120px;
+	height:14px;
+	border:solid 1px #bbd6eb;
+	margin:5px 10px 5px 0;
+	}
+
+	
+.center-title{
+	width:676px;
+	height:25px;
+	line-height:50px;
+	text-align:center;}
+	
+.report{
+	width:676px;
+	padding-bottom:50px;
+	}

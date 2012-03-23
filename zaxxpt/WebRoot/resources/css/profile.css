@@ -1,0 +1,17 @@
+@charset"utf-8";
+
+.profile-sidebar{
+	float:left;
+	width:190px;
+	}
+
+
+.profile-img{
+	float:left;
+	width:118px;
+	height:120px;
+	border:solid 6px #e7e7e7;}
+	
+.profile-con{
+	float:right;
+	width:px;}

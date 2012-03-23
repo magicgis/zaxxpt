@@ -1,0 +1,300 @@
+@charset "utf-8";
+/*-----------����-------------*/
+body{
+	padding:0;
+	margin:0;
+	font:normal 12px/21px "宋体";
+	color:#000;
+	background:#fff;
+	text-align:left;}
+	
+h1,h2,h3,h4,li,img{
+	border:none;
+	padding:0;
+	margin:0;}
+	
+h4{
+	font:bold 12px/20px "宋体";
+	color:#008ce8;}
+	
+ul{
+	list-style-type:none;
+	margin:0;}
+	
+button{
+	border:none;
+	cursor:pointer;
+	font-size:12px;
+	}
+	
+a{text-decoration:none;}	
+	
+a:link{
+	text-decoration:none;}
+	
+a:hover{
+	text-decoration:underline;
+	}
+
+select{
+	border:solid 1px #c2d0d5; 
+	height:18px;}
+	
+.clear{clear:both;
+	font-size:1px;
+	height:0;
+	visibility:hidden;
+	line-height:0;}
+	
+.wrap{width:100%;}
+/*------------ͷ��----------------*/
+.top{
+	height:26px;
+	background:url(../images/top.jpg) repeat-x;}
+
+.top_main{
+	width:960px;
+	margin:0 auto;
+	height:26px;
+	line-height:26px;
+	}	
+
+.top_main a{
+	color:#c6e7fe;
+	padding-right:10px;}
+
+.top_main a:visited{
+	color:#c6e7fe;
+	}
+
+.top_main a:hover{
+	color:#fff;}
+	
+.top_main .top_nav{
+	float:left;
+	padding-right:30px;}	
+	
+.top_main .top_layout{
+	float:right;
+	}
+
+.fonttop{
+	color:#c6e7fe;}	
+	
+/*-----------content------------*/
+.content{
+	width:960px;
+	margin:10px auto;
+}
+	
+	
+/*-----------header------------*/
+
+.header{
+	background:url(../images/headerbj.jpg) repeat-x;}
+
+.header_main{
+	width:1000px;
+	height:72px;
+	margin:0 auto;
+	}
+	
+.logo{
+	float:left;
+	width:350px;
+	height:49px;
+	margin:10px 50px 0 0;
+	display:inline;
+		}
+	
+.header_right{
+	float:left;
+	width:560px;
+	height:69px;}
+	
+.header_right .subnav{
+	margin-left:5px;
+	float:left;
+	width:402px;
+	height:25px;
+	border-right:solid 1px #d0dadf;
+	border-left:solid 1px #d0dadf;
+	}
+.subnav a{
+	float:left;
+	width:80px;
+	height:25px;
+	line-height:25px;
+	text-align:center;
+	color:#7d7d7d;
+	display:block;
+	background:url(../images/nav_bj.jpg) repeat-x;
+
+}	
+
+.subnav a:hover, .subnav a.mover{
+	color:#fff;
+	font-weight:bold;
+	text-decoration:none;
+	display:block;
+	background:url(../images/nav_hover.jpg) no-repeat;}
+/*-------search------*/
+.search_box{
+	float:left;
+	width:544px;
+	margin:10px 0;
+	}	
+.searchA{
+	float:left;
+	width:490px;
+	height:28px;
+	margin:8px 0;
+	display:inline;
+}	
+
+.search .search_text{
+	float:left;
+	width:330px;
+	height:23px;
+	border:solid 1px #babebf;
+	}
+	
+.search_btn{
+	float:left;
+	width:68px;
+	height:28px;
+	line-height:22px;
+	color:#fff;
+	font-weight:bold;
+	font-size:12px;
+	border:none;
+	margin-right:10px;
+	cursor:pointer;
+	background:url(../images/button.jpg) no-repeat ;
+	}
+	
+.search  a{
+	float:left;
+	color:#0d76c9;
+	line-height:27px;
+	text-decoration:underline;
+	}
+	
+.input a:hover{
+	text-decoration:none;}
+	
+/*-------nav------*/
+
+.nav{
+	float:right;
+	width:544px;
+	margin-right:66px;
+	display:inline;}
+	
+.nav li{
+	float:right;
+	width:74px;
+	height:25px;
+	padding:0 3px;
+	background:url(../images/nav_bj.jpg) repeat-x;
+	}
+	
+.nav li a{
+	line-height:25px;
+	color:#7d7d7d;
+}
+
+.nav li a:hover{
+	font:bold 12px/25px "宋体";
+	display:block;
+	background:url(../images/nav_hover.jpg)  no-repeat;
+	}
+
+
+/*-------footer------*/
+.footer{
+	height:61px;
+	float:left;
+	background:url(../images/footer.jpg) repeat-x;}
+	
+.footer_main{
+	width:960px;
+	margin:0 auto;
+	text-align:center;
+	line-height:61px;}
+	
+	
+/*-------page------*/
+
+.page{
+	width:646px;
+	float:left;
+	text-align:left;
+	margin:50px 0 100px 0;
+	}
+	
+.page span, .page input{
+	float:left;
+	height:25px;
+	margin-right:10px;
+	text-align:center;}
+
+.page span{
+	width:25px;
+	background:#fff;
+	border:solid 1px #e3e3e3;
+}
+	
+.page span a{
+	color:#000;
+	display:black;
+	text-align:center;
+	line-height:25px;
+	
+}
+
+.page span a:hover{
+	display:block;
+	color:#fff;
+	background:#3b9fe2;
+	border:solid 1px #3b9fe2;
+}
+	
+.page input{
+	width:58px;
+	line-height:25px;
+	background:url(../images/button_page.jpg) no-repeat;
+	border:none;
+	cursor:pointer;
+	}
+	
+	
+.panel-button{
+	float:left;
+	width:120px;
+	height:25px;
+	border:none;
+	cursor:pointer;
+	color:#6e97b5;
+	font:bold 12px/25px "����";
+	text-align:center;
+	background:url(../images/button2.jpg) no-repeat;}
+	
+.panel-submit{
+	float:left;
+	width:113px;
+	height:29px;
+	color:#fff;
+	border:none;
+	font:bold 12px/29px "����";
+	cursor:pointer;
+	background:url(../images/button-Submit.jpg) no-repeat;}
+
+	
+/*-------style for index.html-------*/
+.search_text{float:left;width:335px;}
+.search_btn,.search_text{margin:0px 5px;}
+input{line-height:28px;height:28px;}
+
+/*-------style for content-------*/
+.content_checklist{padding:0px 0px 0px 100px}
