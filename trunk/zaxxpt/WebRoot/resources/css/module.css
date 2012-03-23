@@ -1,0 +1,235 @@
+@charset"utf-8";
+/*-----main_con------*/
+.con-padding{
+	float:left;
+	width:696px;
+	padding-left:40px;
+	margin:40px 0;
+	border-left:solid 1px #e3e3e3;}
+	
+.con-padding3{
+	float:left;
+	width:676px;
+	margin:20px 0 30px 19px;
+	padding:0 0 20px 20px;
+	border-left:solid 1px #e3e3e3;}
+	
+.con-padding4{
+	float:left;
+	width:696px;
+	padding-right:20px;}
+
+	
+.padding-top{
+	padding-top:0;}
+	
+
+.sidebar-margin{
+	margin-top:30px;
+}
+
+.main-list{
+	width:696px;
+	color:#818181;
+	}
+	
+	
+.main-con{
+	float:left;
+	width:676px;
+	color:#818181;}
+	
+/*-----mod-sidebar------*/	
+
+.mod-sidebar{
+	float:left;
+	width:242px;
+	}
+	
+.mod-column{
+	float:left;
+	width:232px;
+	}
+
+.mod-title{
+	float:left;
+	width:234px;
+	padding-left:10px;
+	height:24px;
+	background:url(../images/than_title.jpg) no-repeat;}
+	
+.mod-title h4{
+	height:20px;
+	line-height:24px;
+	}
+	
+.mod-box{
+	float:left;
+	width:242px;
+	border:solid 1px #e9e9e9;
+	border-top:none;
+	background:#fafafa;}
+	
+.mod-list{
+	float:left;
+	padding:10px 5px;
+	width:232px;}
+	
+.mod-list ul{
+	padding:0;
+	}
+	
+.mod-list li{
+	float:left;
+	width:222px;
+	height:22px;
+	line-height:22px;
+	padding-left:15px;
+	background:url(../images/icon.jpg) no-repeat 5px 10px;
+}
+
+.mod-list li span{
+	float:right;
+	color:#bebebe;
+	padding:0 5px;}
+	
+	
+.mod-margin{
+	margin-top:10px;}
+	
+	
+.mod-side-r{
+	padding:40px 0 0 0;}
+	
+.mod-side-l{
+	margin:20px 0 0 0;}
+
+
+	
+	
+/*-----nav-sidebar------*/	
+.nav-sidebar{
+	float:left;
+	width:170px;
+	margin:20px 0 0 0;}
+	
+	
+.nav-sidebar-title{
+	text-indent:-100px;
+	float:left;
+	width:162px;
+	height:30px;
+	line-height:30px;
+	font-weight: bold;
+	padding:0 0px 0 8px;
+	text-align:center;
+	background:url(../images/sidebar_title.jpg) no-repeat;
+	}
+	
+.nav-column{
+	float:left;
+	margin:10px;
+	}
+
+	
+.nav-column h4{
+	float:left;
+	width:150px;
+	height:22px;
+	font:bold 12px/23px "����";
+	text-align:left;
+	padding-left:5px;
+	margin-bottom:10px;
+	color:#0d76c9;
+	background:url(../images/sidevar_nav.jpg) no-repeat;}
+	
+.nav-column ul{
+	padding:0;}
+	
+.nav-column li{
+	float:left;
+	width:140px;
+	height:25px;
+	padding:0;
+	text-align:left;
+	}
+	
+.nav-column li a{
+	color:#000;
+	padding-left:5px;
+
+	}
+	
+/*-----con-box------*/
+
+.con_box{
+	float:left;
+	width:676px;
+	padding-bottom:50px;
+	}
+
+.title-line{
+	float:left;
+	width:676px;
+	height:19px;
+	background:url(../images/title_line2.jpg) repeat-x;}
+	
+.title-line h4{
+	float:left;
+	background:#fff;
+	height:19px;
+	text-align:left;
+	padding-right:10px;
+	}
+	
+.title-line  span{
+	float:left;
+	height:19px;
+	background:#fff;
+	padding-right:10px;}
+	
+.print{
+	float:left;
+	width:676px;
+	height:18px;
+	}
+	
+.print_text{
+	float:right;
+	width:200px;
+}
+
+.print_text span{
+	float:right;
+	padding-right:10px;}
+	
+.print_text  img{
+	float:left;
+	margin-right:5px;}
+	
+	
+.panel{
+	float:left;
+	width:676px;
+	}
+	
+
+.panel-con{
+	float:left;
+	width:646px;
+	padding:10px 0 0 30px;}
+	
+.gl-list{
+	float:left;
+	width:150px;
+	height:21px;
+	padding-right:10px;}
+
+	
+
+/*-----style for con-box------*/
+.panel-con table td{font-size:14px;line-height:25px;}
+	
+	
+	
+	

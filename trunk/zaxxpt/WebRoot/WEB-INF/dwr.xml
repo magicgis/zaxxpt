@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 1.0//EN" "dwr10.dtd">
+
+<dwr>
+	<allow>
+		<create javascript="userdwr" creator="spring" >
+			<param name="beanName" value="UserAction"></param>	
+		</create>
+	</allow>
+</dwr>

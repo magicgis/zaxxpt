@@ -1,0 +1,83 @@
+@charset"utf-8";
+/*------list---------*/
+.index_list{
+	width:960px;
+	float:left;
+	clear:both;
+	padding:30px 0 40px 0;
+	}
+
+.li_box{
+	width:960px;
+	float:left;
+	padding:20px 0;
+	border-bottom:solid 1px #ececec;
+	}
+	
+	
+.index_list .list_img{
+	float:left;
+	width:109px;
+	height:109px;
+	margin:10px 10px 10px 0;
+	display:inline;} 
+	
+	
+.index_list .list_right{
+	float:right;
+	width:821px;
+	margin:20px 0 0 10px;
+	text-align:center
+}
+
+.list_right h4{
+	float:left;
+	font:bold 12px/22px "宋体";
+	padding-right:10px;}
+	
+.list_right h4 a{
+	color:#1b70d9;}
+	
+.list_span{
+	float:left;
+	line-height:22px;
+	color:#b6b6b6;}
+	
+.list_p{
+	width:821px;
+	float:left;
+	text-align:left;}
+	
+.list_p a{
+	color:#626262;}
+	
+	
+.search_box .nav{
+	float:left;
+	width:554px;
+	text-align:left;
+		}
+	
+.search_box .nav a{
+	float:left;
+	padding-left:10px;
+	text-decoration:underline;
+	color:#1b70d9;
+}
+
+.search_box .nav a:hover{
+	text-decoration:none;}
+	
+.search_box .nav span{
+	float:left;
+	font-weight:bold;
+	color:#000;}
+	
+
+	
+
+	
+	
+
+	
+		
