@@ -1,0 +1,114 @@
+@charset "UTF-8";
+/*body {
+	background: #303930;
+	margin: 0;
+	padding: 0;
+	font: .8em Tahoma, Verdana, Helvetica;
+	color: white;
+}*/
+
+a {color: #549821; background: none; text-decoration: none;}
+a:hover {background: #9ad04d; color: white; text-decoration: none;}
+img, img a, img a:hover {border: 0; padding: 0; margin: 0; background: transparent;}
+
+#pageWrap {
+	background: #549821 url(../../images/menu/bg.png) top left repeat-x;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	overflow: hidden;
+}
+#whole_page {
+	width: 837px;
+	margin: 0 auto 0 auto;
+	padding: 0;
+	text-align: left;
+}
+#mainMenu li.o2 {color: #aaa; font-size: .8em; padding: 4px 8px 0 8px; margin-left: 30px;text-align: center;}
+#mainMenu li.o2 a {color: #4a9dcc;}
+#mainMenu li.o2 a:hover {color: #c8bc59; background: none;}
+#mainMenu li.o3 {color: #aaa; font-size: .8em; padding: 4px 8px 0 8px; text-align: center;}
+#mainMenu li.o3 a {color: #4a9dcc;}
+#mainMenu li.o3 a:hover {color: #c8bc59; background: none;}
+#mainMenu ul li a {height: 43px; text-indent: -9999px; padding: 0; margin: 0;}
+#mainMenu ul li a {height: 43px; text-indent: -9999px; padding: 0; margin: 0;}
+#mainMenu ul {
+	list-style: none;
+	float: right;
+	margin: 0;
+	display: inline;
+}
+#mainMenu a {display: block; color:white;}
+#mainMenu a span {display: block; padding:4px 5px;}
+#mainMenu li ul li a strong {color: white; padding: 0; display: inline;}
+#mainMenu li ul li a:hover strong {color: #549821;}
+#mainMenu li:hover a, #mainMenu li a {position: relative; z-index:1000;}
+#mainMenu ul ul a {	
+	display:block;	
+	width:110px;
+	margin: 0 0 0 -40px;
+	list-style: none;
+	padding: 5px 0 5px 30px;
+	font-size: .8em;
+	color: #9ad04d;
+	background: none;
+	text-indent: 0;
+	height: auto;
+}
+#mainMenu ul ul a:hover {background: url(../../images/menu/littleleaf.png) 3px 3px no-repeat; color: #549821;}
+#mainMenu ul li.subMain {background: url(../../images/menu/list_arrow.png) 80px 5px no-repeat; color: #549821;}
+#mainMenu ul ul li.rehashStore a {font-weight: bold; color: #c8bc59;}
+#mainMenu ul ul li.rehashStore a:hover {color: #4a9dcc;}
+#mainMenu li {float: left; display: inline; padding: 0 4px; margin: 0;}
+#mainMenu ul ul li {background: none; padding-left:1px;}
+#mainMenu li.mm2 {background: none;}
+#mainMenu li ul {position: absolute; background: url(../../images/menu/menu_bg_bottom.png) 0% 100% no-repeat; width: 105px; padding-bottom: 10px; left: -9999px; z-index: 1000;}
+
+#mainMenu li ul ul {position: absolute; background: url(../../images/menu/menu_bg_bottom.png) 0% 100% no-repeat; width: 105px; padding-bottom: 10px; left: -9999px; z-index: 1000; margin: -20px 0 0 104px;}
+
+#mainMenu li:hover ul, #mainMenu li ul li:hover ul, #mainMenu ul li.sfhover ul, #mainMenu ul li ul li.sfhover ul {left: auto;}
+.top-sub-li {border-top: 3px solid #29391a;}
+#mainMenu li:hover ul ul, #mainMenu li.sfhover ul ul {
+	left: -999em;
+}
+*:first-child+html #mainMenu li ul {
+	position: absolute;
+	width: 145px;
+	padding-bottom: 10px;
+	
+	background: url(../../images/menu/menu_bg_bottom.png) 0% 100% no-repeat;
+	z-index: 1;
+}
+
+*:first-child+html #mainMenu ul ul a {	
+	display:block;	
+	width:110px;
+	margin: 0 0 0 0px;
+	list-style: none;
+	padding: 5px 0 5px 30px;
+	font-size: .8em;
+	color: #9ad04d;
+	background: none;
+	text-indent: 0;
+	height: auto;
+	position: relative; z-index: 1010;
+}
+*:first-child+html #mainMenu li:hover a, #mainMenu li a {position: relative; z-index:1;}
+*:first-child+html #mainMenu li:hover, *:first-child+html #mainMenu li.hover {
+	position: static;
+}
+.top-sub-li {border-top: 3px solid #29391a;}
+.home a {width: 42px; background: url(../../images/menu/m_home.png) 0 0;}
+.trading a {width: 70px; background: url(../../images/menu/m_trading.png) 0 0;}
+.community a {width: 66px; background: url(../../images/menu/m_community.png) 0 0;}
+.gogreen a {width: 57px; background: url(../../images/menu/m_gogreen.png) 0 0;}
+.fashion a {width: 49px; background: url(../../images/menu/m_fashion.png) 0 0;}
+.login a {width: 39px; background: url(../../images/menu/m_login.png) 0 0;}
+.register a {width: 52px; background: url(../../images/menu/m_register.png) 0 0;}
+.home a:hover {width: 42px; background: url(../../images/menu/m_home.png) bottom right;}
+.trading a:hover {width: 70px; background: url(../../images/menu/m_trading.png) bottom right;}
+.community a:hover {width: 66px; background: url(../../images/menu/m_community.png) bottom right;}
+.gogreen a:hover {width: 57px; background: url(../../images/menu/m_gogreen.png) bottom right;}
+.fashion a:hover {width: 49px; background: url(../../images/menu/m_fashion.png) bottom right;}
+.login a:hover {width: 39px; background: url(../../images/menu/m_login.png) bottom right;}
+.register a:hover {width: 52px; background: url(../../images/menu/m_register.png) bottom right;}

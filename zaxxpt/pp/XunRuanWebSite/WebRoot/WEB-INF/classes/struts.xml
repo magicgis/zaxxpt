@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 国际化 -->
+	<constant name="struts.custom.i18n.resources" value="xunruan" />
+	<!-- 编码的设定 -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<!-- 对象工厂 -->
+	<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory" />
+	<!--### 设置struts是否为开发模式，默认为false,测试阶段一般设为true.-->
+	<constant name="struts.devMode" value="false" />
+	<!--### 设置ognl支持静态方法.-->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
+
+	
+	<include file="struts_basic.xml"></include>
+	
+ 	<package name="default" namespace="" extends="struts-default">
+  		<interceptors>
+  			<interceptor name="ognlutil" class="com.xunruan.framekork.web.interceptor.OgnlUtilInterceptor"/>
+  			<interceptor-stack name="webDefaultInterceptorStack">
+  				<interceptor-ref name="ognlutil"></interceptor-ref>
+  			</interceptor-stack>
+  		</interceptors>
+		<default-interceptor-ref name="webDefaultInterceptorStack"></default-interceptor-ref>
+  		<action name="index" class="com.xunruan.site.web.basic.IndexPageAction">
+  			<result name="success">/page/index.jsp</result>
+  		</action>
+ 	</package>
+</struts>
