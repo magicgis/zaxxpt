@@ -3,6 +3,9 @@
     <wb-module deploy-name="zaxxpt">
         <wb-resource deploy-path="/" source-path="/WebRoot"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/spring"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/struts"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/mybatis"/>
         <property name="context-root" value="/zaxxpt"/>
         <property name="java-output-path" value="/zaxxpt/WebRoot/WEB-INF/classes"/>
     </wb-module>

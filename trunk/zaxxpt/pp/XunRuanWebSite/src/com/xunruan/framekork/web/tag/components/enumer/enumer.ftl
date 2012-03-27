@@ -1,0 +1,1 @@
+<#include "enumer.${parameters.output!'select'}.ftl" /><#t/>
