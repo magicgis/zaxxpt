@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="member" extends="struts-default">
+		<!-- 客户信息显示,高杰-->
+		<action name="infoShow" class="com.hnatourism.club.personal.member.web.action.MemberInfoAction" method="showMemberInfo">
+			<result name="success" >
+				/WEB-INF/pages/member/member.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		<!-- 客户信息修改,高杰-->
+		<action name="updMember" class="com.hnatourism.club.personal.member.web.action.MemberInfoAction" method="updateMemberInfo">
+			<result name="success" >
+				/WEB-INF/pages/member/member.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		<!-- 跳转 ,李游 -->
+		<action name="tomoveMember" class="com.hnatourism.club.personal.member.web.action.MemberInfoAction" method="toMoveMember">
+			<result name="success" >
+				/WEB-INF/pages/member/moveMember.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+		</action>
+		
+		<action name="moveMember" class="com.hnatourism.club.personal.member.web.action.MemberInfoAction" method="moveMember">
+			<result name="success" >
+				/WEB-INF/pages/member/order.jsp
+			</result>
+			<result name="error" >
+				/WEB-INF/pages/member/moveMember.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+		</action>
+		<!-- 登录跳转,高杰-->
+		<action name="tologin" class="com.hnatourism.club.personal.member.web.action.MemberInfoAction" method="tologin">
+			<result name="success">
+				/WEB-INF/pages/member/login.jsp
+			</result>
+			<result name="login" type="redirect">
+				/member/index.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		<!-- 登录,高杰-->
+		<action name="login" class="com.hnatourism.club.personal.member.web.action.MemberInfoAction" method="login2">
+			<result name="success" type="redirect">
+				/member/index.jsp
+			</result>
+			<result name="mistake" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="login" type="redirect">
+				/member/index.jsp
+			</result>
+			<result name="golfbook" type="redirect">
+				/golf/book.jsp?id=${id}&amp;time=${time}
+			</result>
+			<result name="loungebook" type="redirect">
+				/lounge/book.jsp?id=${id}&amp;info=${time}
+			</result>
+			<result name="hotelbook" type="redirect">
+				/hotel/book.jsp?idate=${idate}&amp;odate=${odate}&amp;hcode=${hcode}&amp;rcode=${rcode}
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		<!-- 登出,高杰-->
+		<action name="loginout" class="com.hnatourism.club.personal.member.web.action.MemberInfoAction" method="loginout">
+			<result name="success" type="redirect">
+				/index.jsp
+			</result>
+			<result name="flightIndex" type="redirect">
+				/flight/index.jsp
+			</result>
+			<result name="hotelIndex" type="redirect">
+				/hotel/index.jsp
+			</result>
+			<result name="golfIndex" type="redirect">
+				/golf/index.jsp
+			</result>
+			<result name="loungeIndex" type="redirect">
+				/lounge/index.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		<!-- 登录跳转,高杰-->
+		<action name="toupdPw" class="com.hnatourism.club.personal.member.web.action.MemberInfoAction" method="toupdateMemberPw">
+			<result name="success">
+				/WEB-INF/pages/member/pwd.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		<!-- 客户密码修改,高杰-->
+		<action name="updPw" class="com.hnatourism.club.personal.member.web.action.MemberInfoAction" method="updateMemberPw">
+			<result name="success">
+				/WEB-INF/pages/member/pwd.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+			<result name="mistake">
+				/WEB-INF/pages/member/pwd.jsp
+			</result>
+		</action>
+			<!-- 代客下单,文正-->
+		<action name="valetAction" class="com.hnatourism.club.personal.member.web.action.MemberInfoAction" method="proLogin">
+			<result name="login" type="redirect">
+				/member/index.jsp
+			</result>
+			<result name="golf" type="redirect">
+				/golf/index.jsp
+			</result>
+			<result name="lounge" type="redirect">
+				/lounge/index.jsp
+			</result>
+			<result name="hotel" type="redirect">
+				/hotel/index.jsp
+			</result>
+			<result name="flight" type="redirect">
+				/flight/index.jsp
+			</result>
+			<result name="mistake" type="redirect">
+				/member/login.jsp
+			</result>
+		</action>
+		<!-- 在线会员申请,文正-->
+		<action name="onLineApplyView" class="com.hnatourism.club.personal.member.web.action.MemberInfoAction" method="onLineApplyView">
+			<result name="onLineApplyPage" >
+				/WEB-INF/pages/member/onLineMemberApply.jsp
+			</result>
+		</action>
+		
+		<!-- 在线会员申请,文正-->
+		<action name="onLineApply" class="com.hnatourism.club.personal.member.web.action.MemberInfoAction" method="onLineApply">
+			<result name="success" >
+				/WEB-INF/pages/member/applySuccess.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		
+		<!-- 待客下单-->
+		<action name="proLogin" class="com.hnatourism.club.personal.member.web.action.MemberInfoAction" method="proLogin">
+			<result name="common" >{redirctUrl}</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		
+		<!-- 常用客人列表,高杰-->
+		<action name="mplist" class="com.hnatourism.club.personal.member.web.action.MemberPassengerAction" method="search">
+			<result name="success" >
+				/WEB-INF/pages/member/often.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		<!-- 添加常用客人页面,高杰-->
+		<action name="editoften" class="com.hnatourism.club.personal.member.web.action.MemberPassengerAction" method="toAdd">
+			<result name="success" >
+				/WEB-INF/pages/member/addoften.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		<!-- 添加常用客人,高杰-->
+		<action name="addoften" class="com.hnatourism.club.personal.member.web.action.MemberPassengerAction" method="add">
+			<result name="success" type="redirect">
+				/member/often.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="mistake">
+				/WEB-INF/pages/member/addoften.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		<!-- 添加常用客人,高杰-->
+		<action name="updoften" class="com.hnatourism.club.personal.member.web.action.MemberPassengerAction" method="modify">
+			<result name="success" type="redirect">
+				/member/often.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="mistake">
+				/WEB-INF/pages/member/addoften.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		<!-- 删除常用客人,高杰-->
+		<action name="deloften" class="com.hnatourism.club.personal.member.web.action.MemberPassengerAction" method="del">
+			<result name="success" type="redirect">
+				/member/often.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		
+			<!-- 常用地址信息列表,荣文强-->
+		<action name="memberPassengerAddrAction" class="com.hnatourism.club.personal.member.action.MemberPassengerAction" method="search">
+			<result name="success" >
+				/WEB-INF/pages/member/oftenaddress.jsp
+			</result>
+			<result name="success2" type="redirect">
+				/member/oftenaddress.jsp
+			</result>
+			<result name="toadd" >
+				/WEB-INF/pages/member/addoftenaddress.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		
+		<!-- 资金账户明细列表,高杰-->
+		<action name="accdetlist" class="com.hnatourism.club.personal.member.web.action.OrderBillAction" method="search">
+			<result name="success">
+				/WEB-INF/pages/member/account.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		
+		<!-- 所有订单查询 ,李巡-->
+		<action name="showOrderHome" class="com.hnatourism.club.member.order.action.MemberOrderAction" method="showOrderHome">
+			<result name="success" >
+				/WEB-INF/pages/member/order.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		
+		<!-- 个人机票订单查询 	lixun -->
+		<action name="ajaxTableFlightOrderAction" class="com.hnatourism.club.member.order.action.MemberOrderAction" method="ajaxTableFlightOrderAction">
+			<result name="success" >
+				/WEB-INF/pages/member/order/include/flightOrderTable.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		
+<!--		 个人酒店订单查询		lixun -->
+		<action name="ajaxTableHotelOrderAction" class="com.hnatourism.club.member.order.action.MemberOrderAction" method="ajaxTableHotelOrderAction">
+			<result name="success" >
+				/WEB-INF/pages/member/order/include/hotelOrderTable.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		
+<!--		 个人高尔夫订单查询		lixun -->
+		<action name="ajaxTableGolfOrderAction" class="com.hnatourism.club.member.order.action.MemberOrderAction" method="ajaxTableGolfOrderAction">
+			<result name="success" >
+				/WEB-INF/pages/member/order/include/golfOrderTable.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		
+<!--		 个人休息室 订单查询		lixun-->
+		<action name="ajaxTableLoungeOrderAction" class="com.hnatourism.club.member.order.action.MemberOrderAction" method="ajaxTableLoungeOrderAction">
+			<result name="success" >
+				/WEB-INF/pages/member/order/include/loungeOrderTable.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		
+		<!-- 积分兑换 -->
+		<action name="orderPointsExchangeAction" class="com.hnatourism.club.order.web.OrderPointsExchangeAction">
+			<result name="addPage">/WEB-INF/pages/order/addOrderPointsExchange.jsp</result>
+			<result name="modifyPage">/WEB-INF/pages/order/modifyOrderPointsExchange.jsp</result>
+			<result name="searchPage">/WEB-INF/pages/order/searchOrderPointsExchange.jsp</result>
+			<result name="viewPage">/WEB-INF/pages/order/viewOrderPointsExchange.jsp</result>
+			<result name="listPage">/WEB-INF/pages/order/listPage.jsp</result>
+			<result name="successPage">/WEB-INF/pages/order/success.jsp</result>
+			<result name="failPage">/WEB-INF/pages/order/fail.jsp</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+		</action>		
+		
+		
+	</package>
+</struts>

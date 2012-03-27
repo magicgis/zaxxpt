@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="loungeLimit">
+	<typeAlias alias="loungeLimit" type="com.hnatourism.club.lounge.prod.domain.LoungeLimit" />
+	<resultMap id="loungeLimitResultMap" class="loungeLimit">
+		<result column="ID" property="id" />
+		<result column="LOUNGE_ID" property="loungeId" />
+		<result column="TYPE" property="type" />
+		<result column="START_TIME" property="startTime" />
+		<result column="END_TIME" property="endTime" />
+		<result column="CREATE_USER" property="createUser" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="UPDATE_USER" property="updateUser" />
+		<result column="UPDATE_TIME" property="updateTime" />
+		<result column="ROOM_ID" property="roomId" />
+	</resultMap>
+	<resultMap id="loungeLimitResultMapRoom" class="loungeLimit">
+		<result column="ID" property="id" />
+		<result column="ROOM_ID" property="roomId" />
+		<result column="START_TIME" property="startTime" />
+		<result column="END_TIME" property="endTime" />
+	</resultMap>
+	<sql id="selectLoungeLimitSql">
+		<![CDATA[
+			SELECT T.ID,T.LOUNGE_ID,T.TYPE,T.START_TIME,T.END_TIME,T.CREATE_USER,T.CREATE_TIME,T.UPDATE_USER,T.UPDATE_TIME,T.ROOM_ID 
+			FROM LOUNGE_LIMIT T
+		]]>
+	</sql>
+	<select id="findLoungeLimitByWhere" parameterClass="loungeLimit" resultMap="loungeLimitResultMap">
+		<include refid="selectLoungeLimitSql"/>	
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="loungeId">
+				T.LOUNGE_ID=#loungeId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="type">
+				T.TYPE=#type#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="startTime">
+				T.START_TIME=#startTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="endTime">
+				T.END_TIME=#endTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createUser">
+				T.CREATE_USER=#createUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createTime">
+				T.CREATE_TIME=#createTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateUser">
+				T.UPDATE_USER=#updateUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateTime">
+				T.UPDATE_TIME=#updateTime#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<select id="findLoungeLimitById" parameterClass="java.lang.String" resultMap="loungeLimitResultMap">
+		<include refid="selectLoungeLimitSql"/>	
+		<![CDATA[
+			WHERE T.ID=#id#
+		]]>
+	</select>
+	<select id="findLoungeLimitByRoom" parameterClass="loungeLimit" resultMap="loungeLimitResultMapRoom">
+		<include refid="selectLoungeLimitSql"/>	
+		<![CDATA[
+			WHERE T.ROOM_ID=#roomId#
+		]]>
+	</select>
+	<insert id="insertLoungeLimit" parameterClass="loungeLimit">
+		INSERT INTO LOUNGE_LIMIT
+		<dynamic prepend="(">
+			<isNotEmpty prepend="," property="id">
+				ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="loungeId">
+				LOUNGE_ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="type">
+				TYPE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="startTime">
+				START_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="endTime">
+				END_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createUser">
+				CREATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createTime">
+				CREATE_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateUser">
+				UPDATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateTime">
+				UPDATE_TIME
+			</isNotEmpty>
+
+		</dynamic>		
+		<dynamic prepend=") VALUES (">
+
+			<isNotEmpty prepend="," property="id">
+				#id#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="loungeId">
+				#loungeId#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="type">
+				#type#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="startTime">
+				#startTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="endTime">
+				#endTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createUser">
+				#createUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createTime">
+				#createTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateUser">
+				#updateUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateTime">
+				#updateTime#
+			</isNotEmpty>
+
+		 </dynamic>	)
+	</insert>
+	
+	<update id="updateLoungeLimit" parameterClass="loungeLimit">
+		UPDATE LOUNGE_LIMIT
+        <dynamic prepend="set">
+		   <isNotEmpty prepend="," property="loungeId">
+              LOUNGE_ID=#loungeId#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="type">
+              TYPE=#type#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="startTime">
+              START_TIME=#startTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="endTime">
+              END_TIME=#endTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createUser">
+              CREATE_USER=#createUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createTime">
+              CREATE_TIME=#createTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateUser">
+              UPDATE_USER=#updateUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateTime">
+              UPDATE_TIME=#updateTime#
+           </isNotEmpty>
+        </dynamic>
+		WHERE 
+               ID=#id#
+	</update>	
+	<delete id="deleteLoungeLimit" parameterClass="java.lang.String">
+		DELETE FROM LOUNGE_LIMIT
+		WHERE 
+               ID=#id#
+	</delete>	
+</sqlMap>

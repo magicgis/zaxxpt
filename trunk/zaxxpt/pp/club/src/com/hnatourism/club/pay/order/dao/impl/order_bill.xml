@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="orderBill2">
+	<typeAlias alias="orderBill2" type="com.hnatourism.club.pay.order.domain.OrderBill" />
+	<resultMap id="orderBillResultMap" class="orderBill2">
+		<result column="ID" property="id" />
+		<result column="ROLE_ID" property="roleId" />
+		<result column="TYPE" property="type" />
+		<result column="ACCOUNT" property="account" />
+		<result column="TRADE_NO" property="tradeNo" />
+		<result column="TRADE_TIME" property="tradeTime" />
+		<result column="AMOUNT" property="amount" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="CREATE_USER" property="createUser" />
+		<result column="UPDATE_TIME" property="updateTime" />
+		<result column="UPDATE_USER" property="updateUser" />
+		<result column="ORDER_ID" property="orderId" />
+		<result column="ORDER_TYPE" property="orderType" />
+		<result column="PROD_TYPE" property="prodType" />
+		<result column="ORDER_CODE" property="orderCode" />
+		<result column="TRANSACTION_TYPE" property="transactionType" />
+		<result column="COMMISSION" property="commission" />
+		<result column="STATUS" property="status" />
+		<result column="RMK" property="rmk" />
+	</resultMap>
+	<sql id="selectOrderBillSql2">
+		<![CDATA[
+			SELECT T.ORDER_ID,T.ORDER_TYPE,T.ID,T.ROLE_ID,T.TYPE,T.ACCOUNT,T.TRADE_NO,T.TRADE_TIME,T.AMOUNT,T.CREATE_TIME,T.CREATE_USER,T.UPDATE_TIME,T.UPDATE_USER,T.PROD_TYPE,T.ORDER_CODE,T.TRANSACTION_TYPE,T.COMMISSION,T.STATUS,T.RMK 
+			FROM ORDER_BILL T
+		]]>
+	</sql>
+	<select id="findOrderBillByWhere2" parameterClass="orderBill2" resultMap="orderBillResultMap">
+		<include refid="selectOrderBillSql2"/>	
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="id">
+				T.ID=#id#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="roleId">
+				T.ROLE_ID=#roleId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="type">
+				T.TYPE=#type#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="account">
+				T.ACCOUNT=#account#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="tradeNo">
+				T.TRADE_NO=#tradeNo#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="tradeTime">
+				T.TRADE_TIME=#tradeTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="amount">
+				T.AMOUNT=#amount#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createTime">
+				T.CREATE_TIME=#createTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createUser">
+				T.CREATE_USER=#createUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateTime">
+				T.UPDATE_TIME=#updateTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateUser">
+				T.UPDATE_USER=#updateUser#
+			</isNotEmpty>
+			
+			<isNotEmpty prepend="AND" property="orderId">
+				T.ORDER_ID=#orderId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="orderType">
+				T.ORDER_TYPE=#orderType#
+			</isNotEmpty>
+			
+			<isNotEmpty prepend="AND" property="prodType">
+				T.PROD_TYPE=#prodType#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="orderCode">
+				T.ORDER_CODE=#orderCode#
+			</isNotEmpty>
+			
+			<isNotEmpty prepend="AND" property="transactionType">
+				T.TRANSACTION_TYPE=#transactionType#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="commission">
+				T.COMMISSION=#commission#
+			</isNotEmpty>
+			
+			<isNotEmpty prepend="AND" property="status">
+				T.STATUS=#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="rmk">
+				T.RMK=#rmk#
+			</isNotEmpty>
+			
+		</dynamic>
+	</select>
+	<select id="findOrderBillById2" parameterClass="java.lang.String" resultMap="orderBillResultMap">
+		<include refid="selectOrderBillSql2"/>	
+		<![CDATA[
+			WHERE T.ID=#id#
+		]]>
+	</select>
+	<select id="findOrderBillByAccount2" parameterClass="java.lang.String" resultMap="orderBillResultMap">
+		<include refid="selectOrderBillSql2"/>	
+		<![CDATA[
+			WHERE T.ACCOUNT=#account#
+		]]>
+	</select>
+	<insert id="insertOrderBill2" parameterClass="orderBill2">
+		INSERT INTO ORDER_BILL
+		<dynamic prepend="(">
+			<isNotEmpty prepend="," property="id">ID</isNotEmpty>
+			<isNotEmpty prepend="," property="roleId">ROLE_ID</isNotEmpty>
+			<isNotEmpty prepend="," property="type">TYPE</isNotEmpty>
+			<isNotEmpty prepend="," property="account">ACCOUNT</isNotEmpty>
+			<isNotEmpty prepend="," property="tradeNo">TRADE_NO</isNotEmpty>
+			<isNotEmpty prepend="," property="tradeTime">TRADE_TIME</isNotEmpty>
+			<isNotEmpty prepend="," property="amount">AMOUNT</isNotEmpty>
+			<isNotEmpty prepend="," property="createTime">CREATE_TIME</isNotEmpty>
+			<isNotEmpty prepend="," property="createUser">CREATE_USER</isNotEmpty>
+			<isNotEmpty prepend="," property="updateTime">UPDATE_TIME</isNotEmpty>
+			<isNotEmpty prepend="," property="updateUser">UPDATE_USER</isNotEmpty>
+			
+			<isNotEmpty prepend="," property="orderId">ORDER_ID</isNotEmpty>
+			<isNotEmpty prepend="," property="orderType">ORDER_TYPE</isNotEmpty>
+			
+			<isNotEmpty prepend="," property="prodType">PROD_TYPE</isNotEmpty>
+			<isNotEmpty prepend="," property="orderCode">ORDER_CODE</isNotEmpty>
+			
+			<isNotEmpty prepend="," property="transactionType">TRANSACTION_TYPE</isNotEmpty>
+			<isNotEmpty prepend="," property="commission">COMMISSION</isNotEmpty>
+			
+			<isNotEmpty prepend="," property="status">STATUS</isNotEmpty>
+			<isNotEmpty prepend="," property="rmk">RMK</isNotEmpty>
+		</dynamic>		
+		<dynamic prepend=") VALUES (">
+			<isNotEmpty prepend="," property="id">#id#</isNotEmpty>
+			<isNotEmpty prepend="," property="roleId">#roleId#</isNotEmpty>
+			<isNotEmpty prepend="," property="type">#type#</isNotEmpty>
+			<isNotEmpty prepend="," property="account">#account#</isNotEmpty>
+			<isNotEmpty prepend="," property="tradeNo">#tradeNo#</isNotEmpty>
+			<isNotEmpty prepend="," property="tradeTime">#tradeTime#</isNotEmpty>
+			<isNotEmpty prepend="," property="amount">#amount#</isNotEmpty>
+			<isNotEmpty prepend="," property="createTime">#createTime#</isNotEmpty>
+			<isNotEmpty prepend="," property="createUser">#createUser#</isNotEmpty>
+			<isNotEmpty prepend="," property="updateTime">#updateTime#</isNotEmpty>
+			<isNotEmpty prepend="," property="updateUser">#updateUser#</isNotEmpty>
+			
+			<isNotEmpty prepend="," property="orderId">#orderId#</isNotEmpty>
+			<isNotEmpty prepend="," property="orderType">#orderType#</isNotEmpty>
+			
+			<isNotEmpty prepend="," property="prodType">#prodType#</isNotEmpty>
+			<isNotEmpty prepend="," property="orderCode">#orderCode#</isNotEmpty>
+			
+			<isNotEmpty prepend="," property="transactionType">#transactionType#</isNotEmpty>
+			<isNotEmpty prepend="," property="commission">#commission#</isNotEmpty>
+			
+			<isNotEmpty prepend="," property="status">#status#</isNotEmpty>
+			<isNotEmpty prepend="," property="rmk">#rmk#</isNotEmpty>
+		 </dynamic>	)
+	</insert>
+	
+	<update id="updateOrderBill2" parameterClass="orderBill2">
+		UPDATE ORDER_BILL
+        <dynamic prepend="set">
+		   <isNotEmpty prepend="," property="roleId">
+              ROLE_ID=#roleId#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="type">
+              TYPE=#type#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="account">
+              ACCOUNT=#account#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="tradeNo">
+              TRADE_NO=#tradeNo#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="tradeTime">
+              TRADE_TIME=#tradeTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="amount">
+              AMOUNT=#amount#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createTime">
+              CREATE_TIME=#createTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createUser">
+              CREATE_USER=#createUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateTime">
+              UPDATE_TIME=#updateTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateUser">
+              UPDATE_USER=#updateUser#
+           </isNotEmpty>
+           
+             <isNotEmpty prepend="," property="orderId">
+              ORDER_ID=#orderId#
+           </isNotEmpty>
+             <isNotEmpty prepend="," property="orderType">
+              ORDER_TYPE=#orderType#
+           </isNotEmpty>
+           
+            <isNotEmpty prepend="," property="prodType">
+              PROD_TYPE=#prodType#
+           </isNotEmpty>
+             <isNotEmpty prepend="," property="orderCode">
+              ORDER_CODE=#orderCode#
+           </isNotEmpty>
+           
+           <isNotEmpty prepend="," property="transactionType">
+              TRANSACTION_TYPE=#transactionType#
+           </isNotEmpty>
+             <isNotEmpty prepend="," property="commission">
+              COMMISSION=#commission#
+           </isNotEmpty>
+           
+           <isNotEmpty prepend="," property="status">
+              STATUS=#status#
+           </isNotEmpty>
+             <isNotEmpty prepend="," property="rmk">
+              RMK=#rmk#
+           </isNotEmpty>
+           
+        </dynamic>
+		WHERE 
+               ID=#id#
+	</update>	
+	<delete id="deleteOrderBill2" parameterClass="java.lang.String">
+		DELETE FROM ORDER_BILL
+		WHERE 
+               ID=#id#
+	</delete>	
+</sqlMap>

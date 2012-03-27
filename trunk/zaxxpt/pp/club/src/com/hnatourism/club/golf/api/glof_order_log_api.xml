@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="api_golfOrderLog">
+	<typeAlias alias="golfOrderLogVo" type="com.hnatourism.club.golf.order.vo.GolfOrderLogVo" />
+	<resultMap id="api_golfOrderLogVoResultMap" class="golfOrderLogVo">
+		<result column="ID" property="id" />
+		<result column="ORDER_ID" property="orderId" />
+		<result column="CONTENT" property="content" />
+		<result column="TYPE" property="type" />
+		<result column="CREATE_USER" property="createUser" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="UPDATE_USER" property="updateUser" />
+		<result column="UPDATE_TIME" property="updateTime" />
+	</resultMap>
+	<sql id="api_selectGolfOrderLogrSql">
+		<![CDATA[
+			SELECT T.ID,T.ORDER_ID,T.CONTENT,T.TYPE,T.CREATE_USER,T.CREATE_TIME,T.UPDATE_USER,T.UPDATE_TIME 
+			FROM log_golf_order T
+		]]>
+	</sql>
+
+	<select id="api_findGolfOrderLogById" parameterClass="java.lang.String" resultMap="api_golfOrderLogVoResultMap">
+		<include refid="api_selectGolfOrderLogrSql"/>	
+		<![CDATA[
+			WHERE T.ID=#id#
+		]]>
+	</select>
+	
+	<select id="api_findOrderLogByOrderId_1" parameterClass="java.lang.String" resultMap="api_golfOrderLogVoResultMap">
+		<include refid="api_selectGolfOrderLogrSql"/>	
+		<![CDATA[
+			WHERE T.ORDER_ID=#id# order by T.CREATE_TIME DESC
+		]]>
+	</select>
+	
+	<select id="api_findOrderLogByOrderId" parameterClass="java.util.HashMap" resultMap="api_golfOrderLogVoResultMap">
+		<include refid="api_selectGolfOrderLogrSql"/>	
+		<![CDATA[
+			WHERE T.ORDER_ID=#id# order by T.CREATE_TIME
+		]]>
+	</select>
+	
+	<parameterMap class="java.util.HashMap" id="findOrderLogByOrderId_Map">   
+      <parameter  property="id" />
+    </parameterMap>
+    
+	<select id="api_findOrderLogByOrderId_Map" parameterMap="findOrderLogByOrderId_Map" resultMap="api_golfOrderLogVoResultMap">
+		<include refid="api_selectGolfOrderLogrSql"/>	
+		<![CDATA[
+			WHERE T.ORDER_ID=? order by T.CREATE_TIME DESC
+		]]>
+	</select>
+	
+	 <parameterMap class="java.util.HashMap" id="insertParameterMap">   
+      <parameter   property="id" />
+		<parameter   property="orderId" />
+		<parameter   property="content" />
+		<parameter  property="type" />
+		<parameter   property="createUser" />
+		<parameter   property="createTime" />
+		<parameter   property="updateUser" />
+		<parameter   property="updateTime" />
+    </parameterMap>
+	<insert id="api_saveGlofOrder_log" parameterMap="insertParameterMap">
+		INSERT INTO log_golf_order
+		<dynamic prepend="(">
+			<isNotEmpty prepend="," property="id">
+				ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="orderId">
+				ORDER_ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="content">
+				CONTENT
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="type">
+				TYPE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createUser">
+				CREATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createTime">
+				CREATE_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateUser">
+				UPDATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateTime">
+				UPDATE_TIME
+			</isNotEmpty>
+
+		</dynamic>		
+		<dynamic prepend=") VALUES (">
+
+			<isNotEmpty prepend="," property="id">
+				#id#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="orderId">
+				#orderId#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="content">
+				#content#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="type">
+				#type#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createUser">
+				#createUser#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createTime">
+				#createTime#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateUser">
+				#updateUser#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateTime">
+				#updateTime#
+			</isNotEmpty>
+
+		
+		 </dynamic>	)
+	</insert>
+	
+	<insert id="api_saveGlofOrder_log_vo" parameterClass="golfOrderLogVo">
+		INSERT INTO log_golf_order
+		<dynamic prepend="(">
+			<isNotEmpty prepend="," property="id">
+				ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="orderId">
+				ORDER_ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="content">
+				CONTENT
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="type">
+				TYPE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createUser">
+				CREATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createTime">
+				CREATE_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateUser">
+				UPDATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateTime">
+				UPDATE_TIME
+			</isNotEmpty>
+
+		</dynamic>		
+		<dynamic prepend=") VALUES (">
+
+			<isNotEmpty prepend="," property="id">
+				#id#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="orderId">
+				#orderId#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="content">
+				#content#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="type">
+				#type#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createUser">
+				#createUser#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createTime">
+				#createTime#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateUser">
+				#updateUser#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateTime">
+				#updateTime#
+			</isNotEmpty>
+
+		
+		 </dynamic>	)
+	</insert>
+	
+</sqlMap>

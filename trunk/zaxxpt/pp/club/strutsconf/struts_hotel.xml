@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="xhlxhotel" extends="struts-default">
+		<!-- 酒店预订页面跳转 ,高杰-->
+		<action name="hotelbook" class="com.hnatourism.club.hotel.prod.web.action.HotelBookAction" method="toBook">
+			<result name="success">
+				/WEB-INF/pages/hotel/book/book.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp?hcode=${hcode}&amp;rcode=${rcode}&amp;idate=${idate}&amp;odate=${odate}
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		<!-- 酒店协议显示 ,高杰-->
+		<action name="hotelCont" class="com.hnatourism.club.hotel.prod.web.action.HotelBookAction" method="showHotelContract">
+			<result name="success">
+				/WEB-INF/pages/hotel/book/booknotice.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		<!-- 酒店预订 ,高杰-->
+		<action name="bookhotel" class="com.hnatourism.club.hotel.prod.web.action.HotelBookAction" method="bookHotel">
+			<result name="success" type="redirect">
+				/common/success.jsp?goods=hotel&amp;orderId=${orderId}&amp;orderCode=${orderCode}&amp;price=${amountPrice}
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+
+<!--		<action name="hotelOrderAction"-->
+<!--			class="com.hnatourism.club.hotel.prod.web.action.HotelOrderAction"-->
+<!--			method="toSearch">-->
+<!--			<result name="orderDetail">/WEB-INF/pages/hotel/book/confirm.jsp-->
+<!--			</result>-->
+<!--		</action>-->
+
+		<!-- 酒店订单action  		author  lixun  date 2011-9-5 11:21:22-->
+		<action name="hotelOrderAction" class="com.hnatourism.club.hotel.order.action.HotelOrderAction" >
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="viewDefails">
+				/WEB-INF/pages/hotel/order/view.jsp
+			</result>
+			<result name="redirectViewDefails" type="redirect">
+				/hotelOrderAction!viewDetails.action?code=${code}
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		
+<!--		<action name="hotelHomeAction" class="com.hnatourism.club.hotel.prod.web.action.HotelHomeAction" method="initHotelHome">-->
+<!--			<result name="success">-->
+<!--				/WEB-INF/pages/hotel/index.jsp-->
+<!--			</result>-->
+<!--			<result name="error">-->
+<!--				/common/error.jsp-->
+<!--			</result>-->
+<!--		</action>-->
+<!--		<action name="hotelSearchAction"-->
+<!--			class="hotelSearchAction"-->
+<!--			method="search">-->
+<!--			<result name="success">/WEB-INF/pages/hotel/prod/search.jsp-->
+<!--			</result>-->
+<!--			<result name="error">-->
+<!--				/common/error.jsp-->
+<!--			</result>-->
+<!--		</action>-->
+<!--		<action name="searchRoom"-->
+<!--			class="hotelSearchAction"-->
+<!--			method="searchRoomInfo">-->
+<!--			<result name="success">/WEB-INF/pages/hotel/prod/search.jsp-->
+<!--			</result>-->
+<!--			<result name="error">-->
+<!--				/common/error.jsp-->
+<!--			</result>-->
+<!--		</action>-->
+		<!-- 酒店信息action		author lixun  createDate  2011-9-13 -->
+		<action name="hotelInfoAction" class="com.hnatourism.club.hotel.prod.web.action.HotelInfoAction" method="viewHotelDetails">
+			<!-- 酒店信息详情 -->
+			<result name="details">
+				/WEB-INF/pages/hotel/prod/view.jsp
+			</result>
+			<!-- 查询失败重新查询 -->
+			<result name="toResearch" type="redirect">
+				/hotel/index.jsp
+			</result>
+			<!-- 显示酒店推荐信息	club 首页 -->
+			<result name="viewRecommInIndex">
+				/WEB-INF/pages/hotel/prod/recommend_index.jsp
+			</result>
+			<!-- 显示酒店推荐信息	hotel 首页 -->
+			<result name="viewRecommInSearch">
+				/WEB-INF/pages/hotel/prod/recommend_search.jsp
+			</result>
+			<!-- 酒店首页 -->
+			<result name="toIndex">
+				/WEB-INF/pages/hotel/index.jsp
+			</result>
+			<!-- 酒店搜索页 -->
+			<result name="toSearch">
+				/WEB-INF/pages/hotel/prod/search.jsp
+			</result>	
+			<!-- 错误页面 -->
+			<result name="error">
+				/common/error.jsp
+			</result>											
+		</action>		
+	</package>
+</struts>

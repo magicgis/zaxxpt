@@ -1,0 +1,43 @@
+﻿ 交谈中请勿轻信汇款、中奖信息，勿轻易拨打陌生电话。
+
+ 古剑(295101344)  12:09:00
+数据库表结构变更说明：
+
+2011-08-24 09：30
+
+序号       表名                处理          说明
+ 1       GOLF_INFO             增加       ORGANIZATION_ID 用来关联SYS_ORGANIZATION表
+ 2       LOUNGE_INFO           增加       ORGANIZATION_ID 用来关联SYS_ORGANIZATION表
+ 3       MEMBER_ACCOUNT        变更       ACCOUNT字段为汇付账号（分润账号）  
+					  CARD_NO为卡号（托管账号）
+					  增加字段ORGANIZATION_ID 用来关联SYS_ORGANIZATION表
+ 4       ORDER_GLOF            增加       分润区分（1 直减  2 反积分）
+					  分润金额（总金额 * 返点）
+
+ 5    golf_price   字段target_date,H_TARGE_DATE设置为默认值0
+
+ 6    lounge_room              增加       ADVANCE_HOURS  提前几个小时预定
+  
+7     golf_info   ADDRESS	varchar2(200)	Y			地址
+                  REFERENCELINE	varchar2(500)	Y			参考路线
+
+8  log_operate 表 添加字段
+TYPE	VARCHAR2(10)	Y	
+
+曲海龙
+SYS_CONSTANT 表添加字段 （2011-11-24）
+
+167	510	退票类型	非自愿	1	1		
+168	509	退票类型	自愿	    0	1		
+169	589	CLUB改期单状态	改期成功	25	1	F_MODIFY_SUCC	
+170	597	CLUB改期单状态	拒绝改期	22	1	F_MODIFY_REFUSE	
+171	598	CLUB改期单状态	补款成功	23	1	F_MODIFY_PAY	
+172	595	CLUB改期单状态	申请改期	20	1	F_MODIFY_APPLY	
+173	596	CLUB改期单状态	批准改期	21	1	F_MODIFY_AGREE	
+174	599	CLUB改期单状态	补款失败	24	1	F_MODIFY_NOPAY	
+175	594	CLUB退票单状态	退票失败	10	1	F_RETURN_FAIL	
+176	593	CLUB退票单状态	退款成功	14	1	F_RETURN_SUCC	
+177	592	CLUB退票单状态	拒绝退票	15	1	F_RETURN_REFUSE	
+178	591	CLUB退票单状态	批准退票	13	1	F_RETURN_AGREE	
+179	590	CLUB退票单状态	申请退票	11	1	F_RETURN_APPLY	
+180	588	CLUB改期单状态	改期失败	26	1	F_MODIFY_FAIL	

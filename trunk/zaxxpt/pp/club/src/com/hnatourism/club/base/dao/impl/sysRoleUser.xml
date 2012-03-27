@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="sysRoleUser">
+	<typeAlias alias="sysRoleUser" type="com.hnatourism.club.base.domain.SysRoleUser" />
+	<typeAlias alias="roleUser" type="com.hnatourism.club.base.domain.RoleUser" />
+	<resultMap id="sysRoleUserResultMap" class="sysRoleUser">
+		<result column="ID" property="id" />
+		<result column="SYS_USER_ID" property="sysUserId" />
+		<result column="SYS_ROLE_ID" property="sysRoleId" />
+	</resultMap>
+	
+	<resultMap id="sysRoleUserResultMap1" class="sysRoleUser">
+		<result column="SYS_USER_ID" property="sysUserId" />
+		<result column="SYS_ROLE_ID" property="sysRoleId" />
+		<result column="NAME" property="name" />
+		<result column="CODE" property="code" />
+	</resultMap>
+	
+	<resultMap id="sysRoleUserResultCompMap" class="sysRoleUser">
+		<result column="ID" property="id" />
+		<result column="SYS_USER_ID" property="sysUserId" />
+		<result column="SYS_ROLE_ID" property="sysRoleId" />
+		<result column="NAME" property="name" />		
+	</resultMap>
+	
+	<sql id="selectSysRoleUserSql">
+		<![CDATA[
+			SELECT T.ID,T.SYS_USER_ID,T.SYS_ROLE_ID 
+			FROM SYS_ROLE_USER T
+		]]>
+	</sql>
+	
+	<!-- 用户角色多表查询 start -->
+	<sql id="selectSysRoleUserSqlTemp">
+		<![CDATA[
+			SELECT T.*,R.NAME 
+			FROM SYS_ROLE_USER T,SYS_USER U,SYS_ROLE R
+			WHERE T.SYS_USER_ID=U.ID AND T.SYS_ROLE_ID=R.ID
+		]]>
+	</sql>
+	<select id="findSysRoleUser" parameterClass="sysRoleUser" resultMap="sysRoleUserResultCompMap">
+		<include refid="selectSysRoleUserSqlTemp"/>		
+			<isNotEmpty prepend="AND" property="sysUserId">
+				T.SYS_USER_ID=#sysUserId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="sysRoleId">
+				T.SYS_ROLE_ID=#sysRoleId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="name">
+				R.NAME=#name#
+			</isNotEmpty>		
+	</select>
+	<!-- 用户角色多表查询 end -->
+	
+	<select id="findSysRoleUserByWhere" parameterClass="sysRoleUser" resultMap="sysRoleUserResultMap">
+		<include refid="selectSysRoleUserSql"/>	
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="sysUserId">
+				T.SYS_USER_ID=#sysUserId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="sysRoleId">
+				T.SYS_ROLE_ID=#sysRoleId#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<select id="findSysRoleUserById" parameterClass="java.lang.String" resultMap="sysRoleUserResultMap">
+		<include refid="selectSysRoleUserSql"/>	
+		<![CDATA[
+			WHERE T.ID=#id#
+		]]>
+	</select>
+	<select id="findRoleUserByUserId" parameterClass="java.lang.String" resultMap="sysRoleUserResultMap">
+		<include refid="selectSysRoleUserSql"/>	
+		<![CDATA[
+			WHERE T.SYS_USER_ID=#sysUserId#
+		]]>
+	</select>
+	
+	<select id="findRoleUserByRoleId" parameterClass="java.lang.String" resultMap="sysRoleUserResultMap">
+		<include refid="selectSysRoleUserSql"/>	
+		<![CDATA[
+			WHERE T.SYS_ROLE_ID=#sysRoleId#
+		]]>
+	</select>
+	
+	<insert id="insertSysRoleUser" parameterClass="sysRoleUser">
+		<![CDATA[
+			INSERT INTO SYS_ROLE_USER (ID,SYS_USER_ID,SYS_ROLE_ID) 
+			VALUES (#id:VARCHAR#,#sysUserId:VARCHAR#,#sysRoleId:VARCHAR#)
+		]]>
+	</insert>
+	<update id="updateSysRoleUser" parameterClass="sysRoleUser">
+		<![CDATA[
+			UPDATE SYS_ROLE_USER T 
+			SET T.SYS_USER_ID=#sysUserId#,T.SYS_ROLE_ID=#sysRoleId#
+			WHERE T.ID=#id#
+		]]>
+	</update>	
+	<delete id="deleteSysRoleUser" parameterClass="java.lang.String">
+		<![CDATA[
+			DELETE FROM SYS_ROLE_USER T 
+			WHERE T.ID=#id#
+		]]>
+	</delete>
+	
+	<delete id="deleteSysRoleUserByRoleId" parameterClass="java.lang.String">
+		<![CDATA[
+			DELETE FROM SYS_ROLE_USER T 
+			WHERE T.SYS_ROLE_ID=#sysRoleId#
+		]]>
+	</delete>
+		
+	<select id="retriveUserByUserCode" parameterClass="java.lang.String" resultMap="sysRoleUserResultMap1">
+		<![CDATA[
+			SELECT RU.SYS_USER_ID, RU.SYS_ROLE_ID, R.NAME, R.CODE FROM SYS_ROLE_USER RU LEFT JOIN SYS_ROLE R ON RU.SYS_ROLE_ID = R.ID WHERE RU.SYS_USER_ID = #userId#
+		]]>
+	</select>
+</sqlMap>

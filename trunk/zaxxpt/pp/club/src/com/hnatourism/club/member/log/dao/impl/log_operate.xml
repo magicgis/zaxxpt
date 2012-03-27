@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="logOperate">
+	<typeAlias alias="logOperate" type="com.hnatourism.club.member.log.domain.LogOperate" />
+	<resultMap id="logOperateResultMap" class="logOperate">
+		<result column="ID" property="id" />
+		<result column="CONTENT" property="content" />
+		<result column="PATH" property="path" />
+		<result column="URL" property="url" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="CREATE_USER" property="createUser" />
+		<result column="RMK" property="rmk" />
+		<result column="PROD_ID" property="prodId" />
+	</resultMap>
+	<sql id="selectLogOperateSql">
+		<![CDATA[
+			SELECT T.ID,T.CONTENT,T.PATH,T.URL,T.CREATE_TIME,T.CREATE_USER,T.RMK,T.PROD_ID 
+			FROM LOG_OPERATE T
+		]]>
+	</sql>
+	<select id="findLogOperateByWhere" parameterClass="logOperate" resultMap="logOperateResultMap">
+		<include refid="selectLogOperateSql"/>	
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="content">
+				T.CONTENT=#content#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="path">
+				T.PATH=#path#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="url">
+				T.URL=#url#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createTime">
+				T.CREATE_TIME=#createTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createUser">
+				T.CREATE_USER=#createUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="rmk">
+				T.RMK=#rmk#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="prodId">
+				T.PROD_ID=#prodId#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<select id="findLogOperateById" parameterClass="java.lang.String" resultMap="logOperateResultMap">
+		<include refid="selectLogOperateSql"/>	
+		<![CDATA[
+			$data.getById()
+		]]>
+	</select>
+	<insert id="insertLogOperate" parameterClass="logOperate">
+		INSERT INTO LOG_OPERATE
+		<dynamic prepend="(">
+			<isNotEmpty prepend="," property="id">
+				ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="content">
+				CONTENT
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="path">
+				PATH
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="url">
+				URL
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createTime">
+				CREATE_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createUser">
+				CREATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="rmk">
+				RMK
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="prodId">
+				PROD_ID
+			</isNotEmpty>
+
+		</dynamic>		
+		<dynamic prepend=") VALUES (">
+
+			<isNotEmpty prepend="," property="id">
+				#id#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="content">
+				#content#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="path">
+				#path#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="url">
+				#url#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createTime">
+				#createTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createUser">
+				#createUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="rmk">
+				#rmk#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="prodId">
+				#prodId#
+			</isNotEmpty>
+
+		 </dynamic>	)
+	</insert>
+	
+	<update id="updateLogOperate" parameterClass="logOperate">
+		UPDATE LOG_OPERATE
+        <dynamic prepend="set">
+		   <isNotEmpty prepend="," property="content">
+              CONTENT=#content#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="path">
+              PATH=#path#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="url">
+              URL=#url#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createTime">
+              CREATE_TIME=#createTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createUser">
+              CREATE_USER=#createUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="rmk">
+              RMK=#rmk#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="prodId">
+              PROD_ID=#prodId#
+           </isNotEmpty>
+        </dynamic>
+		WHERE 
+               ID=#id#
+	</update>	
+	<delete id="deleteLogOperate" parameterClass="java.lang.String">
+		DELETE FROM LOG_OPERATE
+		WHERE 
+               ID=#id#
+	</delete>	
+</sqlMap>

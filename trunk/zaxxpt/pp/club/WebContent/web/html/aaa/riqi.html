@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="../../js/11.js" language="javascript" type="text/javascript"></script>
+<script src="../../js/travel.js" language="javascript" type="text/javascript"></script>
+<script src="../../js/jquery1.3.2.js" language="javascript" type="text/javascript"></script>
+<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+<SCRIPT type=text/javascript>
+        var citySelect = new CitySelectWindow('cityselected');
+        function setSearch(n) { var menu = document.getElementById("sea_nav").getElementsByTagName("li"); var showdiv = document.getElementById("sea_box").getElementsByTagName("li"); for (i = 0; i < menu.length; i++) { menu[i].className = i == n ? "now" : ""; showdiv[i].style.display = i == n ? "block" : "none"; } }
+        function setList(m, n) { var menu = document.getElementById("tab" + m).getElementsByTagName("li"); var showdiv = document.getElementById("tablist" + m).getElementsByTagName("div"); for (i = 0; i < menu.length; i++) { menu[i].className = i == n ? "now" : ""; showdiv[i].style.display = i == n ? "block" : "none"; } }
+    </SCRIPT>
+<title>无标题文档</title>
+</head>
+
+<body>
+<table width="500" border="0" align="center" cellpadding="0" cellspacing="0" id="tips1">
+          <tr>
+            <td width="64" height="50" align="right">入住时间：</td>
+            <td width="132"><DIV class=inb><INPUT id="plainDate1" class="inps" onfocus="return Calendar('plainDate1','true');" type="text" name="searchDepartureTime">
+            <A class="set_date" href="javascript:Calendar('plainDate1','true');"></A></DIV></td>
+            <td width="64" align="right">离店时间：</td>
+            <td width="138"><div id="labPlain2" class="inb"><input type="text" onfocus="return Calendar('plainDate2','true');" id="plainDate2" name="" class="inps"><a href="javascript:Calendar('plainDate2','true');" class="set_date"></a></div></td>
+            <td width="102"><img src="images/tijiao.jpg" width="94" height="29" /></td>
+  </tr>
+    </table>
+    </body>
+</html>

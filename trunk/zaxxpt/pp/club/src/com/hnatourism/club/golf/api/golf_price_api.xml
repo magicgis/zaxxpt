@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="golfPriceApi">
+	<typeAlias alias="golfPriceVo" type="com.hnatourism.club.golf.prod.vo.GolfPriceVo" />
+	<resultMap id="api_sitePriceResultMap" class="golfPriceVo">
+		<result column="ID" property="id" />
+		<result column="EXPLAIN" property="explain" />
+		<result column="SITE_ID" property="siteId" />
+		<result column="CONTAIN_ITEM" property="containItem" />
+		<result column="SIGNING_PRICE" property="signingPrice" />
+		<result column="PRICE" property="price" />
+		<result column="TARGE_DATE" property="targeDate" />
+		<result column="H_SIGNINGPRICE" property="hSigningprice" />
+		<result column="H_PRICE" property="hPrice" />
+		<result column="H_TARGE_DATE" property="hTargeDate" />
+		<result column="START_TIME" property="startTime" />
+		<result column="END_TIME" property="endTime" />
+		<result column="AMOUNT" property="amount" />
+		<result column="CONTRACT_NO" property="contractNo" />
+		<result column="STS" property="sts" />
+		<result column="CREATE_USER" property="createUser" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="UPDATE_USER" property="updateUser" />
+		<result column="UPDATE_TIME" property="updateTime" />
+		<result column="UPDATE_TIME" property="updateTime" />
+		<result property="itemList"  column="CONTAIN_ITEM"  select="api_findsysConstant_golfitem" />
+	</resultMap>
+	<resultMap id="api_sitePriceResultMap_ajax" class="golfPriceVo">
+		<result column="ID" property="id" />
+		<result column="AMOUNT" property="amount" />
+	</resultMap>
+	
+	<sql id="api_selectSitePriceSql">
+		<![CDATA[
+			SELECT T.ID,T.EXPLAIN,T.SITE_ID,T.CONTAIN_ITEM,T.SIGNING_PRICE,T.PRICE,T.TARGE_DATE,T.H_SIGNINGPRICE,T.H_PRICE,T.H_TARGE_DATE,T.START_TIME,T.END_TIME,T.AMOUNT,T.CONTRACT_NO,T.STS,T.CREATE_USER,T.CREATE_TIME,T.UPDATE_USER,T.UPDATE_TIME 
+			FROM GOLF_PRICE T
+		]]>
+	</sql>
+	
+	<sql id="api_selectSitePriceSql_ajax">
+		<![CDATA[
+			SELECT T.ID,T.AMOUNT
+			FROM GOLF_PRICE T
+		]]>
+	</sql>
+	<!-- 根据场地id查询  谷建亮 添加-->
+	<parameterMap class="java.util.HashMap" id="findSitePriceBySite_Map">   
+      <parameter property="siteId"/>
+    </parameterMap>
+	<select id="api_findSitePriceBySite_Map" parameterMap="findSitePriceBySite_Map" resultMap="api_sitePriceResultMap">
+		<include refid="api_selectSitePriceSql"/>	
+		<![CDATA[
+			WHERE T.SITE_ID=?   AND T.STS=1 ORDER BY T.TARGE_DATE,T.PRICE
+		]]>
+	</select>
+	
+	<select id="api_findSitePriceBySite_book" parameterClass="java.lang.String" resultMap="api_sitePriceResultMap">
+		<include refid="api_selectSitePriceSql"/>	
+		<![CDATA[
+			WHERE T.SITE_ID=#id# AND T.STS=1 ORDER BY T.TARGE_DATE,T.PRICE
+		]]>
+	</select>
+	
+	<select id="api_findSitePriceByOrderId" parameterClass="java.lang.String" resultMap="api_sitePriceResultMap">
+		<include refid="api_selectSitePriceSql"/>	
+		<![CDATA[
+			WHERE  T.STS=1  AND T.SITE_ID=(SELECT OG.SITE_ID FROM ORDER_GLOF OG WHERE OG.ID =#id#) AND (to_char(T.START_TIME,'yyyy-mm-dd') <=to_char((SELECT OG1.BOOK_TIME FROM ORDER_GLOF OG1 WHERE OG1.ID =#id#),'yyyy-mm-dd') AND  to_char((SELECT OG1.BOOK_TIME FROM ORDER_GLOF OG1 WHERE OG1.ID =#id#),'yyyy-mm-dd')<=to_char(T.END_TIME,'yyyy-mm-dd') )
+		]]>
+	</select>
+	
+	<select id="api_findSitePriceBySite" parameterClass="java.lang.String" resultMap="api_sitePriceResultMap">
+		<include refid="api_selectSitePriceSql"/>	
+		<![CDATA[
+			WHERE T.PRICE=(SELECT MIN(P.PRICE) FROM GOLF_PRICE P WHERE P.SITE_ID =#id# AND P.STS=1) AND T.SITE_ID =#id# AND ROWNUM<2 AND T.STS=1
+		]]>
+	</select>
+	
+	<select id="api_findSiteHPriceBySite" parameterClass="java.lang.String" resultMap="api_sitePriceResultMap">
+		<include refid="api_selectSitePriceSql"/>	
+		<![CDATA[
+			WHERE T.H_PRICE=(SELECT MIN(P.H_PRICE) FROM GOLF_PRICE P WHERE P.SITE_ID =#id# AND P.STS=1) AND T.SITE_ID =#id# AND ROWNUM<2 AND T.STS=1
+		]]>
+	</select>
+	
+	<select id="api_findMinSitePriceByGolf" parameterClass="java.lang.String" resultMap="api_sitePriceResultMap">
+		<include refid="api_selectSitePriceSql"/>	
+		<![CDATA[
+			WHERE T.PRICE=(SELECT MIN(P.PRICE) FROM GOLF_PRICE P WHERE P.SITE_ID IN (SELECT S.ID FROM GOLF_SITE S WHERE S.GOLF_ID=#id#) AND P.STS=1 AND P.PRICE>0 AND P.START_TIME<=to_date(to_char(SYSDATE,'YYYY-MM-DD'),'YYYY-MM-DD') AND P.END_TIME>=to_date(to_char(SYSDATE,'YYYY-MM-DD'),'YYYY-MM-DD')) AND T.PRICE>0 AND ROWNUM<2 AND T.STS=1 AND T.START_TIME<=to_date(to_char(SYSDATE,'YYYY-MM-DD'),'YYYY-MM-DD') AND T.END_TIME>=to_date(to_char(SYSDATE,'YYYY-MM-DD'),'YYYY-MM-DD')
+		]]>
+	</select>
+	
+	<select id="api_findMinSiteHPriceByGolf" parameterClass="java.lang.String" resultMap="api_sitePriceResultMap">
+		<include refid="api_selectSitePriceSql"/>	
+		<![CDATA[
+			WHERE T.H_PRICE=(SELECT MIN(P.H_PRICE) FROM GOLF_PRICE P WHERE P.SITE_ID IN (SELECT S.ID FROM GOLF_SITE S WHERE S.GOLF_ID=#id#) AND P.STS=1 AND P.H_PRICE>0 AND P.START_TIME<=to_date(to_char(SYSDATE,'YYYY-MM-DD'),'YYYY-MM-DD') AND P.END_TIME>=to_date(to_char(SYSDATE,'YYYY-MM-DD'),'YYYY-MM-DD')) AND T.H_PRICE>0 AND ROWNUM<2 AND T.STS=1 AND T.START_TIME<=to_date(to_char(SYSDATE,'YYYY-MM-DD'),'YYYY-MM-DD') AND T.END_TIME>=to_date(to_char(SYSDATE,'YYYY-MM-DD'),'YYYY-MM-DD')
+		]]>
+	</select>
+	
+	
+	<parameterMap class="java.util.HashMap" id="findGolfPriceByIdMap">   
+      <parameter property="id"/>
+    </parameterMap>
+	<select id="api_findGolfPriceById" parameterMap="findGolfPriceByIdMap" resultMap="api_sitePriceResultMap_ajax">
+		<include refid="api_selectSitePriceSql_ajax"/>	
+		<![CDATA[
+			WHERE T.ID=?
+		]]>
+	</select>
+	
+	<parameterMap class="java.util.HashMap" id="updateparameterMap">   
+      <parameter property="id"/>  
+      <parameter property="amount"/> 
+      <parameter property="updateUser"/>
+      <parameter property="updateTime"/>
+    </parameterMap>
+	 <update id="modifyGlofPriceAmount" parameterMap="updateparameterMap" >
+		UPDATE GOLF_PRICE 
+        <dynamic prepend="set">
+		   <isNotEmpty prepend="," property="amount">
+              AMOUNT=#amount#
+           </isNotEmpty>
+           <isNotEmpty prepend="," property="updateUser">
+              UPDATE_USER=#updateUser#
+           </isNotEmpty>
+           <isNotEmpty prepend="," property="updateTime">
+              UPDATE_TIME=#updateTime#
+           </isNotEmpty>
+        </dynamic>
+
+		WHERE      ID=#id#
+	</update>
+	
+	 <update id="modifyGlofPriceAmountCancel" parameterMap="updateparameterMap" >
+		UPDATE GOLF_PRICE 
+        <dynamic prepend="set">
+		   <isNotEmpty prepend="," property="amount">
+              AMOUNT=#amount#
+           </isNotEmpty>
+           <isNotEmpty prepend="," property="updateUser">
+              UPDATE_USER=#updateUser#
+           </isNotEmpty>
+           <isNotEmpty prepend="," property="updateTime">
+              UPDATE_TIME=#updateTime#
+           </isNotEmpty>
+        </dynamic>
+		WHERE      ID=#id#
+	</update>	
+	
+</sqlMap>

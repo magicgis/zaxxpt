@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="golfRecord">
+	<typeAlias alias="golfRecord" type="com.hnatourism.club.golf.domain.GolfRecord" />
+	<resultMap id="golfRecordResultMap" class="golfRecord">
+		<result column="ID" property="id" />
+		<result column="SITE_ID" property="siteId" />
+		<result column="CONTRACT_ID" property="contractId" />
+		<result column="ADD_NUM" property="addNum" />
+		<result column="START_TIME" property="startTime" />
+		<result column="END_TIME" property="endTime" />
+		<result column="CONTRACT_PRICE" property="contractPrice" />
+		<result column="PRICE" property="price" />
+		<result column="AMOUNT" property="amount" />
+		<result column="STS" property="sts" />
+		<result column="CREATE_USER" property="createUser" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="UPDATE_USER" property="updateUser" />
+		<result column="UPDATE_TIME" property="updateTime" />
+	</resultMap>
+	<sql id="selectGolfRecordSql">
+		<![CDATA[
+			SELECT T.ID,T.SITE_ID,T.CONTRACT_ID,T.ADD_NUM,T.START_TIME,T.END_TIME,T.CONTRACT_PRICE,T.PRICE,T.AMOUNT,T.STS,T.CREATE_USER,T.CREATE_TIME,T.UPDATE_USER,T.UPDATE_TIME 
+			FROM GOLF_RECORD T
+		]]>
+	</sql>
+	<select id="findGolfRecordByWhere" parameterClass="golfRecord" resultMap="golfRecordResultMap">
+		<include refid="selectGolfRecordSql"/>	
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="siteId">
+				T.SITE_ID=#siteId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="contractId">
+				T.CONTRACT_ID=#contractId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="addNum">
+				T.ADD_NUM=#addNum#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="startTime">
+				T.START_TIME=#startTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="endTime">
+				T.END_TIME=#endTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="contractPrice">
+				T.CONTRACT_PRICE=#contractPrice#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="price">
+				T.PRICE=#price#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="amount">
+				T.AMOUNT=#amount#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="sts">
+				T.STS=#sts#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createUser">
+				T.CREATE_USER=#createUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createTime">
+				T.CREATE_TIME=#createTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateUser">
+				T.UPDATE_USER=#updateUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateTime">
+				T.UPDATE_TIME=#updateTime#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<select id="findGolfRecordById" parameterClass="java.lang.String" resultMap="golfRecordResultMap">
+		<include refid="selectGolfRecordSql"/>	
+		<![CDATA[
+			$data.getById()
+		]]>
+	</select>
+	<insert id="insertGolfRecord" parameterClass="golfRecord">
+		INSERT INTO GOLF_RECORD
+		<dynamic prepend="(">
+			<isNotEmpty prepend="," property="id">
+				ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="siteId">
+				SITE_ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="contractId">
+				CONTRACT_ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="addNum">
+				ADD_NUM
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="startTime">
+				START_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="endTime">
+				END_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="contractPrice">
+				CONTRACT_PRICE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="price">
+				PRICE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="amount">
+				AMOUNT
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="sts">
+				STS
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createUser">
+				CREATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createTime">
+				CREATE_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateUser">
+				UPDATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateTime">
+				UPDATE_TIME
+			</isNotEmpty>
+
+		</dynamic>		
+		<dynamic prepend=") VALUES (">
+
+			<isNotEmpty prepend="," property="id">
+				#id#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="siteId">
+				#siteId#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="contractId">
+				#contractId#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="addNum">
+				#addNum#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="startTime">
+				#startTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="endTime">
+				#endTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="contractPrice">
+				#contractPrice#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="price">
+				#price#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="amount">
+				#amount#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="sts">
+				#sts#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createUser">
+				#createUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createTime">
+				#createTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateUser">
+				#updateUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateTime">
+				#updateTime#
+			</isNotEmpty>
+
+		 </dynamic>	)
+	</insert>
+	
+	<update id="updateGolfRecord" parameterClass="golfRecord">
+		UPDATE GOLF_RECORD
+        <dynamic prepend="set">
+		   <isNotEmpty prepend="," property="siteId">
+              SITE_ID=#siteId#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="contractId">
+              CONTRACT_ID=#contractId#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="addNum">
+              ADD_NUM=#addNum#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="startTime">
+              START_TIME=#startTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="endTime">
+              END_TIME=#endTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="contractPrice">
+              CONTRACT_PRICE=#contractPrice#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="price">
+              PRICE=#price#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="amount">
+              AMOUNT=#amount#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="sts">
+              STS=#sts#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createUser">
+              CREATE_USER=#createUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createTime">
+              CREATE_TIME=#createTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateUser">
+              UPDATE_USER=#updateUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateTime">
+              UPDATE_TIME=#updateTime#
+           </isNotEmpty>
+        </dynamic>
+		WHERE 
+               ID=#id#
+	</update>	
+	<delete id="deleteGolfRecord" parameterClass="java.lang.String">
+		DELETE FROM GOLF_RECORD
+		WHERE 
+               ID=#id#
+	</delete>	
+</sqlMap>

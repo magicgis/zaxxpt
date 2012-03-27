@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="memberPassenger">
+	<typeAlias alias="memberPassenger" type="com.hnatourism.club.personal.member.domain.MemberPassenger" />
+	<resultMap id="memberPassengerResultMap" class="memberPassenger">
+		<result column="PSG_NAME" property="psgName" />
+		<result column="ROLE" property="role" />
+		<result column="SUB_ROLE" property="subRole" />
+		<result column="FAX" property="fax" />
+		<result column="ID" property="id" />
+		<result column="MEMBER_ID" property="memberId" />
+		<result column="NAME" property="name" />
+		<result column="CERT_TYPE" property="certType" />
+		<result column="CERT_NO" property="certNo" />
+		<result column="MOBILE" property="mobile" />
+		<result column="EMAIL" property="email" />
+		<result column="PHONE" property="phone" />
+		<result column="SEX" property="sex" />
+		<result column="TYPE" property="type" />
+		<result column="BIRTHDATE_YEAR" property="birthdateYear" />
+		<result column="BIRTHDATE_MONTH" property="birthdateMonth" />
+		<result column="BIRTHDATE_DAY" property="birthdateDay" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="CREATE_USER" property="createUser" />
+		<result column="UPDATE_TIME" property="updateTime" />
+		<result column="UPDATE_USER" property="updateUser" />
+		<result column="DISC" property="disc" />
+		<result column="NAME_SPELL" property="nameSpell" />
+		<result column="COUNTRY" property="country" />
+		<result column="CERT_VALIDATE_DATE" property="certValidateDate" />
+		<!-- 新加字段 -->
+		<result column="POSTCODE" property="postcode" />
+		<result column="ADDRESS" property="address" />
+	</resultMap>
+	<sql id="selectMemberPassengerSql">
+		<![CDATA[
+			SELECT T.POSTCODE,T.ADDRESS,T.PSG_NAME,T.ROLE,T.SUB_ROLE,T.FAX,T.ID,T.MEMBER_ID,T.NAME,T.CERT_TYPE,T.CERT_NO,T.MOBILE,T.EMAIL,T.PHONE,T.SEX,T.TYPE,T.BIRTHDATE_YEAR,T.BIRTHDATE_MONTH,T.BIRTHDATE_DAY,T.CREATE_TIME,T.CREATE_USER,T.UPDATE_TIME,T.UPDATE_USER,T.DISC,T.NAME_SPELL,T.COUNTRY,T.CERT_VALIDATE_DATE 
+			FROM MEMBER_PASSENGER T
+		]]>
+	</sql>
+	<select id="findMemberPassengerByWhere" parameterClass="memberPassenger" resultMap="memberPassengerResultMap">
+		<include refid="selectMemberPassengerSql"/>	
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="psgName">
+				T.PSG_NAME=#psgName#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="role">
+				T.ROLE=#role#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="subRole">
+				T.SUB_ROLE=#subRole#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="fax">
+				T.FAX=#fax#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="memberId">
+				T.MEMBER_ID=#memberId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="name">
+				T.NAME=#name#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="certType">
+				T.CERT_TYPE=#certType#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="certNo">
+				T.CERT_NO=#certNo#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="mobile">
+				T.MOBILE=#mobile#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="email">
+				T.EMAIL=#email#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="phone">
+				T.PHONE=#phone#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="sex">
+				T.SEX=#sex#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="type">
+				T.TYPE=#type#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="birthdateYear">
+				T.BIRTHDATE_YEAR=#birthdateYear#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="birthdateMonth">
+				T.BIRTHDATE_MONTH=#birthdateMonth#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="birthdateDay">
+				T.BIRTHDATE_DAY=#birthdateDay#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createTime">
+				T.CREATE_TIME=#createTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createUser">
+				T.CREATE_USER=#createUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateTime">
+				T.UPDATE_TIME=#updateTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateUser">
+				T.UPDATE_USER=#updateUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="disc">
+				T.DISC=#disc#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="nameSpell">
+				T.NAME_SPELL=#nameSpell#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="country">
+				T.COUNTRY=#country#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="certValidateDate">
+				T.CERT_VALIDATE_DATE=#certValidateDate#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="address">
+				T.ADDRESS=#address#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="postcode">
+				T.POSTCODE=#postcode#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<select id="findMemberPassengerById" parameterClass="java.lang.String" resultMap="memberPassengerResultMap">
+		<include refid="selectMemberPassengerSql"/>	
+		<![CDATA[
+			WHERE T.ID=#id#
+		]]>
+	</select>
+	<select id="findMemberPassengerByMember" parameterClass="java.lang.String" resultMap="memberPassengerResultMap">
+		<include refid="selectMemberPassengerSql"/>	
+		<![CDATA[
+			WHERE T.MEMBER_ID=#memberId#
+		]]>
+	</select>
+	<insert id="insertMemberPassenger" parameterClass="memberPassenger">
+		INSERT INTO MEMBER_PASSENGER
+		<dynamic prepend="(">
+			<isNotEmpty prepend="," property="psgName">PSG_NAME</isNotEmpty>
+			<isNotEmpty prepend="," property="role">ROLE</isNotEmpty>
+			<isNotEmpty prepend="," property="subRole">SUB_ROLE</isNotEmpty>
+			<isNotEmpty prepend="," property="fax">FAX</isNotEmpty>
+			<isNotEmpty prepend="," property="id">ID</isNotEmpty>
+			<isNotEmpty prepend="," property="memberId">MEMBER_ID</isNotEmpty>
+			<isNotEmpty prepend="," property="name">NAME</isNotEmpty>
+			<isNotEmpty prepend="," property="certType">CERT_TYPE</isNotEmpty>
+			<isNotEmpty prepend="," property="certNo">CERT_NO</isNotEmpty>
+			<isNotEmpty prepend="," property="mobile">MOBILE</isNotEmpty>
+			<isNotEmpty prepend="," property="email">EMAIL</isNotEmpty>
+			<isNotEmpty prepend="," property="phone">PHONE</isNotEmpty>
+			<isNotEmpty prepend="," property="sex">SEX</isNotEmpty>
+			<isNotEmpty prepend="," property="type">TYPE</isNotEmpty>
+			<isNotEmpty prepend="," property="birthdateYear">BIRTHDATE_YEAR</isNotEmpty>
+			<isNotEmpty prepend="," property="birthdateMonth">BIRTHDATE_MONTH</isNotEmpty>
+			<isNotEmpty prepend="," property="birthdateDay">BIRTHDATE_DAY</isNotEmpty>
+			<isNotEmpty prepend="," property="createTime">CREATE_TIME</isNotEmpty>
+			<isNotEmpty prepend="," property="createUser">CREATE_USER</isNotEmpty>
+			<isNotEmpty prepend="," property="updateTime">UPDATE_TIME</isNotEmpty>
+			<isNotEmpty prepend="," property="updateUser">UPDATE_USER</isNotEmpty>
+			<isNotEmpty prepend="," property="disc">DISC</isNotEmpty>
+			<isNotEmpty prepend="," property="nameSpell">NAME_SPELL</isNotEmpty>
+			<isNotEmpty prepend="," property="country">COUNTRY</isNotEmpty>
+			<isNotEmpty prepend="," property="certValidateDate">CERT_VALIDATE_DATE</isNotEmpty>
+			<isNotEmpty prepend="," property="address">ADDRESS</isNotEmpty>
+			<isNotEmpty prepend="," property="postcode">POSTCODE</isNotEmpty>
+		</dynamic>		
+		<dynamic prepend=") VALUES (">
+			<isNotEmpty prepend="," property="psgName">#psgName#</isNotEmpty>
+			<isNotEmpty prepend="," property="role">#role#</isNotEmpty>
+			<isNotEmpty prepend="," property="subRole">#subRole#</isNotEmpty>
+			<isNotEmpty prepend="," property="fax">#fax#</isNotEmpty>
+			<isNotEmpty prepend="," property="id">#id#</isNotEmpty>
+			<isNotEmpty prepend="," property="memberId">#memberId#</isNotEmpty>
+			<isNotEmpty prepend="," property="name">#name#</isNotEmpty>
+			<isNotEmpty prepend="," property="certType">#certType#</isNotEmpty>
+			<isNotEmpty prepend="," property="certNo">#certNo#</isNotEmpty>
+			<isNotEmpty prepend="," property="mobile">#mobile#</isNotEmpty>
+			<isNotEmpty prepend="," property="email">#email#</isNotEmpty>
+			<isNotEmpty prepend="," property="phone">#phone#</isNotEmpty>
+			<isNotEmpty prepend="," property="sex">#sex#</isNotEmpty>
+			<isNotEmpty prepend="," property="type">#type#</isNotEmpty>
+			<isNotEmpty prepend="," property="birthdateYear">#birthdateYear#</isNotEmpty>
+			<isNotEmpty prepend="," property="birthdateMonth">#birthdateMonth#</isNotEmpty>
+			<isNotEmpty prepend="," property="birthdateDay">#birthdateDay#</isNotEmpty>
+			<isNotEmpty prepend="," property="createTime">#createTime#</isNotEmpty>
+			<isNotEmpty prepend="," property="createUser">#createUser#</isNotEmpty>
+			<isNotEmpty prepend="," property="updateTime">#updateTime#</isNotEmpty>
+			<isNotEmpty prepend="," property="updateUser">#updateUser#</isNotEmpty>
+			<isNotEmpty prepend="," property="disc">#disc#</isNotEmpty>
+			<isNotEmpty prepend="," property="nameSpell">#nameSpell#</isNotEmpty>
+			<isNotEmpty prepend="," property="country">#country#</isNotEmpty>
+			<isNotEmpty prepend="," property="certValidateDate">#certValidateDate#</isNotEmpty>
+			<isNotEmpty prepend="," property="address">#address#</isNotEmpty>
+			<isNotEmpty prepend="," property="postcode">#postcode#</isNotEmpty>
+		 </dynamic>	)
+	</insert>
+	
+	<update id="updateMemberPassenger" parameterClass="memberPassenger">
+		UPDATE MEMBER_PASSENGER
+        <dynamic prepend="set">
+		   <isNotEmpty prepend="," property="psgName">
+              PSG_NAME=#psgName#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="role">
+              ROLE=#role#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="subRole">
+              SUB_ROLE=#subRole#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="fax">
+              FAX=#fax#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="memberId">
+              MEMBER_ID=#memberId#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="name">
+              NAME=#name#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="certType">
+              CERT_TYPE=#certType#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="certNo">
+              CERT_NO=#certNo#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="mobile">
+              MOBILE=#mobile#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="email">
+              EMAIL=#email#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="phone">
+              PHONE=#phone#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="sex">
+              SEX=#sex#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="type">
+              TYPE=#type#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="birthdateYear">
+              BIRTHDATE_YEAR=#birthdateYear#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="birthdateMonth">
+              BIRTHDATE_MONTH=#birthdateMonth#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="birthdateDay">
+              BIRTHDATE_DAY=#birthdateDay#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createTime">
+              CREATE_TIME=#createTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createUser">
+              CREATE_USER=#createUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateTime">
+              UPDATE_TIME=#updateTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateUser">
+              UPDATE_USER=#updateUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="disc">
+              DISC=#disc#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="nameSpell">
+              NAME_SPELL=#nameSpell#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="country">
+              COUNTRY=#country#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="certValidateDate">
+              CERT_VALIDATE_DATE=#certValidateDate#
+           </isNotEmpty>
+           <!-- 新加字段 -->
+		   <isNotEmpty prepend="," property="address">
+              ADDRESS=#address#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="postcode">
+              POSTCODE=#postcode#
+           </isNotEmpty>
+        </dynamic>
+		WHERE 
+               ID=#id#
+	</update>	
+	<delete id="deleteMemberPassenger" parameterClass="java.lang.String">
+		DELETE FROM MEMBER_PASSENGER
+		WHERE 
+               ID=#id#
+	</delete>	
+</sqlMap>
