@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="golfImg">
+	<typeAlias alias="golfImg" type="com.hnatourism.club.golf.domain.GolfImg" />
+	<resultMap id="golfImgResultMap" class="golfImg">
+		<result column="RMK" property="rmk" />
+		<result column="ID" property="id" />
+		<result column="GOLF_ID" property="golfId" />
+		<result column="PATH" property="path" />
+		<result column="TYPE" property="type" />
+		<result column="STS" property="sts" />
+		<result column="SEQ" property="seq" />
+		<result column="CREATE_USER" property="createUser" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="UPDATE_USER" property="updateUser" />
+		<result column="UPDATE_TIME" property="updateTime" />
+	</resultMap>
+	<sql id="selectGolfImgSql">
+		<![CDATA[
+			SELECT T.RMK,T.ID,T.GOLF_ID,T.PATH,T.TYPE,T.STS,T.SEQ,T.CREATE_USER,T.CREATE_TIME,T.UPDATE_USER,T.UPDATE_TIME 
+			FROM GOLF_IMG T
+		]]>
+	</sql>
+	<select id="findGolfImgByWhere" parameterClass="golfImg" resultMap="golfImgResultMap">
+		<include refid="selectGolfImgSql"/>	
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="rmk">
+				T.RMK=#rmk#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="golfId">
+				T.GOLF_ID=#golfId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="path">
+				T.PATH=#path#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="type">
+				T.TYPE=#type#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="sts">
+				T.STS=#sts#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="seq">
+				T.SEQ=#seq#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createUser">
+				T.CREATE_USER=#createUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createTime">
+				T.CREATE_TIME=#createTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateUser">
+				T.UPDATE_USER=#updateUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateTime">
+				T.UPDATE_TIME=#updateTime#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<select id="findGolfImgById" parameterClass="java.lang.String" resultMap="golfImgResultMap">
+		<include refid="selectGolfImgSql"/>	
+		<![CDATA[
+			$data.getById()
+		]]>
+	</select>
+	<insert id="insertGolfImg" parameterClass="golfImg">
+		INSERT INTO GOLF_IMG
+		<dynamic prepend="(">
+			<isNotEmpty prepend="," property="rmk">
+				RMK
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="id">
+				ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="golfId">
+				GOLF_ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="path">
+				PATH
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="type">
+				TYPE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="sts">
+				STS
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="seq">
+				SEQ
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createUser">
+				CREATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createTime">
+				CREATE_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateUser">
+				UPDATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateTime">
+				UPDATE_TIME
+			</isNotEmpty>
+
+		</dynamic>		
+		<dynamic prepend=") VALUES (">
+
+			<isNotEmpty prepend="," property="rmk">
+				#rmk#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="id">
+				#id#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="golfId">
+				#golfId#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="path">
+				#path#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="type">
+				#type#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="sts">
+				#sts#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="seq">
+				#seq#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createUser">
+				#createUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createTime">
+				#createTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateUser">
+				#updateUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateTime">
+				#updateTime#
+			</isNotEmpty>
+
+		 </dynamic>	)
+	</insert>
+	
+	<update id="updateGolfImg" parameterClass="golfImg">
+		UPDATE GOLF_IMG
+        <dynamic prepend="set">
+		   <isNotEmpty prepend="," property="rmk">
+              RMK=#rmk#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="golfId">
+              GOLF_ID=#golfId#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="path">
+              PATH=#path#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="type">
+              TYPE=#type#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="sts">
+              STS=#sts#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="seq">
+              SEQ=#seq#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createUser">
+              CREATE_USER=#createUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createTime">
+              CREATE_TIME=#createTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateUser">
+              UPDATE_USER=#updateUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateTime">
+              UPDATE_TIME=#updateTime#
+           </isNotEmpty>
+        </dynamic>
+		WHERE 
+               ID=#id#
+	</update>	
+	<delete id="deleteGolfImg" parameterClass="java.lang.String">
+		DELETE FROM GOLF_IMG
+		WHERE 
+               ID=#id#
+	</delete>	
+</sqlMap>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="memberInvoice">
+	<typeAlias alias="memberInvoice" type="com.hnatourism.club.personal.member.domain.MemberInvoice" />
+	<resultMap id="memberInvoiceResultMap" class="memberInvoice">
+		<result column="ID" property="id" />
+		<result column="TITLE" property="title" />
+		<result column="TYPE" property="type" />
+		<result column="ADDRESS" property="address" />
+		<result column="RMK" property="rmk" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="CREATE_USER" property="createUser" />
+		<result column="UPDATE_TIME" property="updateTime" />
+		<result column="UPDATE_USER" property="updateUser" />
+		<result column="MEMBER_ID" property="memberId" />
+		<result column="STS" property="sts" />
+		<result column="USER_TYPE" property="userType" />
+		<result column="PERIOD" property="period" />
+	</resultMap>
+	<sql id="selectMemberInvoiceSql">
+		<![CDATA[
+			SELECT T.ID,T.TITLE,T.TYPE,T.ADDRESS,T.RMK,T.CREATE_TIME,T.CREATE_USER,T.UPDATE_TIME,T.UPDATE_USER,T.MEMBER_ID,T.STS,T.USER_TYPE,T.PERIOD 
+			FROM MEMBER_INVOICE T
+		]]>
+	</sql>
+	<select id="findMemberInvoiceByWhere" parameterClass="memberInvoice" resultMap="memberInvoiceResultMap">
+		<include refid="selectMemberInvoiceSql"/>	
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="title">
+				T.TITLE=#title#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="type">
+				T.TYPE=#type#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="address">
+				T.ADDRESS=#address#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="rmk">
+				T.RMK=#rmk#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createTime">
+				T.CREATE_TIME=#createTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createUser">
+				T.CREATE_USER=#createUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateTime">
+				T.UPDATE_TIME=#updateTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateUser">
+				T.UPDATE_USER=#updateUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="memberId">
+				T.MEMBER_ID=#memberId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="sts">
+				T.STS=#sts#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="userType">
+				T.USER_TYPE=#userType#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="period">
+				T.PERIOD=#period#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<select id="findMemberInvoiceById" parameterClass="java.lang.String" resultMap="memberInvoiceResultMap">
+		<include refid="selectMemberInvoiceSql"/>	
+		<![CDATA[
+			WHERE T.ID=#id#
+		]]>
+	</select>
+	<insert id="insertMemberInvoice" parameterClass="memberInvoice">
+		INSERT INTO MEMBER_INVOICE
+		<dynamic prepend="(">
+			<isNotEmpty prepend="," property="id">
+				ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="title">
+				TITLE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="type">
+				TYPE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="address">
+				ADDRESS
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="rmk">
+				RMK
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createTime">
+				CREATE_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createUser">
+				CREATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateTime">
+				UPDATE_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateUser">
+				UPDATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="memberId">
+				MEMBER_ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="sts">
+				STS
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="userType">
+				USER_TYPE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="period">
+				PERIOD
+			</isNotEmpty>
+
+		</dynamic>		
+		<dynamic prepend=") VALUES (">
+
+			<isNotEmpty prepend="," property="id">
+				#id#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="title">
+				#title#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="type">
+				#type#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="address">
+				#address#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="rmk">
+				#rmk#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createTime">
+				#createTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createUser">
+				#createUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateTime">
+				#updateTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateUser">
+				#updateUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="memberId">
+				#memberId#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="sts">
+				#sts#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="userType">
+				#userType#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="period">
+				#period#
+			</isNotEmpty>
+
+		 </dynamic>	)
+	</insert>
+	
+	<update id="updateMemberInvoice" parameterClass="memberInvoice">
+		UPDATE MEMBER_INVOICE
+        <dynamic prepend="set">
+		   <isNotEmpty prepend="," property="title">
+              TITLE=#title#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="type">
+              TYPE=#type#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="address">
+              ADDRESS=#address#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="rmk">
+              RMK=#rmk#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createTime">
+              CREATE_TIME=#createTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createUser">
+              CREATE_USER=#createUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateTime">
+              UPDATE_TIME=#updateTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateUser">
+              UPDATE_USER=#updateUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="memberId">
+              MEMBER_ID=#memberId#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="sts">
+              STS=#sts#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="userType">
+              USER_TYPE=#userType#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="period">
+              PERIOD=#period#
+           </isNotEmpty>
+        </dynamic>
+		WHERE 
+               ID=#id#
+	</update>	
+	<delete id="deleteMemberInvoice" parameterClass="java.lang.String">
+		DELETE FROM MEMBER_INVOICE
+		WHERE 
+               ID=#id#
+	</delete>	
+</sqlMap>

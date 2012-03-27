@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="default2" extends="struts-default">
+		<!-- 高尔夫首页跳转 ,高杰-->
+		<action name="golfHome" class="GolfHomeAction" method="showGolfHome">
+			<result name="success">
+				/WEB-INF/pages/golf/index.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		
+		<!-- 高尔夫球场预订跳转 ,高杰-->
+		<action name="golfPracBook" class="GolfPracBookAction" method="showGolfPracBook">
+			<result name="success">
+				/WEB-INF/pages/golf/book/book.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp?id=${id}&amp;time=${time}
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+			<result name="index">
+				golf/index.jsp
+			</result>
+		</action>
+		<!-- 高尔夫球场订单跳转 -->
+		<action name="golfConfirm" class="GolfConfirmAction" method="showFormalOrder">
+<!--			<result name="success">-->
+<!--				/WEB-INF/pages/golf/book/confirm.jsp-->
+<!--			</result>-->
+			<!-- 修改原因    		取消或者确认完成后要返回订单详情页面 -->			
+			<result name="updateSuccess" type="redirect">/golfOrderAction.action?id=${orderId}</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+		</action>
+			<action name="golfCancel" class="GolfConfirmAction" method="updateOrderState">
+<!--			<result name="updateSuccess">/member/order.jsp</result>-->
+			<!-- 修改原因    		取消或者确认完成后要返回订单详情页面 -->			
+			<result name="updateSuccess" type="redirect">
+				/golfOrderAction!searchOneOrder.action?id=${orderId}
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+		</action>
+		<!-- 高尔夫球场预订跳转 ,高杰-->
+		<action name="golfSubmit" class="com.hnatourism.club.golf.order.action.GolfSubmitAction" method="submitBook">
+			<result name="success" type="redirect">
+				common/success.jsp?goods=golf&amp;orderId=${orderId}&amp;orderCode=${orderCode}&amp;price=${amountPrice}&amp;priceid=${priceid}&amp;type=${golfType}&amp;message=${message}&amp;time=${time}&amp;playTime=${playTime}
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+			<result name="overflow" type="redirect">
+				golf/book.jsp?id=${siteId}&amp;time=${time}&amp;msg=error
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+		<!-- 高尔夫查询结果页面 ,栾晓东-->
+		<action name="golfHomeSearch" class="GolfHomeSearchAction" method="search">
+			<result name="success">/WEB-INF/pages/golf/prod/search.jsp</result>
+			<result name="error">/golf/golfHomePage.jsp</result>
+			<result name="searchSite">/WEB-INF/pages/golf/prod/siteSearch.jsp</result>
+		</action>
+		<!-- 高尔夫定单处理,lxd --> 
+		<action name="golfOrderAction" class="GolfOrderAction" >
+			<result name="view">/WEB-INF/pages/golf/order/view.jsp</result><!--  高尔夫定单退改页面-->
+			<result name="search">/WEB-INF/pages/member/order.jsp</result><!-- 高尔夫定单查询结果页面 -->
+			<result name="searchAll">member/order.jsp</result><!-- 高尔夫定单查询结果页面 -->
+			<result name="input">/input.jsp</result><!-- 高尔夫定单查询结果页面 -->
+			<result name="redirectView" type="redirect">
+				/golfOrderAction!searchOneOrder.action?id=${id}
+			</result>
+			<result name="notlogin" type="redirect">
+				/member/login.jsp
+			</result>
+		</action>
+		<!-- 高尔夫产品详细 -->
+		<action name="golfProdView" class="GolfProdViewAction" method="getGolfProdView">
+			<result name="success">
+				/WEB-INF/pages/golf/prod/view.jsp
+			</result>
+			<result name="error">
+				/common/error.jsp
+			</result>
+		</action>
+	</package>
+</struts>

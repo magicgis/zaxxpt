@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="golfSite">
+	<typeAlias alias="golfSite" type="com.hnatourism.club.golf.domain.GolfSite" />
+	<resultMap id="golfSiteResultMap" class="golfSite">
+		<result column="ID" property="id" />
+		<result column="GOLF_ID" property="golfId" />
+		<result column="PATTERN" property="pattern" />
+		<result column="TYPE" property="type" />
+		<result column="NUM" property="num" />
+		<result column="NAME" property="name" />
+		<result column="START_TIME" property="startTime" />
+		<result column="END_TIME" property="endTime" />
+		<result column="RMK" property="rmk" />
+		<result column="CREATE_USER" property="createUser" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="UPDATE_USER" property="updateUser" />
+		<result column="UPDATE_TIME" property="updateTime" />
+	</resultMap>
+	<sql id="selectGolfSiteSql">
+		<![CDATA[
+			SELECT T.ID,T.GOLF_ID,T.PATTERN,T.TYPE,T.NUM,T.NAME,T.START_TIME,T.END_TIME,T.RMK,T.CREATE_USER,T.CREATE_TIME,T.UPDATE_USER,T.UPDATE_TIME 
+			FROM GOLF_SITE T
+		]]>
+	</sql>
+	<select id="findGolfSiteByWhere" parameterClass="golfSite" resultMap="golfSiteResultMap">
+		<include refid="selectGolfSiteSql"/>	
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="golfId">
+				T.GOLF_ID=#golfId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="pattern">
+				T.PATTERN=#pattern#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="type">
+				T.TYPE=#type#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="num">
+				T.NUM=#num#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="name">
+				T.NAME=#name#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="startTime">
+				T.START_TIME=#startTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="endTime">
+				T.END_TIME=#endTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="rmk">
+				T.RMK=#rmk#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createUser">
+				T.CREATE_USER=#createUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createTime">
+				T.CREATE_TIME=#createTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateUser">
+				T.UPDATE_USER=#updateUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateTime">
+				T.UPDATE_TIME=#updateTime#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<select id="findGolfSiteById" parameterClass="java.lang.String" resultMap="golfSiteResultMap">
+		<include refid="selectGolfSiteSql"/>	
+		<![CDATA[
+			WHERE T.ID=#id#
+		]]>
+	</select>
+	<insert id="insertGolfSite" parameterClass="golfSite">
+		INSERT INTO GOLF_SITE
+		<dynamic prepend="(">
+			<isNotEmpty prepend="," property="id">
+				ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="golfId">
+				GOLF_ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="pattern">
+				PATTERN
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="type">
+				TYPE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="num">
+				NUM
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="name">
+				NAME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="startTime">
+				START_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="endTime">
+				END_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="rmk">
+				RMK
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createUser">
+				CREATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createTime">
+				CREATE_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateUser">
+				UPDATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateTime">
+				UPDATE_TIME
+			</isNotEmpty>
+
+		</dynamic>		
+		<dynamic prepend=") VALUES (">
+
+			<isNotEmpty prepend="," property="id">
+				#id#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="golfId">
+				#golfId#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="pattern">
+				#pattern#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="type">
+				#type#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="num">
+				#num#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="name">
+				#name#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="startTime">
+				#startTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="endTime">
+				#endTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="rmk">
+				#rmk#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createUser">
+				#createUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createTime">
+				#createTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateUser">
+				#updateUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateTime">
+				#updateTime#
+			</isNotEmpty>
+
+		 </dynamic>	)
+	</insert>
+	
+	<update id="updateGolfSite" parameterClass="golfSite">
+		UPDATE GOLF_SITE
+        <dynamic prepend="set">
+		   <isNotEmpty prepend="," property="golfId">
+              GOLF_ID=#golfId#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="pattern">
+              PATTERN=#pattern#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="type">
+              TYPE=#type#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="num">
+              NUM=#num#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="name">
+              NAME=#name#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="startTime">
+              START_TIME=#startTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="endTime">
+              END_TIME=#endTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="rmk">
+              RMK=#rmk#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createUser">
+              CREATE_USER=#createUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createTime">
+              CREATE_TIME=#createTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateUser">
+              UPDATE_USER=#updateUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateTime">
+              UPDATE_TIME=#updateTime#
+           </isNotEmpty>
+        </dynamic>
+		WHERE 
+               ID=#id#
+	</update>	
+	<delete id="deleteGolfSite" parameterClass="java.lang.String">
+		DELETE FROM GOLF_SITE
+		WHERE 
+               ID=#id#
+	</delete>	
+</sqlMap>

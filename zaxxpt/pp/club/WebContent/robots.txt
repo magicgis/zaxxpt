@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /regist.jsp
+Allow: /

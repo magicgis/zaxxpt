@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+	<!-- 高尔夫首页跳转 ，高杰-->
+	<bean id="GolfHomeAction" class="com.hnatourism.club.golf.prod.action.GolfHomeAction" scope="prototype">
+		<property name="golfHomeServ" ref="golfHomeServ"/>
+		<property name="memberInfoServ" ref="memberInfoService"/>
+		<property name="memberAccountServ" ref="memberAccountService"/>
+       	<property name="memberRoleServ" ref="memberRoleService" />
+	</bean>
+	<bean id="golfHomeServ" class="com.hnatourism.club.golf.prod.service.impl.GolfHomeServiceImpl">
+		<property name="apiService" ref="apiService"/>
+	</bean>
+	
+	<!-- 高尔夫球场预订页跳转 ，高杰-->
+	<bean id="GolfPracBookAction" class="com.hnatourism.club.golf.prod.action.GolfPracBookAction" scope="prototype">
+		<property name="golfPracBookServ" ref="golfPracBookServ"/>
+		<property name="memberInfoService" ref="memberInfoService"/>
+       		<property name="RuleConfigDaoImpl" ref="RuleConfigDaoImpl"/>
+       		<property name="memberAccountDao" ref="memberAccountDao" />
+       		<property name="CustomerProfitServiceImpl" ref="CustomerProfitServiceImpl" />
+       		<property name="memberRoleService" ref="memberRoleService" />
+	</bean>
+	<bean id="golfPracBookServ" class="com.hnatourism.club.golf.prod.service.impl.GolfPracBookServiceImpl">
+		<property name="apiService" ref="apiService"/>
+	</bean>
+	
+	<!-- 高尔夫球场预订提交 ，高杰-->
+	<bean id="GolfSubmitAction" class="com.hnatourism.club.golf.order.action.GolfSubmitAction" scope="prototype">
+		<property name="memberInfoService" ref="memberInfoService"/>
+		<property name="memberAccountService" ref="memberAccountService"/>
+       		<property name="CustomerProfitServiceImpl" ref="CustomerProfitServiceImpl" />
+       		<property name="memberRoleService" ref="memberRoleService" />
+       		<property name="golfConfirmServ" ref="golfConfirmServ"/>
+		<property name="orderGolfSubRunService" ref="orderGolfSubRunService"/>
+	</bean>
+	<bean id="golfSubmitServ" class="com.hnatourism.club.golf.order.service.impl.GolfSubmitServiceImpl">
+		<property name="golfPlayServ" ref="golfPlayServ"/>
+	</bean>
+	<bean id="golfPlayServ" class="com.hnatourism.club.golf.order.service.impl.GolfPlayServiceImpl"/>
+	<!-- 高尔夫首页查寻跳转,lxd -->
+	<bean id="GolfHomeSearchAction" class="com.hnatourism.club.golf.prod.action.GolfHomeSearchAction" scope="prototype">
+		<property name="golfHomeSearchServ" ref="golfHomeSearchServ"/>
+       		<property name="RuleConfigDaoImpl" ref="RuleConfigDaoImpl"/>
+       		<property name="memberAccountDao" ref="memberAccountDao" />
+       		<property name="memberInfoService" ref="memberInfoService" />
+       		<property name="CustomerProfitServiceImpl" ref="CustomerProfitServiceImpl" />
+       		<property name="memberRoleService" ref="memberRoleService" />
+	</bean>
+	<bean id="golfHomeSearchServ" class="com.hnatourism.club.golf.prod.service.impl.GolfHomeSearchServiceImpl"/>
+	
+	<!-- 高尔夫定单查寻跳转,lxd -->
+	<bean id="GolfOrderAction" class="com.hnatourism.club.golf.order.action.GolfOrderAction" scope="prototype">
+		<property name="golfOrderService" ref="golfOrderService"/>
+		<property name="memberInfoServ" ref="memberInfoService"></property>
+	</bean>
+	<bean id="golfOrderService" class="com.hnatourism.club.golf.order.service.impl.GolfOrderServiceImpl"/>
+	
+		<!--高尔夫产品详细-->
+	<bean id="GolfProdViewAction" class="com.hnatourism.club.golf.prod.action.GolfProdViewAction" scope="prototype">
+		<property name="golfProdViewServ" ref="golfProdViewServ"/>
+	</bean>
+	<bean id="golfProdViewServ" class="com.hnatourism.club.golf.prod.service.impl.GolfProdViewServiceImpl"/>	
+	<!-- 高尔夫订单页跳转 -->
+	<bean id="GolfConfirmAction" class="com.hnatourism.club.golf.prod.action.GolfConfirmAction" scope="prototype">
+		<property name="golfConfirmServ" ref="golfConfirmServ"/>
+		<property name="orderGolfSubRunService" ref="orderGolfSubRunService"/>
+	</bean>
+	<bean id="golfConfirmServ" class="com.hnatourism.club.golf.prod.service.impl.GolfConfirmServiceImpl" scope="prototype"/>
+
+	<!-- 高尔夫支付分润 -->
+	<bean id="orderGolfSubRunService" class="com.hnatourism.club.golf.order.service.impl.OrderGolfSubRunServiceImpl">
+		<property name="prodCaptchaDao" ref="prodCaptchaDao"/>
+		<property name="logGolfOrderDao" ref="logGolfOrderDao"/>
+		<property name="memberInfoDao" ref="memberInfoDao"/>
+		<property name="memberAccountDao" ref="memberAccountDao"/>
+		<property name="memberRoleDao" ref="memberRoleDao"/>
+		<property name="orderBillService" ref="orderBillService"/>
+		<property name="orderGlofDao" ref="orderGlofDao"/>
+		<property name="payServer" ref="payInterfaceApiServerImpl"/>
+	</bean>
+	
+	
+	<bean id="orderGlofDao" class="com.hnatourism.club.golf.order.dao.impl.OrderGlofDaoImpl" parent="baseIBatisDaoSupport">
+		<property name="jdbcDaoSupport" ref="jdbcDaoSupport"/>
+	</bean>
+</beans>

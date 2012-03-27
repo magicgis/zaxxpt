@@ -1,0 +1,2182 @@
+﻿时间  修改人 修改功能 更新文件
+20110902 纪连生 订单详情某些信息显示不全（BugID=4717） 
+			/club/WebContent/WEB-INF/pages/golf/order/view/jsp
+
+
+2011年9月2日10:10:42  lixun 
+废弃原有的在后台实现订单查询的功能,该功能的实现已全部移植到前台页面实现,取消sts和createTime两个属性
+			com/hnatourism/club/member/order/action/MemberOrderAction/java
+			
+
+20110902 纪连生 订单详情某些信息显示不全（BugID=4766） 
+			/club/WebContent/WEB-INF/pages/lounge/order/view/jsp
+			
+			
+20110902 纪连生 商旅管家俱乐部介绍 表格无左侧边框
+			/club/WebContent/web/css/style/css
+
+2011-9-2 15:50:39	李巡
+修复高尔夫订单详情中联系场没有球数和单价的bug
+	/club/WebContent/WEB-INF/pages/golf/order/view/jsp
+
+
+2011-9-2 2011-9-2 18:40:46	李巡
+修复高尔夫订单详情中联系场没有球数单位不正确的bug
+/club/WebContent/WEB-INF/pages/golf/order/view/jsp
+修改订单状态修改后的返回页面
+/club/strutsconf/struts_lounge/xml
+/club/WebContent/WEB-INF/pages/lounge/order/view/jsp
+
+
+2011-9-2 2011-9-2 20:25:46	栾晓东
+将GolfOrderAction退改定单完了之后再次跳向当前页面   searchOneOrder()
+
+
+20110905 14:56 纪连生 Bug #4833 高尔夫：前台查看详情页面图片未进行压缩
+			/club/WebContent/web/css/style/css
+			
+
+20110906 16:27 纪连生 “我的资金账户” 相关样式, 更新“个人信息-账户明细/html”页面；
+			/club/WebContent/web/css/style/css
+			
+20110906 17:40 纪连生 高尔夫查询列表“包含项目”文字溢出
+			/club/WebContent/web/css/style/css
+
+
+20110907 9:52 纪连生 BugID=4935 高尔夫详情 文字溢出
+			/club/WebContent/web/css/style/css
+
+
+20110909 13:42 高杰 高尔夫、机场前台页面导航的链接去掉
+			/club/WebContent/web/WEB-INF/pages/golf/index/jsp
+			/club/WebContent/web/WEB-INF/pages/golf/book/book/jsp
+			/club/WebContent/web/WEB-INF/pages/golf/prod/search/jsp
+			/club/WebContent/web/WEB-INF/pages/golf/prod/view/jsp
+			/club/WebContent/web/WEB-INF/pages/lounge/index/jsp
+			/club/WebContent/web/WEB-INF/pages/lounge/book/book/jsp
+			/club/WebContent/web/WEB-INF/pages/lounge/prod/search/jsp
+			
+20110909 13:51 高杰  加上高尔夫、机场前台页面导航的链接
+			/club/WebContent/web/WEB-INF/pages/golf/index/jsp
+			/club/WebContent/web/WEB-INF/pages/golf/book/book/jsp
+			/club/WebContent/web/WEB-INF/pages/golf/prod/search/jsp
+			/club/WebContent/web/WEB-INF/pages/golf/prod/view/jsp
+			/club/WebContent/web/WEB-INF/pages/lounge/index/jsp
+			/club/WebContent/web/WEB-INF/pages/lounge/book/book/jsp
+			/club/WebContent/web/WEB-INF/pages/lounge/prod/search/jsp
+
+20110909 13:51 高杰  加上酒店、个人中心前台页面导航的链接
+			/club/WebContent/web/WEB-INF/pages/hotel/index/jsp
+			/club/WebContent/web/WEB-INF/pages/hotel/book/book/jsp
+			/club/WebContent/web/WEB-INF/pages/hotel/prod/search/jsp
+			/club/WebContent/web/WEB-INF/pages/member/account/jsp
+			/club/WebContent/web/WEB-INF/pages/member/addoften/jsp
+			/club/WebContent/web/WEB-INF/pages/member/deposit/jsp
+			/club/WebContent/web/WEB-INF/pages/member/member/jsp
+			/club/WebContent/web/WEB-INF/pages/member/often/jsp
+			/club/WebContent/web/WEB-INF/pages/member/order/jsp
+			/club/WebContent/web/WEB-INF/pages/member/paypwd/jsp
+			/club/WebContent/web/WEB-INF/pages/member/pwd/jsp
+			
+20110909 14:05 周峰  加入酒店的搜索功能
+			/club/WebContent/WEB-INF/pages/hotel/prod/search/jsp
+			/club/src/com/hnatourism/club/hotel/prod/web/action/HotelSearchAction/java
+			/club/strutsconf/struts_hotel/xml
+
+20110909 14:44 高杰  去掉高尔夫订单确认和取消链接上的#号
+			/club/WebContent/WEB-INF/pages/lounge/order/view/jsp
+
+
+
+2011-9-9 14:25:22  李巡  改进休息室订单列表查询方式,添加机场休息室日志查询接口
+		
+
+20110909 14:44 高杰  常用旅客优化，编辑错误跳回输入页面，并提示；修改密码和客户信息JS方法添加分号
+			/club/WebContent/WEB-INF/pages/member/addoften/jsp
+			/club/WebContent/WEB-INF/pages/member/pwd/jsp
+			/club/WebContent/WEB-INF/pages/member/member/jsp
+			strutsconf/struts_member/xml
+			com/hnatourism/club/personal/member/web/action/MemberPassengerAction
+
+20110909 15:18 高杰 个人中心的3个ACTION换位置
+			com/hnatourism/club/personal/member/action/MemberPassengerAction
+			com/hnatourism/club/personal/member/web/action/MemberPassengerAction
+			com/hnatourism/club/personal/member/action/MemberInfoAction
+			com/hnatourism/club/personal/member/web/action/MemberInfoAction
+			com/hnatourism/club/personal/member/action/OrderBillAction
+			com/hnatourism/club/personal/member/web/action/OrderBillAction
+
+20110909 14:44 高杰 修改酒店预订的数据读取BUG
+			com/hnatourism/club/hotel/prod/web/action/HotelBookAction
+			
+20110909 15:18 高杰 去掉无用代码
+			com/hnatourism/club/golf/order/action/GolfOrderAction
+			
+20110909 15:13 栾晓东   修改高尔夫与机场休息室	后缀去掉没用的的####	
+			/club/WebContent/WEB-INF/pages/lounge/prod/search/jsp
+			/club/WebContent/WEB-INF/pages/lounge/prod/search/jsp
+
+20110909 15:18 高杰 高尔夫订单会员确认和取消订单的跳转BUG
+			com/hnatourism/club/golf/prod/action/GolfConfirmAction
+
+20110909 17:30 高杰 添加酒店查询页面到预订页面的接口参数和登录跳转参数传递
+			com/hnatourism/club/hotel/prod/web/action/HotelBookAction
+			com/hnatourism/club/personal/member/web/action/MemberInfoAction
+			strutsconf/struts_hotel/xml
+			strutsconf/struts_member/xml
+			/club/WebContent/WEB-INF/pages/member/login/jsp
+
+			
+20110909 16:19 栾晓东   点击高尔夫省份 框里的小图片的时候，JS报错，原因，根本就找不到这个小图片所对应的 funtion 解决方法，将这个小图片注释掉。			
+			/club/WebContent/WEB-INF/pages/golf/prod/search/jsp
+			/club/WebContent/WEB-INF/pages/golf/index/jsp
+
+
+
+2011-9-9 15:54 李巡 添加休息室/酒店/高尔夫 的订单的订单号到订单详情的链接
+		/WEB-INF/pages/member/order/include/golfOrderTable/jsp
+		/WEB-INF/pages/member/order/include/hotelOrderTable/jsp
+		/WEB-INF/pages/member/order/include/loungeOrderTable/jsp
+
+2011-9-9 17:00 李巡 修复高尔夫订单日志异步查询参数类型错误bug
+		/src/com/hnatourism/club/golf/api/glof_order_log_api/xml
+
+
+20110909 17:59 高杰 酒店未登录跳转BUG
+			strutsconf/struts_hotel/xml
+			com/hnatourism/club/hotel/prod/web/action/HotelBookAction
+
+20110909 17:59 高杰 高尔夫首页推荐显示图片只显示前4
+			com/hnatourism/club/golf/api/golf_info_api/xml
+			com/hnatourism/club/hotel/prod/web/action/HotelBookAction
+
+
+2011-9-9 18:10 李巡 修复高尔夫订单日志异步查询参数类型错误bug
+		/src/com/hnatourism/club/golf/api/glof_order_log_api/xml
+
+
+2011-9-9 18:49 高杰 修复资金账户显示不出来
+		/src/com/hnatourism/club/golf/api/glof_order_log_api/xml
+		/src/com/hnatourism/club/golf/api/golf_order_api/xml
+		
+20110910 11:49 谷建亮分润util
+       com/hnatourism/club/common/SubRunUtils/java
+	
+
+2011-9-10 10:49 高杰 修复资金账户查询条件错误和页面样式
+		com/hnatourism/club/personal/member/dao/impl/order_bill/xml
+			/club/WebContent/WEB-INF/pages/member/account/jsp
+			com/hnatourism/club/personal/member/web/action/OrderBillAction
+			com/hnatourism/club/personal/member/service/impl/OrderBillServiceImpl
+			
+2011-9-10 10:49 高杰 屏蔽充值
+			/club/WebContent/WEB-INF/pages/member/account/jsp
+			
+2011-9-10 10:49 高杰 个人中心导航样式，订单详情样式，预订休息室的单收费录入BUG，删除S2标签引用，添加常旅客JSBUG
+			/club/WebContent/WEB-INF/pages/member/addoften/jsp
+			/club/WebContent/WEB-INF/pages/lounge/order/view/jsp
+			/club/WebContent/WEB-INF/pages/lounge/book/success/jsp
+			/club/WebContent/WEB-INF/pages/lounge/book/book/jsp
+			/club/WebContent/WEB-INF/pages/golf/book/success/jsp
+			/club/WebContent/WEB-INF/pages/golf/book/book/jsp
+			/club/WebContent/WEB-INF/pages/golf/book/confirm/jsp
+			/club/WebContent/web/css/jcxxslist/css
+			com/hnatourism/club/lounge/prod/action/OrderLoungeAction=======
+			/club/WebContent/WEB-INF/pages/member/account/jsp
+
+2011-9-10 13:49 高杰 优化订单预订页面验证
+			/club/WebContent/WEB-INF/pages/lounge/book/book/jsp
+			/club/WebContent/WEB-INF/pages/golf/book/book/jsp
+			
+2011-9-10 13:49 高杰 高尔夫查询BUG
+			com/hnatourism/club/golf/prod/action。GolfHomeSearchAction
+			
+2011-9-10 13:49 高杰 优化常用旅客证件号码验证，添加酒店预订的退订规则显示
+			/club/WebContent/WEB-INF/pages/member/addoften/jsp
+			/club/WebContent/WEB-INF/pages/hotel/book/book/jsp
+			
+2011-9-10 13:49 高杰 高尔夫查询Bug5048
+			com/hnatourism/club/golf/api/golf_info_api/xml
+			com/hnatourism/club/golf/prod/action/GolfHomeSearchAction
+			
+2011-9-10 13:49 高杰 只有钻石管家才能预订贵宾间
+			/club/WebContent/WEB-INF/pages/lounge/prod/search/jsp
+			com/hnatourism/club/lounge/prod/action/LoungeInfoAction
+			
+			
+2011-9-10 18:11 高杰 常用旅客分页，资金账户分页
+			/club/WebContent/WEB-INF/pages/member/addoften/jsp
+			/club/WebContent/WEB-INF/pages/member/account/jsp
+			com/hnatourism/club/personal/member/web/action/OrderBillAction
+			com/hnatourism/club/personal/member/service/impl/OrderBillServiceImpl
+			com/hnatourism/club/personal/member/web/action/MemberPassengerAction=======
+			com/hnatourism/club/lounge/prod/action/LoungeInfoAction
+
+
+
+
+
+2011-9-10 17:15 李巡 修复高尔夫订单日志异步查询参数类型错误bug,对日志,对订单列表进行排序
+			屏蔽href=#链接到当前页,没有退改的页面不显示退改区域
+		/src/com/hnatourism/club/golf/api/glof_order_log_api/xml
+		/src/com/hnatourism/club/lounge/order/dao/ILogLoungeOrderDao/java
+		/src/com/hnatourism/club/lounge/order/dao/impl/log_lounge_order/xml
+		/WEB-INF/pages/member/order/order/jsp
+
+		/WEB-INF/pages/lounge/order/view/jsp
+		/WEB-INF/pages/golf/order/view/jsp
+
+		
+2011-9-10 17:19 栾晓东  修改前一天后一天为按钮，这样比较美观！
+			/club/WebContent/WEB-INF/pages/lounge/prod/search/jsp
+			/club/WebContent/WEB-INF/pages/golf/prod/search/jsp
+
+
+2011-9-10 18:14 李巡   修改高尔夫的球场非全部球员申请退场后申请成功不能继续退订其他球员的bug
+		src/com/hnatourism/club/golf/order/action/GolfOrderAction/java
+		
+
+
+2011-9-10 18:20 高杰   酒店预订功能流畅，补齐属性
+		/club/WebContent/WEB-INF/pages/hotel/book/book/jsp
+		com/hnatourism/club/hotel/prod/web/action/HotelBookAction
+
+2011-9-13 11:20 高杰   个人中心里我的资金账户信息调整
+		/club/WebContent/WEB-INF/pages/member/account/jsp
+		com/hnatourism/club/personal/member/dao/impl/order_bill/xml
+
+
+2011-09-13 9:48 谷建亮 修改写死的充值帐号
+        com/hnatourism/club/pay/action/PayAction/java
+        com/hnatourism/club/pay/action/PayBackAction/java
+        com/hnatourism/club/pay/IPayInterfaceApiServer/java
+        com/hnatourism/club/pay/PayInterfaceApiServerImpl/java
+        com/hnatourism/club/pay/PayVo/java
+
+2011-9-13 10:48 栾晓东    使改期时间必须在今天以后。
+		/club/WebContent/WEB-INF/pages/golf/order/view/jsp
+
+		
+2011-9-13 13:48 高杰  高尔夫、机场、酒店预订时提示优化，修改账户信息、常用旅客编辑的提示优化
+		/club/WebContent/WEB-INF/pages/member/member/jsp
+		/club/WebContent/WEB-INF/pages/member/addoften/jsp
+		/club/WebContent/WEB-INF/pages/hotel/book/book/jsp
+		/club/WebContent/WEB-INF/pages/golf/book/book/jsp
+		/club/WebContent/WEB-INF/pages/lounge/book/book/jsp
+
+2011-9-13 11:08	 李巡  去掉多余herf=“#” 
+	/WEB-INF/pages/member/order/include/golfOrderTable/jsp
+	/WEB-INF/pages/member/order/include/hotelOrderTable/jsp
+	/WEB-INF/pages/member/order/include/loungeOrderTable/jsp
+	t/WEB-INF/pages/member/order/jsp
+
+
+2011-9-13 12:43	李巡 调整对改期时间的限制
+	/WEB-INF/pages/lounge/order/view/jsp
+
+2011-9-13 14:29       栾晓东	 搜索按钮不好用问题！！！
+	/club/WebContent/WEB-INF/pages/golf/prod/search/jsp
+	/club/WebContent/WEB-INF/pages/golf/index/jsp
+	/club/WebContent/WEB-INF/pages/lounge/index/jsp
+	/club/WebContent/WEB-INF/pages/lounge/prod/search/jsp
+
+
+2011-9-13 14:16	高杰  休息室主页搜索提交
+	/WEB-INF/pages/lounge/prod/index/jsp
+
+
+2011-9-13 14:16	高杰  高尔夫提交分润数据BUG
+	com/hnatourism/club/golf/order/action/GolfSubmitAction/java
+
+
+2011-9-13 14:16	高杰  BUGFREE，id=5078
+	/club/WebContent/WEB-INF/pages/golf/prod/search/jsp
+	com/hnatourism/club/golf/prod/action/GolfHomeSearchAction
+
+2011-9-13 14:16	高杰  高尔夫预订，总数球的数据延迟
+	/club/WebContent/WEB-INF/pages/golf/book/book/jsp
+	com/hnatourism/club/golf/prod/action/GolfPracBookAction
+	com/hnatourism/club/golf/api/golf_price_api/xml
+	strutsconf/struts_golf/xml
+	
+2011-9-13 17:49	高杰  高尔夫、机场休息室、酒店预订失败的友好提示优化
+	/club/WebContent/WEB-INF/pages/golf/book/success/jsp
+	/club/WebContent/WEB-INF/pages/hotel/book/success/jsp
+	/club/WebContent/WEB-INF/pages/lounge/book/success/jsp
+	com/hnatourism/club/lounge/prod/action/OrderLoungeAction
+	com/hnatourism/club/hotel/prod/web/action/HotelBookAction
+	com/hnatourism/club/golf/order/action/GolfSubmitAction
+	
+2011-9-13 20:10	高杰  高尔夫主页推荐城市乱码
+	/club/web/html/golf/index_center/jsp
+	com/hnatourism/club/golf/api/golf_price_api/xml
+	com/hnatourism/club/golf/api/golf_info_api/xml
+	com/hnatourism/club/golf/order/action/GolfSubmitAction
+	
+2011-9-13 17:49	谷建亮  修改高尔夫价格查询        添加记录接口处理时间   修改休息室用户类型   修改高尔夫退场/改期样式
+     com/hnatourism/club/golf/api/ApiServerAction
+     com/hnatourism/club/golf/api/TimeDistance/java
+     com/hnatourism/club/loungeserver/order/LoungeOrderReturnApiServiceImpl	 
+     com/hnatourism/club/loungeserver/order/LoungeOrderChangeApiServiceImpl
+     com/hnatourism/club/golf/api/golf_order_api/xml
+     com/hnatourism/club/golf/api/golf_price_api/xml
+	 com/hnatourism/club/golf/api/golf_price_api/xml
+     pages/golf/order/view/jsp
+
+2011-9-13 21:05	高杰  机场休息室、酒店预订失败的友好提示信息错误
+	/club/WebContent/WEB-INF/pages/lounge/book/success/jsp
+	/club/WebContent/WEB-INF/pages/hotel/book/success/jsp
+
+2011-9-13 21:09	高杰  确认或取消后没有日志表创建人编号BUG
+	com/hnatourism/club/golf/prod/action/GolfConfirmAction
+	com/hnatourism/club/golf/prod/service/impl/GolfConfirmServiceImpl
+	com/hnatourism/club/golf/prod/service/IGolfConfirmService
+	com/hnatourism/club/golf/api/ParameterHandler
+
+2011-9-14 10:31	高杰  大主页的高尔夫和机场推荐，高尔夫推荐调整，推荐排序
+	/club/WebContent/WEB-INF/pages/index/jsp
+	/club/web/html/golf/index_center/jsp
+	com/hnatourism/club/golf/api/hna_procity_api/xml
+	com/hnatourism/club/golf/api/golf_info_api/xml
+	
+-------------------------------------------------------------------------------
+2011-9-13 22:29	周峰  酒店查询修改
+	/club/WebContent/WEB-INF/pages/hotel/index/jsp
+	/club/WebContent/WEB-INF/pages/hotel/prod/search/jsp
+	/club/springconf/applicationContext_hotel/xml
+	/club/src/com/hnatourism/club/hotel/api/service/IHotelApiManager/java
+	/club/src/com/hnatourism/club/hotel/api/service/impl/HotelApiManagerImpl/java
+	/club/src/com/hnatourism/club/hotel/prod/web/action/HotelSearchAction/java
+    
+20110914 09:47 谷建亮    修改错误
+     com/hnatourism/club/common/util/SubRunBean/java
+      com/hnatourism/club/common/util/SubRunUtils/java    
+    
+
+2011-9-14 10:00 李巡  增加酒店详情查询
+	/src/com/hnatourism/club/hotel/prod/web/action/HotelInfoAction/java
+	
+	
+	20110914 09:47 谷建亮    添加记录充值账单
+     com/hnatourism/club/pay/action/PayAction/java
+     com/hnatourism/club/pay/action/PayBackAction/java
+     com/hnatourism/club/personal/member/service/OrderBillDao/java
+     com/hnatourism/club/personal/member/service/impl/OrderBillDaoImpl/java
+     com/hnatourism/club/personal/member/service/impl/OrderBillServiceImpl
+    
+2011-9-14 11:31 高杰  高尔夫、机场搜索的提前时间提示优化，机场推荐的显示数量限制
+	/club/WebContent/WEB-INF/pages/lounge/prod/search/jsp
+	/club/WebContent/WEB-INF/pages/golf/prod/search/jsp
+	/club/web/html/lounge/index_center/jsp
+
+2011-9-14 13:01 高杰  变更数据库
+	数据库变更说明/txt
+
+2011-9-14 16:07 高杰  高尔夫练习场库存BUG，去掉主页链接上的#
+	/club/WebContent/WEB-INF/pages/golf/book/book/jsp
+	/club/WebContent/WEB-INF/pages/index/jsp
+	strutsconf/struts_golf/xml
+	com/hnatourism/club/golf/prod/action/GolfPracBookAction
+	com/hnatourism/club/golf/order/action/GolfSubmitAction
+	
+2011-9-14 16:40 高杰  休息室搜索和预订价格不一致
+	com/hnatourism/club/loungeserver/prod/LoungeBookApiServiceImpl
+	
+2011-9-14 16:40 高杰  除了练习场，价格取整
+	com/hnatourism/club/golf/prod/action/GolfPracBookAction
+	com/hnatourism/club/golf/order/action/GolfSubmitAction
+	com/hnatourism/club/loungeserver/prod/LoungeBookApiServiceImpl
+	com/hnatourism/club/loungeserver/prod/LoungeSearchApiServiceImpl
+	
+2011-9-14 16:40 高杰  高尔夫搜索排序
+	com/hnatourism/club/golf/prod/action/GolfHomeSearchAction
+	com/hnatourism/club/golf/prod/vo/GolfInfoVo
+	com/hnatourism/club/loungeserver/prod/LoungeSearchApiServiceImpl
+	com/hnatourism/club/golf/api/golf_price_api/xml
+
+
+2011-9-14 19:40 李巡  酒店详情
+/WEB-INF/pages/hotel/prod/view/jsp
+
+2011-9-14 20:11    栾晓东        点击一次就输入理由清空！	
+/club_2011-9-5/WebContent/WEB-INF/pages/lounge/order/view/jsp
+/club_2011-9-5/WebContent/WEB-INF/pages/golf/order/view/jsp
+
+
+
+
+
+2011-9-14 23:45 李巡   修改天气预报功能
+	/common/include/weatherControl/jsp
+
+
+2011-9-15 10:03:01 李巡  修改高尔夫申请退场时日志记录错误，去除天气预报中的href="#"			/club/src/com/hnatourism/club/golf/order/action/GolfOrderAction/java
+	/club/WebContent/common/include/weatherAjax/jsp
+	
+	
+2011-9-15 14:21 高杰   政企管家分润
+	com/hnatourism/club/personal/member/web/action/MemberInfoAction
+	com/hnatourism/club/member/rule/service/impl/RuleConfigServiceImpl
+	com/hnatourism/club/member/rule/service/IRuleConfigService
+	com/hnatourism/club/member/rule/dao/impl/rule_config/xml
+	com/hnatourism/club/member/rule/dao/impl/RuleConfigDaoImpl
+	com/hnatourism/club/member/rule/dao/IRuleConfigDao
+	com/hnatourism/club/loungeserver/prod/LoungeSearchApiServiceImpl
+	com/hnatourism/club/loungeserver/prod/LoungeBookApiServiceImpl
+	com/hnatourism/club/lounge/prod/action/OrderLoungeAction
+	com/hnatourism/club/lounge/prod/action/LoungeInfoAction
+	com/hnatourism/club/golf/prod/action/GolfPracBookAction
+	com/hnatourism/club/golf/prod/action/GolfHomeSearchAction
+	com/hnatourism/club/golf/order/action/GolfSubmitAction
+	com/hnatourism/club/hotel/prod/web/action/HotelBookAction
+
+	20110915 13:47 谷建亮    修改错误手续费为四舍五入
+     
+      com/hnatourism/club/common/util/SubRunUtils/java 
+	src/com/hnatourism/club/pay/PayInterfaceApiServerImpl/java
+
+
+2011-9-15 14:59  李巡    修改高尔夫退订申请时在ie6 中无法刷新的bug
+	/club/WebContent/WEB-INF/pages/golf/order/view/jsp
+	/club/src/com/hnatourism/club/golf/order/action/GolfOrderAction/java
+	
+	
+2011-9-15 14:21 高杰   政企管家分润公共类
+	com/hnatourism/club/common/util/RuleConfigProfit
+	com/hnatourism/club/personal/member/web/action/MemberInfoAction
+	com/hnatourism/club/lounge/prod/action/OrderLoungeAction
+	com/hnatourism/club/lounge/prod/action/LoungeInfoAction
+	com/hnatourism/club/golf/prod/action/GolfPracBookAction
+	com/hnatourism/club/golf/prod/action/GolfHomeSearchAction
+	com/hnatourism/club/golf/order/action/GolfSubmitAction
+	com/hnatourism/club/hotel/prod/web/action/HotelBookAction
+
+2011-9-15 17:18  李巡  改写返回顶部的锚点，以及机票详情的菜单引入
+	/club/WebContent/WEB-INF/pages/member/order/jsp
+	/club/WebContent/flight/order/orderFlightDetail/jsp
+	/club/WebContent/common/include/backTop/js
+
+
+
+2011-9-15 19:35 李巡 调整天气预报细节
+	/club/WebContent/common/include/weatherAjax/js
+	/club/WebContent/common/include/weatherAjax/jsp（去除p：write标签 使用vo中的cityName字段显示城市名）
+	/club/WebContent/WEB-INF/pages/lounge/index/jsp
+	/club/WebContent/WEB-INF/pages/lounge/prod/search/jsp
+	/club/WebContent/WEB-INF/pages/hotel/index/jsp
+	/club/WebContent/WEB-INF/pages/hotel/prod/search/jsp
+	/club/WebContent/WEB-INF/pages/golf/index/jsp
+	/club/WebContent/WEB-INF/pages/golf/prod/se:33/jsp
+
+
+
+
+2011-9-15 21:55  李巡  更改页面title
+	/club/WebContent/WEB-INF/pages/golf/index/jsp
+	/club/WebContent/WEB-INF/pages/golf/prod/view/jsp
+	/club/WebContent/WEB-INF/pages/golf/prod/search/jsp
+	/club/WebContent/WEB-INF/pages/golf/book/book/jsp
+	/club/WebContent/WEB-INF/pages/golf/book/confirm/jsp
+	/club/WebContent/WEB-INF/pages/golf/book/success/jsp
+
+
+2011-9-16 10:55  李巡 修改酒店详情页面图片链接（取酒店接口传回的第一张图片）
+	/club/WebContent/WEB-INF/pages/hotel/prod/view/jsp
+
+
+2011-9-16 13:52  高杰   会员登录系统提示信息
+	springconf/applicationContext_personal/xml
+	com/hnatourism/club/personal/member/dao/impl/member_info/xml
+	com/hnatourism/club/personal/member/service/impl/MemberServiceImpl
+	com/hnatourism/club/personal/member/web/action/MemberInfoAction/java
+
+
+2011-9-16 13:52  高杰   机场主页推荐显示BUG
+	/web/html/lounge/index_content/jsp
+	
+
+2011-9-16 13:52  高杰   去掉链接的#，去掉不用的控件
+	/club/WebContent/WEB-INF/pages/member/account/jsp
+	/club/WebContent/WEB-INF/pages/member/deposit/jsp
+
+2011-9-16 16:06  纪连生  产品需求，主页产品样式修改，更换相应图片
+    /club/WebContent/WEB-INF/pages/index/jsp
+    /club/WebContent/web/css/style/css
+    
+2011-9-16 16:19  纪连生  按产品需求修改三折机票申请、公务机申请页面
+    /club/WebContent/WEB-INF/pages/flight/book/discount/jsp
+    /club/WebContent/WEB-INF/pages/flight/book/business/jsp
+    /club/WebContent/web/css/style/css
+
+2011-9-16 16:59  纪连生  按产品需求修改机票查询首页
+    /club/WebContent/WEB-INF/pages/flight/index/jsp
+    /club/WebContent/web/css/style/css
+	
+
+2011-9-16 16:40  李巡  修改bug 4901 高尔夫退场失败不能再申请的问题
+	/club/src/com/hnatourism/club/golf/api/ApiDaoImp/java
+	
+2011-9-19 15:03  纪连生  添加“免责声明”页面样式
+    /club/WebContent/web/css/style/css
+	
+2011-9-19 15:03  纪连生  机票首页右侧点击搜索按钮后置灰处理
+    /club/WebContent/WEB-INF/pages/flight/index/jsp
+    /club/WebContent/web/images/hbss/png
+    /club/WebContent/web/css/style/css	
+	
+2011-9-19 15:48  纪连生  “航班动态”点击搜索按钮后置灰处理
+    /club/WebContent/WEB-INF/pages/flight/prod/searchdynamic/jsp
+	/club/WebContent/web/images/SearchBtn/png
+	/club/WebContent/web/css/style/css
+
+2011-9-19 15:43 李巡  修改个人中心订单列表"返回顶部" 时页面向上滚动时加载日志
+		      在酒店详情中不可预订房价加入满房提示，酒店收缩页加入返回顶部
+	/club/WebContent/WEB-INF/pages/member/order/jsp
+	/club/WebContent/WEB-INF/pages/hotel/prod/search/jsp
+	/club/WebContent/WEB-INF/pages/hotel/prod/search/jsp
+
+
+2011-9-16 17:28  李巡  修改天气预报，屏蔽null字符
+	/club/WebContent/common/include/weatherAjax/jsp
+
+	
+20110919 16:29 高杰  BugID=5254 单位名称
+	/club/WebContent/WEB-INF/pages/golf/book/book/jsp
+	
+2011-9-19 16:01  纪连生  为便于后期维护，机场休息室首页右侧“概括”标题同原来的图片，改为文本，
+	/club/WebContent/web/html/lounge/index_content/jsp
+	/club/WebContent/web/css/style/css
+
+
+2011-9-19 16:09	李巡	修改满房图片
+	/club/WebContent/web/images/yd-mf/png
+
+
+2011-9-19 16:46	李巡	修改个人中心订单列表分页功能，防止条目过多时分页区溢出
+	/club/WebContent/WEB-INF/pages/member/order/jsp
+	
+2011-9-19 16:01  纪连生  应产品经理需求修改页面文本内容
+	/club/WebContent/WEB-INF/pages/flight/book/business/jsp
+	
+	
+-----2011-9-19 16:01--谷建亮 前台高尔夫 练习场支付分润 -----
+conf/ibatis_sqlmap_cfg/xml
+conf/payInterface/properties
+springconf/applicationContext_golf/xml
+springconf/applicationContext_order/xml
+springconf/applicationContext_personal/xml
+src/com/hnatourism/club/common/util/SnoGerUtil/java
+src/com/hnatourism/club/golf/api/golf_order_api/xml
+src/com/hnatourism/club/golf/prod/action/GolfConfirmAction/java
+src/com/hnatourism/club/pay/action/PayBackAction/java
+src/com/hnatourism/club/personal/member/service/impl/OrderBillServiceImpl/java
+src/com/hnatourism/club/personal/member/service/IOrderBillService/java
+src/com/hnatourism/club/golf/log/dao
+src/com/hnatourism/club/golf/log/dao/ILogGolfOrderDao/java
+src/com/hnatourism/club/golf/log/dao/impl
+src/com/hnatourism/club/golf/log/dao/impl/LogGolfOrderDaoImpl/java
+src/com/hnatourism/club/golf/order/dao
+src/com/hnatourism/club/golf/order/dao/impl
+src/com/hnatourism/club/golf/order/dao/impl/OrderGlofDaoImpl/java
+src/com/hnatourism/club/golf/order/dao/IOrderGlofDao/java
+src/com/hnatourism/club/golf/order/service/impl/OrderGolfSubRunServiceImpl/java
+src/com/hnatourism/club/golf/order/service/IOrderGolfSubRunService/java
+src/com/hnatourism/club/product
+src/com/hnatourism/club/product/base
+src/com/hnatourism/club/product/base/dao
+src/com/hnatourism/club/product/base/dao/impl
+src/com/hnatourism/club/product/base/dao/impl/prod_captcha/xml
+src/com/hnatourism/club/product/base/dao/impl/ProdCaptchaDaoImpl/java
+src/com/hnatourism/club/product/base/dao/IProdCaptchaDao/java
+src/com/hnatourism/club/product/base/dao/IRecommendProdDao/java
+src/com/hnatourism/club/product/base/domain
+src/com/hnatourism/club/product/base/domain/ProdCaptcha/java
+src/com/hnatourism/club/product/base/domain/RecommendProd/java
+
+
+-----2011-9-19 18:44--高杰   前台两舱休息室支付分润，主页推荐价格读取 -----
+com/hnatourism/club/golf/api/golf_price_api/xml
+com/hnatourism/club/lounge/order/action/LoungeOrderAction
+com/hnatourism/club/lounge/order/dao/impl/OrderLoungeDaoImpl
+com/hnatourism/club/lounge/order/dao/IOrderLoungeDao
+com/hnatourism/club/loungeserver/order/LoungeOrderVerifyApiServiceImpl
+com/hnatourism/club/pay/action/PayBackAction
+com/hnatourism/club/personal/member/service/impl/OrderBillServiceImpl
+strutsconf/struts_golf/xml
+springconf/applicationContext_lounge/xml
+/club/WebContent/WEB-INF/pages/golf/book/success/jsp
+
+-----2011-9-20 9:01--高杰   主页酒店推荐BUG -----
+/club/WebContent/WEB-INF/pages/index/jsp
+
+-----2011-9-20 9:01--高杰   两舱休息室预订成功可以直接支付 -----
+/club/WebContent/WEB-INF/pages/golf/book/success/jsp
+/club/WebContent/WEB-INF/pages/lounge/book/success/jsp
+strutsconf/struts_lounge/xml
+/club/WebContent/WEB-INF/pages/index/jsp
+
+-----2011-9-20 9:01--高杰   主页推荐显示 -----
+com/hnatourism/club/golf/api/golf_price_api/xml
+/club/WebContent/WEB-INF/pages/index/jsp
+
+
+2011-9-20 10:46  纪连生  酒店详情 酒店预览图片显示问题
+	/club/WebContent/web/css/style/css
+
+
+2011-9-20 11:28  李巡	修改酒店搜索日期选择范围受限问题，更改HotelHomeAction的继承关系
+	/club/src/com/hnatourism/club/hotel/prod/web/action/HotelHomeAction/java
+	/club/springconf/applicationContext_hotel/xml
+	/club/strutsconf/struts_hotel/xml
+	/club/WebContent/WEB-INF/pages/hotel/index/jsp
+	/club/WebContent/WEB-INF/pages/hotel/prod/search/jsp
+2011-9-20 12:59	李巡	修改个人中心订单查询时多次点击重复提交问题
+	/club/WebContent/WEB-INF/pages/member/order/jsp
+
+
+-----2011-9-20 13:21--高杰   两舱休息室前台支付回调，预订成功页面的确认按钮显示 -----
+/club/WebContent/WEB-INF/pages/golf/book/success/jsp
+/club/WebContent/WEB-INF/pages/lounge/book/success/jsp
+com/hnatourism/club/personal/member/service/impl/OrderBillServiceImpl
+com/hnatourism/club/personal/member/dao/impl/order_bill/xml
+com/hnatourism/club/personal/member/dao/IOrderBillDao
+com/hnatourism/club/personal/member/dao/impl/OrderBillDaoImpl
+com/hnatourism/club/pay/action/PayBackAction
+/club/web/html/golf/index_center/jsp
+
+-----2011-9-20 14:20--谷建亮 前台高尔夫 练习场支付分润测试 -----
+src/com/hnatourism/club/golf/api/golf_order_api/xml
+
+-----2011-9-20 14:43--高杰 前台高尔夫 练习场支付分润测试 -----
+com/hnatourism/club/personal/member/dao/impl/member_info/xml
+
+-----2011-9-20 14:43--高杰 Bug #5088的排列问题 -----
+/club/web/html/golf/index_center/jsp
+com/hnatourism/club/golf/prod/vo/HnaProCityVo/java
+com/hnatourism/club/golf/prod/action/GolfHomeAction
+
+-----2011-9-20 14:43--高杰 前台两舱休息室分润成功 -----
+com/hnatourism/club/loungeserver/order/LoungeOrderVerifyApiServiceImpl
+
+-----2011-9-20 17:22--高杰 前台两舱休息室订单状态变更错误 -----
+com/hnatourism/club/loungeserver/order/LoungeOrderVerifyApiServiceImpl
+
+-----2011-9-20 17:22--高杰 预订价格读取边界值错误 -----
+/club/WebContent/WEB-INF/pages/golf/book/book/jsp
+
+-----2011-9-20 17:22--高杰 高尔夫主页推荐 -----
+/club/web/html/golf/index_center/jsp
+com/hnatourism/club/golf/prod/vo/HnaProCityVo
+com/hnatourism/club/golf/prod/action/GolfHomeAction
+
+-----2011-9-20 17:22--高杰 高尔夫练习场预订成功防重复确认，高尔夫练习场会员确认状态错误 -----
+/club/WebContent/WEB-INF/pages/golf/book/success/jsp
+/club/WebContent/WEB-INF/pages/lounge/book/success/jsp
+com/hnatourism/club/golf/prod/action/GolfConfirmAction
+com/hnatourism/club/golf/prod/service/IGolfConfirmService
+
+com/hnatourism/club/golf/prod/service/impl/GolfConfirmServiceImpl
+
+-----2011-9-22 17:46--高杰 两舱休息室会员确定支付验证码BUG -----
+spring/applicationContext_lounge/xml
+com/hnatourism/club/loungeserver/order/LoungeOrderVerifyApiServiceImpl
+com/hnatourism/club/golf/prod/service/impl/GolfConfirmServiceImpl
+
+
+
+2011-9-21 16:13	李巡	修正休息室订单详情中的半角符号
+	/club/WebContent/WEB-INF/pages/member/order/jsp
+	
+2011-09-21  谷建亮 将手续费移到配置文件
+ 
+conf/payInterface/properties
+src/com/hnatourism/club/common/util/SubRunUtils/java
+src/com/hnatourism/club/golf/api/ParameterHandler/java
+
+
+
+2011-9-22 16:41  纪连生  按产品要求修改页面 title
+/club/WebContent/WEB-INF/pages/flight/book/discount/jsp
+/club/WebContent/WEB-INF/pages/flight/book/applybusiness/jsp
+/club/WebContent/contact/jsp
+/club/WebContent/notices/jsp
+
+
+-----2011-9-22 17:46--高杰 支付分润业务修改BUG -----
+com/hnatourism/club/personal/member/dao/impl/order_bill/xml
+
+-----2011-9-23 11:04--高杰 支付分润业务提示 -----
+com/hnatourism/club/loungeserver/order/LoungeOrderVerifyApiServiceImpl
+com/hnatourism/club/lounge/order/action/LoungeOrderAction
+strutsconf/struts_lounge/xml
+
+
+2011-9-22 20:38	李巡	添加前台的酒店推荐功能
+/WebContent/WEB-INF/pages/hotel/prod/recommend_index/jsp
+/WebContent/WEB-INF/pages/hotel/prod/recommend_search/jsp
+src/com/hnatourism/club/product/base/dao/impl/recommend_prod/xml
+src/com/hnatourism/club/product/base/dao/impl/RecommendProdDaoImpl/java
+conf/ibatis_sqlmap_cfg/xml
+springconf/applicationContext_hotel/xml
+src/com/hnatourism/club/hotel/prod/web/action/HotelInfoAction/java
+src/com/hnatourism/club/hotel/prod/web/action/HotelSearchAction/java
+src/com/hnatourism/club/lounge/order/action/LoungeOrderAction/java
+src/com/hnatourism/club/product/base/dao/IRecommendProdDao/java
+src/com/hnatourism/club/product/base/domain/RecommendProd/java
+strutsconf/struts_hotel/xml
+WebContent/WEB-INF
+WebContent/WEB-INF/decorators/xml
+WebContent/WEB-INF/pages/hotel/index/jsp
+WebContent/WEB-INF/pages/index/jsp
+WebContent/WEB-INF/pages/lounge/order/view/jsp
+WebContent/web/html/hotel/index_content/jsp
+src/com/hnatourism/club/product/base/dao/impl/recommend_prod/xml
+src/com/hnatourism/club/product/base/dao/impl/RecommendProdDaoImpl/java
+src/com/hnatourism/club/product/base/service
+src/com/hnatourism/club/product/base/service/impl
+src/com/hnatourism/club/product/base/service/impl/RecommendProdServiceImpl/java
+src/com/hnatourism/club/product/base/service/RecommendProdService/java
+src/com/hnatourism/club/product/base/vo
+src/com/hnatourism/club/product/base/vo/RecommendProdVo/java
+WebContent/WEB-INF/classes/com/hnatourism/club/product/base/dao/impl/recommend_prod/xml
+WebContent/WEB-INF/pages/hotel/prod/recommend_index/jsp
+WebContent/WEB-INF/pages/hotel/prod/recommend_search/jsp
+
+
+2011-9-22 16:41  纪连生  法律声明页面修改
+/club/WebContent/notices/jsp
+
+-----2011-9-23 15:41--高杰 高尔夫、机场、酒店预订兼容chrome -----
+/WebContent/WEB-INF/pages/hotel/book/book/jsp
+/WebContent/WEB-INF/pages/golf/book/book/jsp
+/WebContent/WEB-INF/pages/lounge/book/book/jsp
+
+
+2011-9-23 11:33 李巡	修改页面title
+WebContent/WEB-INF/pages/golf/book/book/jsp
+WebContent/WEB-INF/pages/golf/book/success/jsp
+WebContent/WEB-INF/pages/golf/index/jsp
+WebContent/WEB-INF/pages/golf/order/view/jsp
+WebContent/WEB-INF/pages/golf/prod/search/jsp
+WebContent/WEB-INF/pages/golf/prod/view/jsp
+WebContent/WEB-INF/pages/hotel/book/book/jsp
+WebContent/WEB-INF/pages/hotel/book/success/jsp
+WebContent/WEB-INF/pages/hotel/index/jsp
+WebContent/WEB-INF/pages/hotel/order/view/jsp
+WebContent/WEB-INF/pages/hotel/prod/search/jsp
+WebContent/WEB-INF/pages/hotel/prod/view/jsp
+WebContent/WEB-INF/pages/lounge/book/book/jsp
+WebContent/WEB-INF/pages/lounge/book/success/jsp
+WebContent/WEB-INF/pages/lounge/index/jsp
+WebContent/WEB-INF/pages/lounge/order/view/jsp
+WebContent/WEB-INF/pages/lounge/prod/search/jsp
+
+2011-09-23 谷建亮  修改账单供应商收费不正确bug
+Path
+src/com/hnatourism/club/common/util/SubRunUtils/java
+src/com/hnatourism/club/loungeserver/LoungeRegistrationCenter/java
+src/com/hnatourism/club/personal/member/service/impl/OrderBillServiceImpl/java
+
+
+
+2011-9-23 14:34	李巡	修改机场休息室操作提示问题
+src/com/hnatourism/club/lounge/order/action/LoungeOrderAction/java
+strutsconf/struts_lounge/xml
+WebContent/WEB-INF/pages/lounge/order/view/jsp
+
+2011-9-23 15:20	李巡	修改首页推荐时默认提供时间错误
+WebContent/WEB-INF/pages/index/jsp
+
+-----2011-9-23 17:37--高杰 查询不出数据 -----
+com/hnatourism/club/loungeserver/prod/LoungeSearchApiServiceImpl
+
+2011-9-23 16:40	李巡	修改酒店详情中接口数据返回早餐和宽带数据为空时没有显示的问题,修改酒店预订时ie6内核浏览器兼容性问题
+Path
+WebContent/WEB-INF/pages/hotel/book/book/jsp
+WebContent/WEB-INF/pages/hotel/prod/view/jsp
+
+-----2011-9-25 11:54--高杰 酒店订单详情，下单时间去掉 -----
+WebContent/WEB-INF/pages/hotel/order/view/jsp
+
+-----2011-9-25 12:25--高杰 xinhua账号预订贵宾间BUG -----
+com/hnatourism/club/loungeserver/prod/LoungeBookApiServiceImpl
+
+-----2011-9-25 12:32--高杰 支付分润业务提示信息变更 -----
+com/hnatourism/club/loungeserver/order/LoungeOrderVerifyApiServiceImpl
+
+-----2011-9-25 12:32--高杰 机场休息室搜索 -----
+com/hnatourism/club/loungeserver/prod/LoungeSearchApiServiceImpl
+com/hnatourism/club/lounge/prod/dao/impl/LoungeInfoDaoImpl
+com/hnatourism/club/lounge/prod/dao/impl/lounge_info/xml
+com/hnatourism/club/lounge/prod/dao/ILoungeInfoDao
+
+-----2011-9-25 13:31--高杰 酒店url编码 -----
+com/hnatourism/club/hotel/prod/service/impl/HotelBookServiceImpl
+com/hnatourism/club/hotel/prod/web/action/HotelSearchAction
+com/hnatourism/club/hotel/common/Tool
+
+-----2011-9-25 13:41--高杰 账单信息机票显示-----
+WebContent/WEB-INF/pages/member/account/jsp
+
+2011-9-26 9:41  纪连生  商旅管家俱乐部介绍 页面 钻石卡，卡样修改
+    /club/WebContent/web/images/zuanshika/jpg
+    
+2011-9-26 9:41  纪连生  产品方案修改
+    /club/WebContent/subject/scoreExchange/jsp
+    
+-----2011-9-26 11:23--高杰 待客下单-----
+WebContent/WEB-INF/pages/hotel/book/book/jsp
+com/hnatourism/club/personal/member/service/impl/OrderBillServiceImpl
+com/hnatourism/club/personal/member/service/IOrderBillService
+com/hnatourism/club/loungeserver/order/LoungeOrderVerifyApiServiceImpl
+com/hnatourism/club/lounge/prod/action/LoungeInfoAction
+com/hnatourism/club/golf/prod/action/GolfHomeAction
+com/hnatourism/club/golf/prod/action/GolfConfirmAction
+com/hnatourism/club/golf/order/service/impl/OrderGolfSubRunServiceImpl
+com/hnatourism/club/golf/order/service/IOrderGolfSubRunService
+
+-----2011-9-26 11:37--高杰 订单ID公用类-----
+com/hnatourism/club/golf/order/action/GolfSubmitAction
+com/hnatourism/club/loungeserver/order/LoungeOrderApiServiceImpl
+
+
+2011-9-26 9:41  纪连生  商旅管家俱乐部介绍 页面 钻石、金、白金、政企卡样修改
+    /club/WebContent/web/images/baijinka/jpg
+    /club/WebContent/web/images/jinka/jpg
+    /club/WebContent/web/images/qiyeka/jpg
+    /club/WebContent/web/images/zuanshika/jpg
+    
+2011-9-26 13:40  纪连生 修复css错误引起的警告
+    /club/WebContent/web/css/style/css
+    /club/WebContent/web/js/city/style/city/css
+    
+2011-9-26 14:30  纪连生  首页 钻石、金、白金、政企卡样修改
+    /club/WebContent/web/images/show_01/jpg
+    /club/WebContent/web/images/show_02/jpg
+    /club/WebContent/web/images/show_03/jpg
+    /club/WebContent/web/images/show_04/jpg
+    
+
+-----2011-9-26 16:17--高杰   屏蔽加床加早餐-----
+WebContent/WEB-INF/pages/hotel/book/book/jsp
+
+
+-----2011-9-27 10:41--高杰   登录记住密码-----
+com/hnatourism/club/personal/member/web/action/MemberInfoAction
+WebContent/WEB-INF/pages/member/login/jsp
+WebContent/WEB-INF/pages/hotel/book/book/jsp
+
+
+2011-9-27 10:38	李巡	修改错误的import
+product/base/service/impl/RecommendProdServiceImpl/java
+
+2011-9-27 10:43	李巡	修改休息室订单详情中的不正确的提示信息
+WebContent/WEB-INF/pages/lounge/order/view/jsp
+
+-----2011-9-27 10:41--高杰   去掉订单详情页面的*-----
+WebContent/WEB-INF/pages/hotel/order/view/jsp
+
+-----2011-9-27 12:00--高杰   酒店房型无价格不显示-----
+WebContent/WEB-INF/pages/hotel/prod/search/jsp
+WebContent/WEB-INF/pages/hotel/order/view/jsp
+
+2011-9-27 11:22  纪连生 BugID=5384 酒店订单详情 样式错乱，div标签成对，补全。
+   /club/WebContent/WEB-INF/pages/hotel/prod/view/jsp
+    /club/WebContent/web/js/city/style/city/css
+
+2011-9-27 11:35	李巡	bug#5389 修改对页面上提交按钮的现实控制
+WebContent/WEB-INF/pages/lounge/order/view/jsp
+
+
+2011-9-27 12:15	李巡	修改个人中心订单列表在加载数据时保留表头
+src/com/hnatourism/club/hotel/order/action/OrderHotelAction/java
+WebContent/WEB-INF/pages/hotel/order/view/jsp
+WebContent/WEB-INF/pages/member/order/jsp
+
+2011-9-27 15:54	李巡	修改在调用分润接口失败时休息室订单确认无错误提示的问题
+src/com/hnatourism/club/loungeserver/order/LoungeOrderVerifyApiServiceImpl/java
+
+
+2011-9-27 17:34	李巡	修改推荐产品的查询方式,以及酒店的推荐信息
+Path
+springconf/applicationContext_hotel/xml
+src/com/hnatourism/club/hotel/prod/web/action/HotelInfoAction/java
+src/com/hnatourism/club/product/base/dao/impl/recommend_prod/xml
+src/com/hnatourism/club/product/base/dao/impl/RecommendProdDaoImpl/java
+src/com/hnatourism/club/product/base/dao/IRecommendProdDao/java
+src/com/hnatourism/club/product/base/service/impl/RecommendProdServiceImpl/java
+WebContent/WEB-INF/classes/com/hnatourism/club/product/base/dao/impl/recommend_prod/xml
+WebContent/WEB-INF/pages/hotel/index/jsp
+WebContent/WEB-INF/pages/hotel/prod/recommend_search/jsp
+
+
+-----2011-9-28 10:32--高杰   机场休息室：新增加的产品不能查询出来-----
+com/hnatourism/club/lounge/prod/dao/impl/lounge_info/xml
+
+-----2011-9-28 10:32--高杰   酒店预订结果提示信息-----
+strutsconf/struts_hotel/xml
+/club/WebContent/WEB-INF/pages/hotel/book/success/jsp
+com/hnatourism/club/hotel/prod/web/action/HotelBookAction/java
+
+
+-----2011-9-28 15:32--高杰   登录失败后再次登录成功，重新定向没有值-----
+com/hnatourism/club/personal/member/web/action/MemberInfoAction
+
+
+2011-9-28 16:09	李巡	修改个人中心订单加载方式,以及机票的页面查询过滤
+src/com/hnatourism/club/lounge/prod/action/LoungeInfoAction/java
+WebContent/WEB-INF/pages/member/order/jsp
+WebContent/WEB-INF/pages/member/order/include/flightOrderTable/jsp
+WebContent/WEB-INF/pages/member/order/include/golfOrderTable/jsp
+WebContent/WEB-INF/pages/member/order/include/hotelOrderTable/jsp
+WebContent/WEB-INF/pages/member/order/include/loungeOrderTable/jsp
+
+
+2011-9-28 16:17	李巡	修改休息室申请退改提示信息,去除多余的import
+src/com/hnatourism/club/loungeserver/order/LoungeOrderExceptionApiServiceImpl/java
+src/com/hnatourism/club/loungeserver/order/LoungeOrderLogServiceImpl/java
+src/com/hnatourism/club/loungeserver/order/LoungeOrderReturnApiServiceImpl/java
+升级说明/txt
+
+
+
+-----2011-9-28 15:32--高杰   订单日期格式化-----
+com/hnatourism/club/lounge/order/dao/impl/order_lounge_exception/xml
+com/hnatourism/club/golf/api/golf_order_exception_api/xml
+
+-----2011-9-28 17:17--高杰   高尔夫详情显示球场模式-----
+/club/WebContent/WEB-INF/pages/golf/prod/view/jsp
+com/hnatourism/club/golf/api/golf_order_exception_api/xml
+
+
+2011-9-28 17:04  纪连生 入会机构分布详情 改电话号码
+  /club/WebContent/subject/memberApply/jsp
+
+-----2011-9-28 17:17--高杰   取消酒店搜索无价格不显示限制-----
+/club/WebContent/WEB-INF/pages/hotel/prod/search/jsp
+
+2011-9-28 17:17	李巡	修改json工具中的日期格式化(yyyy-MM-dd HH:mm:ss)	去除多余的import
+src/com/hnatourism/club/golf/api/ApiServerAction/java
+src/com/hnatourism/club/golf/api/GsonUtil/java
+WebContent/WEB-INF/pages/member/order/jsp
+升级说明
+
+
+-----2011-9-29 11:26--高杰   组织机构分公司显示-----
+springconf/applicationContext_common/xml
+strutsconf/struts_common/xml
+com/hnatourism/club/common/dao/ISysOrganizationDao/java
+com/hnatourism/club/common/dao/impl/sys_organization/xml
+com/hnatourism/club/common/dao/impl/SysOrganizationDaoImpl
+com/hnatourism/club/common/domain/SysOrganization
+com/hnatourism/club/common/service/ISysOrganizationService
+com/hnatourism/club/common/service/impl/SysOrganizationServiceImpl
+com/hnatourism/club/common/web/action/SysOrganizationAction
+com/hnatourism/club/common/web/vo/SysOrganizationVo
+src/com/hnatourism/club/golf/api/hna_procity_api/xml
+/club/WebContent/subject/memberApply/jsp
+/club/WebContent/WEB-INF/pages/common/memberApply/jsp
+
+
+-----2011-9-29 11:58--高杰   高尔夫练习场周日预订不成功-----
+com/hnatourism/club/golf/prod/vo/GolfPriceVo
+com/hnatourism/club/golf/prod/action/GolfPracBookAction
+
+
+-----2011-9-29 11:58--高杰   预订成功提示信息，机场休息室预订限制-----
+/club/WebContent/WEB-INF/pages/lounge/book/success/jsp
+/club/WebContent/WEB-INF/pages/golf/book/success/jsp
+/club/WebContent/WEB-INF/pages/lounge/prod/search/jsp
+
+2011-9-29 13:00  纪连生 酒店展开全部房间颜色区分
+    /club/WebContent/web/css/style/css
+    /club/WebContent/WEB-INF/pages/hotel/prod/search/jsp
+
+
+2011-9-29 14:00  纪连生 酒店首页推荐自信索引问题
+    /club/WebContent/WEB-INF/pages/hotel/index/jsp
+
+
+-----2011-9-29 15:11--高杰   机场休息室预订用户级别限制，酒店时间控件-----
+/club/WebContent/WEB-INF/pages/hotel/index/jsp
+/club/WebContent/WEB-INF/pages/hotel/prod/search/jsp
+/club/WebContent/WEB-INF/pages/lounge/prod/search/jsp
+
+    
+-----2011-9-29 15:11--高杰   高尔夫练习场预订-----
+/club/WebContent/WEB-INF/pages/lounge/book/book/jsp
+-----2011-9-29 15:11--高杰   机场休息室预订用户级别限制，酒店时间控件-----
+
+
+2011-9-29 15:20	李巡	修改酒店推荐信息没有显示"特价酒店"的错误
+/WEB-INF/pages/hotel/prod/recommend_search/jsp
+
+
+2011-9-29 13:00  纪连生 机票查询列表列宽处理
+    /club/WebContent/web/css/style/css
+
+    
+-----2011-9-29 17:56--高杰   酒店查询分润-----
+com/hnatourism/framework/web/vo/AbstractVo/HotelRoomVo
+com/hnatourism/framework/web/vo/AbstractVo/HotelPicsVo/java
+com/hnatourism/framework/web/vo/AbstractVo/HotelInfoVo/java
+com/hnatourism/club/hotel/prod/web/action/HotelSearchAction
+
+
+    
+-----2011-9-29 17:56--高杰   大首页高尔夫推荐单位显示-----
+/club/WebContent/WEB-INF/pages/index/jsp
+
+-----2011-9-29 18:39--李巡	屏蔽酒店订单中接口暂时没有的数据---------
+WebContent/WEB-INF/pages/member/order/jsp
+WebContent/WEB-INF/pages/member/order/include/hotelOrderTable/jsp
+
+    
+-----2011-9-29 17:56--高杰   酒店查询分润-----
+com/hnatourism/club/hotel/prod/web/action/HotelBookAction
+com/hnatourism/club/hotel/prod/web/action/HotelSearchAction
+com/hnatourism/club/hotel/prod/web/vo/HotelRoomVo
+
+    
+-----2011-9-30 9:32--高杰   登录反跳转-----
+com/hnatourism/club/golf/prod/action/GolfPracBookAction
+com/hnatourism/club/lounge/prod/action/OrderLoungeAction
+com/hnatourism/club/hotel/prod/web/action/HotelBookAction
+
+    
+-----2011-9-30 9:32--高杰   主页搜索默认当前时间-----
+com/hnatourism/club/golf/prod/action/GolfHomeAction
+com/hnatourism/club/lounge/prod/action/LoungeInfoAction
+
+
+2011-9-30 10:30  纪连生 机票查询列表显示信息文本颜色调整
+    /club/WebContent/flight/search/jsp
+    /club/WebContent/flight/searchReturn/jsp
+    /club/WebContent/web/css/style/css
+    
+    
+    
+-----2011-9-30 10:32--高杰   酒店预订特殊需求-----
+/WEB-INF/pages/hotel/book/book/jsp
+com/hnatourism/club/hotel/prod/web/action/HotelBookAction
+com/hnatourism/club/hotel/prod/service/impl/HotelBookServiceImpl
+com/hnatourism/club/hotel/order/vo/HotelOrderParemVo
+    
+    
+-----2011-9-30 10:50--高杰   高尔夫主页推荐单位名称-----
+com/hnatourism/club/golf/api/hna_procity_api/xml
+/web/html/golf/index_center/jsp
+
+    
+-----2011-9-30 11:37--高杰   高尔夫主页推荐显示-----
+com/hnatourism/club/golf/api/golf_price_api/xml
+/web/html/golf/index_center/jsp
+
+
+
+2011-9-30 10:30  纪连生 酒店强制阅读协议 （提交按钮置灰）
+    /club/WebContent/WEB-INF/pages/hotel/book/book/jsp
+    /club/WebContent/web/images/gbjddxq_18/jpg
+
+
+2011-9-30 11:47	李巡	修改酒店的配置文件规范action命名,整理配置文件
+springconf/applicationContext_hotel/xml
+src/com/hnatourism/club/hotel/api/service/impl/HotelApiManagerImpl/java
+src/com/hnatourism/club/hotel/order/action/HotelOrderAction/java
+src/com/hnatourism/club/hotel/order/action/OrderHotelAction/java
+src/com/hnatourism/club/hotel/prod/web/action/HotelInfoAction/java
+src/com/hnatourism/club/hotel/prod/web/action/HotelOrderAction/java
+strutsconf/struts_hotel/xml
+WebContent/hotel/index/jsp
+WebContent/hotel/search/jsp
+WebContent/WEB-INF/classes/struts_hotel/xml
+WebContent/WEB-INF/pages/hotel/book/success/jsp
+WebContent/WEB-INF/pages/hotel/order/view/jsp
+WebContent/WEB-INF/pages/hotel/prod/search/jsp
+WebContent/WEB-INF/pages/hotel/prod/view/jsp
+WebContent/WEB-INF/pages/member/order/include/hotelOrderTable/jsp
+
+
+2011-9-30 11:53	李巡	屏蔽接口中没有提供的字段的现实
+WebContent/WEB-INF/pages/member/order/include/hotelOrderTable/jsp
+
+------------------------------------------------------------------------
+2011-9-30 13:49	李巡	调整酒店搜索js,防止出现为定义的页
+WebContent/WEB-INF/pages/hotel/prod/search/jsp
+
+2011-9-30 13:55  纪连生 机票查询列表显示信息文本颜色调整
+    /club/WebContent/web/css/style/css
+
+2011-9-30 15:00	李巡	去除代码中多余的import
+src/com/hnatourism/club/lounge/order/dao/IOrderLoungeDao/java
+src/com/hnatourism/club/lounge/order/domain/OrderLounge/java
+src/com/hnatourism/club/lounge/prod/action/OrderLoungeAction/java
+WebContent/WEB-INF/pages/hotel/prod/recommend_search/jsp
+
+
+2011-9-30 16:41	李巡	修改酒店订单详情到点时间判断失败无法显示的问题
+/club/WebContent/WEB-INF/pages/hotel/order/view/jsp
+
+2011-10-8 13:35	李巡	修改酒店推荐信息查询,防止在数据库中空数据的情况下发生错误
+src/com/hnatourism/club/product/base/service/impl/RecommendProdServiceImpl/java
+
+
+    
+-----2011-10-08 14:37--高杰   高尔夫搜索显示顺序-----
+com/hnatourism/club/golf/prod/action/GolfHomeSearchAction
+
+
+
+-----2011-10-09 11:18--高杰   高尔夫搜索显示顺序-----
+WebContent/WEB-INF/pages/golf/prod/search/jsp
+WebContent/WEB-INF/pages/golf/index/jsp
+WebContent/WEB-INF/pages/golf/prod/view/jsp
+WebContent/WEB-INF/pages/golf/book/book/jsp
+WebContent/WEB-INF/pages/lounge/index/jsp
+WebContent/WEB-INF/pages/lounge/book/book/jsp
+WebContent/WEB-INF/pages/lounge/prod/search/jsp
+
+
+2011-10-10 11:50	李巡	修改休息室推荐信息显示不完整或者错误的bug
+
+src/com/hnatourism/club/lounge/prod/action/LoungeInfoAction/java
+src/com/hnatourism/club/lounge/prod/dao/impl/lounge_room/xml
+src/com/hnatourism/club/loungeserver/LoungeHomeApiServiceImpl/java
+WebContent/web/html/lounge/index_content/jsp
+
+
+2011-10-10 17:24	李巡	修改酒店分润功能,统一api中json数据的日期格式(未修改原来的方法,而是添加功能相近的新方法,避免影响原有的代码的功)
+
+springconf/applicationContext_hotel/xml
+springconf/applicationContext_personal/xml
+src/com/hnatourism/club/golf/api/ApiServerAction/java
+src/com/hnatourism/club/golf/api/GsonUtil/java
+src/com/hnatourism/club/hotel/api/service/IHotelApiManager/java
+src/com/hnatourism/club/hotel/api/service/IHotelOrderService/java
+src/com/hnatourism/club/hotel/api/service/impl/HotelApiManagerImpl/java
+src/com/hnatourism/club/hotel/api/service/impl/HotelOrderServiceImpl/java
+src/com/hnatourism/club/hotel/order/action/HotelOrderAction/java
+src/com/hnatourism/club/hotel/order/vo/HotelOrderDetailsVo/java
+src/com/hnatourism/club/hotel/order/vo/QueryHotelOrderVo/java
+src/com/hnatourism/club/hotel/prod/web/action/HotelInfoAction/java
+src/com/hnatourism/club/member/order/action/MemberOrderAction/java
+src/com/hnatourism/club/personal/member/dao/IMemberAccountDao/java
+src/com/hnatourism/club/personal/member/dao/impl/MemberAccountDaoImpl/java
+strutsconf/struts_api/xml
+strutsconf/struts_hotel/xml
+WebContent/WEB-INF/pages/hotel/order/view/jsp
+
+2011-10-11  谷建亮   解决"我的资金账户 "中退款账单显示金额不正确问题
+\com\hnatourism\club\personal\member\service\impl\OrderBillServiceImpl
+
+
+2011-10-11  谷建亮   修改flight_airline_company，flight_airport，hna_procity，member_info表的查找位置
+                                                  解决休息室预定事没有数据
+                                                  解决高尔夫练习场，机场两舱休息室前台会员确认失败问题
+src/com/hnatourism/club/common/dao/impl/flight_airport/xml
+src/com/hnatourism/club/common/util/SubRunUtils/java
+src/com/hnatourism/club/golf/order/dao/impl/OrderGlofDaoImpl/java
+src/com/hnatourism/club/golf/order/service/impl/OrderGolfSubRunServiceImpl/java
+src/com/hnatourism/club/lounge/order/dao/impl/OrderLoungeDaoImpl/java
+src/com/hnatourism/club/lounge/prod/dao/impl/Flight_airline_com/xml
+src/com/hnatourism/club/lounge/prod/dao/impl/Flight_airport/xml
+src/com/hnatourism/club/lounge/prod/dao/impl/lounge_info/xml
+src/com/hnatourism/club/loungeserver/LoungeRegistrationCenter/java
+src/com/hnatourism/club/loungeserver/prod/LoungeBookApiServiceImpl/java
+
+2011-10-12 15:47 张晗 李巡 解决酒店查询房型信息异常问题
+	/club_2011-9-5/src/com/hnatourism/club/hotel/api/service/impl/HotelApiManagerImpl/java
+	/club_2011-9-5/src/com/hnatourism/club/hotel/prod/web/action/HotelInfoAction/java
+	/club_2011-9-5/WebContent/WEB-INF/pages/hotel/prod/search/jsp
+	/club_2011-9-5/WebContent/WEB-INF/pages/hotel/index/jsp
+	
+2011-10-12 谷建亮  添加积分兑换功能
+Path
+conf/ibatis_sqlmap_cfg/xml
+springconf/applicationContext_order/xml
+src/com/hnatourism/club/common/Constants/java
+src/com/hnatourism/club/common/util/DateUtils/java
+strutsconf/struts_member/xml
+WebContent/WEB-INF/pages/member/menu/jsp
+src/com/hnatourism/club/order
+src/com/hnatourism/club/order/dao
+src/com/hnatourism/club/order/dao/impl
+src/com/hnatourism/club/order/dao/impl/order_points_exchange/xml
+src/com/hnatourism/club/order/dao/impl/OrderPointsExchangeDaoImpl/java
+src/com/hnatourism/club/order/dao/IOrderPointsExchangeDao/java
+src/com/hnatourism/club/order/domain
+src/com/hnatourism/club/order/domain/OrderPointsExchange/java
+src/com/hnatourism/club/order/service
+src/com/hnatourism/club/order/service/impl
+src/com/hnatourism/club/order/service/impl/OrderPointsExchangeServiceImpl/java
+src/com/hnatourism/club/order/service/IOrderPointsExchangeService/java
+src/com/hnatourism/club/order/web
+src/com/hnatourism/club/order/web/OrderPointsExchangeAction/java
+src/com/hnatourism/club/order/web/vo
+src/com/hnatourism/club/order/web/vo/OrderPointsExchangeVo/java
+WebContent/WEB-INF/pages/order
+WebContent/WEB-INF/pages/order/addOrderPointsExchange/jsp
+WebContent/WEB-INF/pages/order/listPage/jsp
+WebContent/WEB-INF/pages/order/success/jsp
+
+
+
+2011-10-13 9:43	李巡	修改酒店详情图片信息无法显示的问题
+src/com/hnatourism/club/hotel/prod/web/action/HotelInfoAction/java
+WebContent/WEB-INF/pages/hotel/order/view/jsp
+WebContent/WEB-INF/pages/hotel/prod/view/jsp
+
+2011-10-13  谷建亮  开发发布积分兑换信息
+Path
+springconf/applicationContext_order/xml
+src/com/hnatourism/club/common/Constants/java
+src/com/hnatourism/club/common/util/DateUtils/java
+src/com/hnatourism/club/order/dao/impl/order_points_exchange/xml
+src/com/hnatourism/club/order/domain/OrderPointsExchange/java
+src/com/hnatourism/club/order/service/impl/OrderPointsExchangeServiceImpl/java
+src/com/hnatourism/club/order/web/OrderPointsExchangeAction/java
+src/com/hnatourism/club/order/web/vo/OrderPointsExchangeVo/java
+WebContent/WEB-INF/pages/order/addOrderPointsExchange/jsp
+WebContent/WEB-INF/pages/order/listPage/jsp
+
+
+2011-10-13 14:52	李巡	修改酒店订单预订功能的日志输出
+
+src/com/hnatourism/club/hotel/prod/service/impl/HotelBookServiceImpl/java
+src/com/hnatourism/club/hotel/prod/web/action/HotelBookAction/java
+
+2011-10-13 16:33 古剑亮 张晗  修改高尔夫练习场 合同无效时数据 过滤
+/club_2011-9-5/src/com/hnatourism/club/golf/api/golf_info_api/xml
+
+2011-10-13 17:08 张晗  调试机场休息室订单拒绝理由 显示
+/club_2011-9-5/WebContent/WEB-INF/pages/lounge/order/view/jsp
+
+2011-10-13 17:26 张晗 修改酒店预订失败提示信息
+/club_2011-9-5/WebContent/WEB-INF/pages/hotel/book/success/jsp
+/club_2011-9-5/src/com/hnatourism/club/hotel/prod/web/action/HotelBookAction/java
+
+
+
+2011-10-14 10:25	李巡	修改订单操作的提示不正确的bug
+src/com/hnatourism/club/golf/order/action/GolfOrderAction/java
+src/com/hnatourism/club/golf/prod/action/GolfConfirmAction/java
+src/com/hnatourism/club/golf/prod/service/impl/GolfConfirmServiceImpl/java
+src/com/hnatourism/club/lounge/order/action/LoungeOrderAction/java
+WebContent/WEB-INF/pages/golf/order/view/jsp
+WebContent/WEB-INF/pages/lounge/order/view/jsp
+
+2011-10-14  谷建亮  添加积分兑换
+src/com/hnatourism/club/order/dao/impl/order_points_exchange/xml
+src/com/hnatourism/club/order/dao/impl/OrderPointsExchangeDaoImpl/java
+src/com/hnatourism/club/order/dao/IOrderPointsExchangeDao/java
+src/com/hnatourism/club/order/service/impl/OrderPointsExchangeServiceImpl/java
+src/com/hnatourism/club/order/service/IOrderPointsExchangeService/java
+src/com/hnatourism/club/order/web/OrderPointsExchangeAction/java
+strutsconf/struts_member/xml
+WebContent/WEB-INF/pages/order/addOrderPointsExchange/jsp
+WebContent/WEB-INF/pages/order/listPage/jsp
+
+
+
+
+
+2011-10-17 18:38	李巡	修改订单列表查询过滤时分页错误的问题,修改高尔夫确认订单提示信息错误问题
+src/com/hnatourism/club/golf/order/service/impl/OrderGolfSubRunServiceImpl/java
+src/com/hnatourism/club/golf/order/service/IOrderGolfSubRunService/java
+src/com/hnatourism/club/golf/prod/action/GolfConfirmAction/java
+src/com/hnatourism/club/golf/prod/service/impl/GolfConfirmServiceImpl/java
+src/com/hnatourism/club/hotel/api/service/impl/HotelApiManagerImpl/java
+src/com/hnatourism/club/hotel/prod/service/impl/HotelBookServiceImpl/java
+WebContent/WEB-INF/pages/golf/order/view/jsp
+WebContent/WEB-INF/pages/member/order/jsp
+
+
+
+2011-10-18 16:03	李巡	修改酒店列表满房后屋显示的问题
+WebContent/WEB-INF/pages/hotel/prod/search/jsp
+
+2011-10-20  谷建亮   解决长时间不登陆用户名改变问题
+Path
+src/com/hnatourism/club/personal/member/action/MemberInfoAction/java
+
+2011-10-20  谷建亮 解决兑换可用积分不为负
+Path
+src/com/hnatourism/club/order/dao/impl/order_points_exchange/xml
+WebContent/WEB-INF/pages/order/addOrderPointsExchange/jsp
+
+2011-10-20  谷建亮 场地没有是不显示"无"
+\club\WebContent\WEB-INF\pages\golf\prod\search/jsp
+
+2011-10-20  谷建亮  解决高尔夫积分返回不正确问题
+Path
+src/com/hnatourism/club/golf/order/action/GolfSubmitAction/java
+
+
+
+2011-10-20 18:56	李巡	修改酒店价格过滤错误bug,休息室和高尔夫消费后人员的checkbox状态不正确问题
+src/com/hnatourism/club/hotel/api/service/impl/HotelApiManagerImpl/java
+src/com/hnatourism/club/hotel/prod/web/action/HotelInfoAction/java
+WebContent/WEB-INF/pages/golf/order/view/jsp
+WebContent/WEB-INF/pages/lounge/order/view/jsp
+
+
+2011-10-20 19:45	李巡	修改酒店价格过滤删除list元素可能出现异常的问题
+src/com/hnatourism/club/hotel/prod/web/action/HotelInfoAction/java
+
+
+
+2011-10-21 10:53	李巡	修改高尔夫和休息室的消费状态判断缺少对单人状态的判断的问题
+src/com/hnatourism/club/golf/order/action/GolfOrderAction/java
+src/com/hnatourism/club/hotel/prod/service/impl/HotelBookServiceImpl/java
+src/com/hnatourism/club/lounge/order/action/LoungeOrderAction/java
+WebContent/WEB-INF/pages/golf/order/view/jsp
+
+2011-10-21  谷建亮  修改积分兑换获取金额不正确
+Path
+src/com/hnatourism/club/order/dao/impl/order_points_exchange/xml
+Modified: D:\project\club\WebContent\WEB-INF\pages\order\addOrderPointsExchange/jsp  
+
+
+2011-10-21 11:27	李巡	修改web/xml避免struts的filter 对el表达式的影响
+WebContent/WEB-INF/web/xml
+
+2011-10-21 16:11 纪连生 BugID=5542  个人中心：积分兑换页面不整齐
+/club/WebContent/web/css/jcxxslist/css
+
+2011-10-21  谷建亮  修改返积分显示
+Path
+WebContent/WEB-INF/pages/member/account/jsp
+
+2011-10-24 11:39 张晗  修改酒店预定 判断调用接口是否成功  防止空指针异常
+/club_2011-9-5/src/com/hnatourism/club/hotel/prod/web/action/HotelBookAction/java
+
+
+2011-10-25 9:17	李巡	简化高尔夫和休息室消费退改状态显示的判断的代码
+club/golf/order/action/GolfOrderAction/java
+club/lounge/order/action/LoungeOrderAction/java
+
+2011-10-25  谷建亮  修改休息室详细查询
+Path
+src/com/hnatourism/club/lounge/prod/dao/impl/lounge_price/xml
+src/com/hnatourism/club/lounge/prod/domain/LoungePrice/java
+src/com/hnatourism/club/loungeserver/prod/LoungeSearchApiServiceImpl/java
+
+2011-10-25  谷建亮  修改休息室详细查询--查询平面图
+Path
+src/com/hnatourism/club/lounge/prod/vo/LoungeInfoVo/java
+src/com/hnatourism/club/loungeserver/prod/LoungeSearchApiServiceImpl/java
+
+2011-10-26  谷建亮  单收费项目参与分润
+Path
+src/com/hnatourism/club/common/util/SubRunUtils/java
+
+2011-10-26  谷建亮  添加日志输出
+com/hnatourism/club/pay/PayInterfaceApiServerImpl/java
+
+2011-10-26  谷建亮 解决两舱支付个人分润账号bug
+Path
+src/com/hnatourism/club/loungeserver/order/LoungeOrderVerifyApiServiceImpl/java
+
+2011-10-26  谷建亮 解决休息室返积分bug
+Path
+src/com/hnatourism/club/lounge/prod/action/OrderLoungeAction/java
+
+2011-10-27  谷建亮 解决账号余额查询bug
+Path
+src/com/hnatourism/club/personal/member/web/action/MemberInfoAction/java
+src/com/hnatourism/club/personal/member/web/action/OrderBillAction/java
+strutsconf/struts_member/xml
+
+
+2011年10月27日10:27	李巡	修改酒店支付分润
+src/com/hnatourism/club/hotel/api/service/IHotelOrderService/java
+src/com/hnatourism/club/hotel/api/service/impl/HotelOrderServiceImpl/java
+src/com/hnatourism/club/hotel/order/action/HotelOrderAction/java
+
+2011-10-27  谷建亮  账单表产品显示容错处理
+Path
+WebContent/WEB-INF/pages/member/account/jsp
+
+
+2011-10-27 11:51	李巡	优化个人中心订单列表页面分页功能
+WebContent\WEB-INF\pages\member\order/jsp
+
+
+2011-10-27  谷建亮  展示充值账单
+Path
+src/com/hnatourism/club/pay/action/PayBackAction/java
+src/com/hnatourism/club/personal/member/domain/OrderBill/java
+src/com/hnatourism/club/personal/member/service/impl/OrderBillServiceImpl/java
+src/com/hnatourism/club/personal/member/web/vo/OrderBillVo/java
+
+
+2011-10-27 15:17	李巡	加入在线支付的登录验证和页面表单过滤
+src/com/hnatourism/club/pay/action/PayAction/java
+strutsconf/struts_pay/xml
+WebContent/WEB-INF/pages/member/deposit/jsp
+
+2011-10-28  谷建亮  修改机票账单显示问题
+Path
+src/com/hnatourism/club/personal/member/service/impl/OrderBillServiceImpl/java
+WebContent/WEB-INF/pages/member/account/jsp
+
+2011-10-31  谷建亮  酒店无记录添加提示信息
+Path
+WebContent/WEB-INF/pages/hotel/prod/search/jsp
+
+2011-10-31  李游  高尔夫无记录添加提示信息
+Path
+WebContent/WEB-INF/pages/golf/prod/search/jsp
+
+2011-11-01  李游 修改  高尔夫无记录添加提示信息
+Path
+WebContent/WEB-INF/pages/golf/prod/search/jsp
+
+2011-11-01  谷建亮  修改 酒店无记录添加提示信息
+Path
+src/com/hnatourism/club/hotel/prod/web/action/HotelInfoAction/java
+src/com/hnatourism/club/hotel/prod/web/action/HotelSearchAction/java
+WebContent/WEB-INF/pages/hotel/prod/search/jsp
+
+2011-10-31 13:11  张晗  酒店星级为2/5,3/5改为3星级,4/5为4星
+M /club_2011-9-5/WebContent/WEB-INF/pages/hotel/prod/search/jsp
+
+2011-10-31 15:11 张晗 修改酒店常旅客列表为  调用c站接口 获取的数据
+A /club_2011-9-5/src/com/hnatourism/club/hotel/prod/web/vo/Result/java
+A /club_2011-9-5/src/com/hnatourism/club/hotel/prod/web/vo/Passenger/java
+A /club_2011-9-5/src/com/hnatourism/club/hotel/prod/web/vo/HotelReturnMessage/java
+M /club_2011-9-5/src/com/hnatourism/club/hotel/prod/web/action/HotelBookAction/java
+
+2011-10-31 张晗 整理酒店订单状态和支付状态（二者分开   目前支付状态还不能显示 等待接口更新  即可）
+
+M /club_2011-9-5/WebContent/WEB-INF/pages/member/order/include/hotelOrderTable/jsp
+
+2011-11-01  李游 修改  会员申请提示信息/手机号号段问题，186目前不支持/在线申请不选发票项。
+2011-11-1  谷建亮   解决积分兑换分页bug
+WebContent/WEB-INF/pages/order/listPage/jsp
+
+
+2011-11-01  李游 修改  会员申请提示信息
+Path
+WebContent/WEB-INF/pages/member/onLineMemberApply/jsp
+
+
+2011-11-1 20:01	李巡	修改酒店查询,将js代码从页面中分离,避免页面jsp页面中的js代码过于复杂的问题
+
+hnatourism/club/hotel/prod/web/action/HotelInfoAction/java
+js/hotelSearchCotrol/js
+
+
+2011年11月1日  文正 修改休息室查询提示 休息室详情bug修改 
+----
+WebContent/WEB-INF/pages/lounge/loungeDetail/jsp
+WebContent/WEB-INF/pages/lounge/prod/search/jsp
+src/com/hnatourism/club/lounge/prod/action/LoungeInfoAction/java
+
+ 2011年11月1日 文正  修改休息室查询显示
+----
+WebContent/WEB-INF/pages/lounge/loungeDetail/jsp
+WebContent/WEB-INF/pages/lounge/prod/search/jsp
+src/com/hnatourism/club/lounge/prod/action/LoungeInfoAction/java
+
+2011年11月1日 文正 修改查询机场基础信息表
+----
+src/com/hnatourism/club/lounge/prod/dao/impl/lounge_info/xml
+
+2011-11-02  谷建亮  预定时添加成人价格和儿童价格
+Path
+src/com/hnatourism/club/lounge/prod/action/OrderLoungeAction/java
+src/com/hnatourism/club/loungeserver/order/LoungeOrderApiServiceImpl/java
+
+2011-11-02  李游 修改  会员申请成功后,后台查不到相关数据
+Path
+src\com\hnatourism\club\personal\member\web\action\MemberInfoAction/java
+2011-11-02  李游 添加 会员申请,免责声明
+Path
+WebContent/WEB-INF/pages/member/onLineMemberApply/jsp
+
+2011-11-3 18:33	李巡	修改酒店的搜索条件
+club/WebContent/WEB-INF/pages/hotel/prod/search/jsp		
+
+2011-11-4 11:00	荣文强	在订单中体现 机场或产品是哪个组织机构提供的
+club/WebContent/WEB-INF/pages/lounge/order/view/jsp			
+
+
+日期: 2011年11月3日 文正 代客下单
+----
+src/com/hnatourism/club/personal/member/web/action/MemberInfoAction/java
+strutsconf/struts_member/xml
+
+2011-11-4 15:22	荣文强	首页机场贵宾休息厅添加链接
+club/WebContent/WEB-INF/pages/index/jsp
+
+
+2011-11-4 16:04	李巡	修改酒店推荐功能显示不正确bug
+WebContent/WEB-INF/pages/hotel/index/jsp
+WebContent/WEB-INF/pages/hotel/prod/recommend_search/jsp
+WebContent/WEB-INF/pages/hotel/prod/search/jsp
+WebContent/web/css/style/css
+
+
+2011-11-4 16:18	李巡	修改在线充值金额的验证
+WebContent/WEB-INF/pages/member/deposit/jsp
+
+2011-11-04  李游 添加 个人中心,申请退会
+Path
+WebContent/WEB-INF/pages/member/menu/jsp
+
+
+2011-11-04 李游 修改 后台高尔夫充球
+Path
+WebContent/WEB-INF/pages/golf/golfInfoDetailPage/jsp
+
+
+日期:  2011年11月4日 文正  将页面中club改成${ctx}
+----
+WebContent/WEB-INF/pages/golf/book/book/jsp
+WebContent/WEB-INF/pages/golf/book/confirm/jsp
+WebContent/WEB-INF/pages/golf/book/success/jsp
+WebContent/WEB-INF/pages/hotel/book/book/jsp
+WebContent/WEB-INF/pages/hotel/index/jsp
+WebContent/WEB-INF/pages/hotel/prod/search/jsp
+WebContent/WEB-INF/pages/lounge/book/book/jsp
+WebContent/WEB-INF/pages/lounge/book/success/jsp
+WebContent/WEB-INF/pages/lounge/loungeDetail/jsp
+WebContent/WEB-INF/pages/member/account/jsp
+WebContent/WEB-INF/pages/member/deposit/jsp
+WebContent/WEB-INF/pages/member/member/jsp
+WebContent/WEB-INF/pages/member/moveMember/jsp
+WebContent/WEB-INF/pages/member/onLineMemberApply/jsp
+WebContent/WEB-INF/pages/member/order/jsp
+WebContent/WEB-INF/pages/member/paypwd/jsp
+WebContent/WEB-INF/pages/member/pwd/jsp
+WebContent/WEB-INF/pages/order/addOrderPointsExchange/jsp
+WebContent/flight/pay/payFlight/jsp
+WebContent/notices/jsp
+
+------------------------------------------------------------------------------------
+2011-11-04 王贵修改机场休息室和高尔夫添加常用旅客
+/club_2011-9-5/WebContent/WEB-INF/pages/golf/book/book/jsp
+/club_2011-9-5/WebContent/WEB-INF/pages/lounge/book/book/jsp
+/club_2011-9-5/src/com/hnatourism/club/lounge/prod/action/OrderLoungeAction/java
+/club_2011-9-5/src/com/hnatourism/club/golf/prod/action/GolfPracBookAction/java
+
+
+2011-11-7 10:59	李巡	修改机票查询功能
+
+src/com/hnatourism/club/common/web/filter/OperateFilter/java(提交数据时会提交json格式数据)
+WebContent/flight/book/jsp
+WebContent/flight/order/bookAnalysis/jsp //预订的数据解析页面
+WebContent/flight/search/jsp
+WebContent/WEB-INF/pages/flight/book/book/jsp
+WebContent/flight/controlSingle/jsp	//机票查询的逻辑页面
+add WebContent/flight/js
+add WebContent/flight/js/flightContrl/js //机票查询的逻辑和现实控制的js
+
+
+
+2011-11-7 14:20	李巡	修改两舱休息室的预定的流程(改为预定时直接支付分润)
+src/com/hnatourism/club/lounge/prod/action/OrderLoungeAction/java
+src/com/hnatourism/club/loungeserver/order/LoungeOrderVerifyApiServiceImpl/java
+src/com/hnatourism/club/member/order/action/MemberOrderAction/java
+
+2011-11-7 15:30	李巡	修改机票查询的天气预报为异步加载
+WebContent/WEB-INF/pages/flight/index/jsp
+
+2011-11-7  谷建亮	添加高尔夫 休息室订单价格验证
+Path
+springconf/applicationContext/xml
+springconf/applicationContext_lounge/xml
+springconf/applicationContext_order/xml
+src/com/hnatourism/club/golf/api/ApiClient/java
+src/com/hnatourism/club/golf/api/ApiServerAction/java
+src/com/hnatourism/club/golf/api/golf_price_api/xml
+src/com/hnatourism/club/golf/api/ParameterHandler/java
+src/com/hnatourism/club/loungeserver/order/LoungeOrderApiServiceImpl/java
+src/com/hnatourism/club/personal/member/dao/IMemberRoleDao/java
+src/com/hnatourism/club/personal/member/dao/impl/member_role/xml
+src/com/hnatourism/club/personal/member/dao/impl/MemberRoleDaoImpl/java
+src/com/hnatourism/club/personal/member/service/IMemberRoleService/java
+src/com/hnatourism/club/personal/member/service/impl/MemberRoleServiceImpl/java
+strutsconf/struts_api/xml
+src/com/hnatourism/club/common/service/impl/PriceValidatorServiceImpl/java
+src/com/hnatourism/club/common/service/IPriceValidatorService/java
+
+
+
+2011-11-7 18:33	李巡	修改机票预订的票价计算错误bug
+WebContent/flight/order/bookAnalysis/jsp
+
+2011-11-7  谷建亮	添加高尔夫 休息室订单价格验证--节假日价格
+Path
+src/com/hnatourism/club/common/service/impl/PriceValidatorServiceImpl/java
+src/com/hnatourism/club/golf/api/golf_price_api/xml
+src/com/hnatourism/club/golf/api/ParameterHandler/java
+
+2011-11-7 张晓春 修改高尔夫前台，预定。如果为练习场，预定时就直接分润/预定成功
+
+
+2011-11-7 19:52	李巡	修改机票预订常用乘机人确实的bug
+WebContent/flight/order/bookAnalysis/jsp
+
+2011-11-7 20:14	荣文强 个人中心常用地址
+WebContent/member/oftenaddress/jsp
+WebContent/member/addoftenaddress/jsp
+WebContent/WEB-INF/member/oftenaddress/jsp
+WebContent/WEB-INF/member/addoftenaddress/jsp
+WebContent/WEB-INF/member/menu/jsp
+src/com/hnatourism/club/personal/member/domain/MemberPassenger/java
+src/com/hnatourism/club/personal/member/web/vo/MemberPassengerVo/java
+src/com/hnatourism/club/personal/member/action/MemberPassengerAction/java
+src/com/hnatourism/club/personal/member/dao/impl/member_passenger/xml
+
+2011-11-08 10:13:19  王贵修改机场休息室常用旅客
+
+/club_2011-9-5/WebContent/WEB-INF/pages/lounge/book/book/jsp
+
+2011-11-08 12:54  栾晓东 由于lounge_room表添加字段advanceHours估相应的ibatis与domain,vo都添相应字段。
+		还有就是给日期工具类加了一个方法。
+
+/club_2011-9-5/WebContent/WEB-INF/pages/lounge/book/book/jsp
+
+2011-11-08 10:53	荣文强 个人中心常用地址修改
+WebContent/WEB-INF/member/oftenaddress/jsp
+WebContent/WEB-INF/member/addoftenaddress/jsp
+src/com/hnatourism/club/personal/member/action/MemberPassengerAction/java
+2011-11-08 15:06	栾晓东  会员价优惠10%
+/club_2011-9-5/WebContent/hotel/js/hotelSearchCotrol/js
+
+2011-11-08 21:07	栾晓东  
+	查询当日的,直接根据当前时间进行判断/该提前时间限制是后台维护的
+	
+2011-11-08 谷建亮  解决bug获取高尔夫预定时间价格
+Path
+src/com/hnatourism/club/common/service/impl/PriceValidatorServiceImpl/java
+src/com/hnatourism/club/golf/api/ApiServerAction/java
+
+
+2011-11-8 16:44	李巡	修改机票预订返程数据异常的问题
+WebContent/flight/controlReturn/jsp
+WebContent/flight/js/flightContrl/js
+WebContent/flight/order/bookAnalysis/jsp
+WebContent/flight/search/jsp
+WebContent/flight/searchReturn/jsp
+WebContent/WEB-INF/pages/flight/book/book/jsp
+
+2011-11-8 19:35	李巡	修改退改信息提示没有价格的bug
+WebContent/WEB-INF/pages/member/order/jsp
+
+2011-11-09 10:56	荣文强 修改酒店订单botton
+WebContent/WEB-INF/pages/hotel/book/book/jsp
+
+
+2011-11-9 11:24	李巡	修改机票常用旅客的js错误的问题
+WebContent/WEB-INF/pages/flight/book/book/jsp
+2011-11-9 11:43	栾晓东
+表单填写时下一步按钮需放置在右侧，返回按钮效果弱化
+将下一步/确认的按钮放在返回/上一步的右边
+
+
+2011-11-9 11:59	李巡	修改往返程机票的儿童价计算错误问题
+WebContent/flight/order/bookAnalysis/jsp
+2011-11-9 13:33	栾晓东    酒店会员优惠把其它项挤出的问题。
+	/club_2011-9-5/WebContent/hotel/js/hotelSearchCotrol/js
+	
+2011-11-9 16:58	栾晓东    酒店会员优惠把其它项挤出的问题。
+	高尔夫订单中显示时间格式为“14时30分”其他订单中显示的格式为“14：30”
+
+2011-11-09  谷建亮  添加休息室订单日志
+Path
+src\com\hnatourism\club\loungeserver\orderLoungeOrderDetailApiServiceImpl/java
+
+2011-11-09  谷建亮  添加高尔夫详细场地搜索功能及修改 常住姓名为常用人姓名  包含项目 改为 免费项目
+Path
+src/com/hnatourism/club/golf/prod/action/GolfHomeSearchAction/java
+src/com/hnatourism/club/golf/prod/action/GolfProdViewAction/java
+strutsconf/struts_golf/xml
+WebContent/WEB-INF/decorators/xml
+WebContent/WEB-INF/pages/golf/book/book/jsp
+WebContent/WEB-INF/pages/golf/prod/search/jsp
+WebContent/WEB-INF/pages/golf/prod/view/jsp
+WebContent/WEB-INF/pages/lounge/book/book/jsp
+WebContent/WEB-INF/pages/member/addoften/jsp
+WebContent/WEB-INF/pages/golf/prod/siteSearch/jsp
+
+2011-11-09 15:34	荣文强 订单状态跟踪信息收缩显示,默认隐藏，点击显示
+WebContent/WEB-INF/pages/lounge/order/view/jsp
+WebContent/WEB-INF/pages/golf/order/view/jsp
+
+2011-11-10 10:59 张晗 修改酒店添加10%优惠后 样式不正确bug
+  /club_2011-9-5/WebContent/web/css/style/css
+
+
+2011-11-10   谷建亮   解决：添加多个不可预定时间，只对第一个添加的时间段生效bug
+Path
+src/com/hnatourism/club/golf/prod/action/GolfPracBookAction/java
+2011-11-10 15:23 栾晓东 bug6064
+  /WEB-INF/pages/golf/prod/search/jsp
+
+2011-11-10   谷建亮  添加高尔夫预定连接不上数据库后提示信息
+Path
+src/com/hnatourism/club/golf/prod/action/GolfPracBookAction/java
+strutsconf/struts_golf/xml
+
+2011-11-10   谷建亮  统一搜索无结果样式
+WebContent/WEB-INF/pages/golf/prod/search/jsp
+WebContent/WEB-INF/pages/golf/prod/siteSearch/jsp
+
+2011-11-10 张晓春 修改高尔夫和休息室订单流程的日志。 改期前台会员确认后，没有增加日志/现在可以了。提交
+
+
+2011-11-10 17:23	李巡	修改特价机票显示失败的bug
+WebContent/flight/controlSingle/jsp
+WebContent/flight/js/flightContrl/js
+WebContent/WEB-INF/pages/flight/prod/search/jsp
+
+2011-11-10 17:40 张晗 修改酒店订单列表 和详情 状态不一致bug
+/club_2011-9-5/WebContent/WEB-INF/pages/hotel/order/view/jsp
+
+2011-11-10 18:08	荣文强 酒店订单成功页面的开发 以及常用地址页面样式的修改 常用地址显示文本框太长的问题
+WebContent/WEB-INF/pages/member/addoften/jsp
+WebContent/WEB-INF/pages/member/addoftenaddress/jsp
+WebContent/WEB-INF/pages/hotel/success/jsp
+src/com/hnatourism/club/hotel/prod/web/action/HotelBookAction.java
+
+
+2011-11-10 18:35:12	李巡	修改特价机票显示失败的bug
+WebContent/flight/controlSingle.jsp
+WebContent/flight/js/flightContrl.js
+WebContent/WEB-INF/pages/flight/prod/search.jsp
+WebContent\flight\order\bookAnalysis.jsp
+WebContent\flight\js\flightContrl.js
+WebContent\WEB-INF\pages\flight\prod\search.jsp
+WebContent\WEB-INF\pages\flight\prod\searchReturn.jsp
+WebContent\flight\controlReturn.jsp
+
+
+2011-11-10 18:41	李巡	修改酒店房型查看没有预定按钮的bug
+WebContent/WEB-INF/pages/hotel/prod/view.jsp
+
+2011-11-10 18:08	荣文强 酒店订单成功页面的开发 机票的开发
+WebContent/WEB-INF/pages/hotel/success/jsp
+
+
+
+2011-11-11 10:01	李巡	修改机票返程查询时参数名字错误问题
+WebContent/flight/js/flightContrl.js
+WebContent/WEB-INF/pages/flight/prod/search.jsp
+
+2011-11-11 13:05	李巡	修改机票预订页面重新选择返程时参数缺失问题
+WebContent/flight/order/bookAnalysis.jsp
+WebContent/WEB-INF/pages/flight/book/book.jsp
+2011-11-11 14:23	栾晓东	高尔夫首页标签查询bug.
+/WEB-INF/pages/golf/index.jsp
+2011-11-11 15:50	栾晓东	bug5746,图片相关.
+/WEB-INF/pages/lounge/loungeDetail.jsp
+
+2011-11-11 张晓春 修改高尔夫和休息室预定提示消息和提示内容。
+
+2011-11-11 18:19	荣文强  订单详细中收缩显示订单状态 调整
+WebContent/WEB-INF/pages/golf/order/view.jsp
+WebContent/WEB-INF/pages/lounge/order/view.jsp
+
+2011-11-11 18:19	荣文强  机票 订单详细中收缩显示订单状态 调整
+WebContent/WEB-INF/pages/flight/order/orderFlightDetail.jsp
+
+
+ 2011年11月11日星期五 文正
+----------
+6189bug页面显示不一致
+/WebContent/WEB-INF/pages/golf/order/view.jsp
+------------
+修改休息室预定时间显示 如果为预定日期为0天且不限预定时间 则只能预定当前时间以后的
+/src/com/hnatourism/club/lounge/prod/action/OrderLoungeAction.java
+---------------
+bug库中6183bug详情页面预定按钮问题 修改css样式以及页面判断
+/WebContent/WEB-INF/pages/lounge/loungeDetail.jsp
+/WebContent/web/css/style.css
+/src/com/hnatourism/club/lounge/prod/action/LoungeInfoAction.java
+------------------------------
+修改6122bug机场休息室预定页面选择人数未读取账户联系信息
+/WebContent/WEB-INF/pages/lounge/book/book.jsp
+-----------------------------------------
+2011-11-12 11:12	栾晓东	列表中“每页显示15条”去掉.
+/WebContent/common/include/paging.jsp
+-----------------------------------------
+
+2011-11-11  谷建亮  高尔夫常用人选择
+Path
+WebContent/WEB-INF/pages/golf/book/book.jsp
+
+2011-11-12 11:07 荣文强 机场休息室：机场休息室预定页面机场搜索框内的图标点击无反应
+WebContent/WEB-INF/pages/lounge/index.jsp
+
+2011-11-12 11:12	栾晓东	高尔夫页面打位数放在球数前面.
+/WEB-INF/pages/golf/book/book.jsp
+2011-11-12 15:46	栾晓东	bug:6198,高尔夫预订时间设置问题。由于提前2天的订单依然可以预订，修改后使其不可预订。
+/WebContent/WEB-INF/pages/golf/prod/search.jsp
+2011-11-11  谷建亮  修改高尔夫常用人选择
+Path
+WebContent/WEB-INF/pages/golf/book/book.jsp
+
+2011-11-12 11:07 荣文强 我的会员中心帐户信息，默认只是显示的状态，点击修改信息，进入可编辑状态
+WebContent/WEB-INF/pages/member/member.jsp
+
+2011-11-12 谷建亮 解决高尔夫练习场无节假日价格 bug
+src\com\hnatourism\club\common\service\impl\PriceValidatorServiceImpl.java
+
+
+2011-11-12 张晓春 修改前台预定时没扣球数BUG。是我传错了总球数。应该是减，我写成加了。已改正
+
+2011-11-14 10:37      栾晓东     酒店样式，有条线不长度不好看，做相应调整。
+/WebContent/hotel/js/hotelSearchCotrol.js
+2011-11-12 张晓春 修改前台预定时没扣球数BUG。是我传错了总球数。应该是减，我写成加了。已改正
+
+2011-11-14 10:25 荣文强 休息室：勾选常旅客姓名后单收费项目有多余边框线
+WebContent/WEB-INF/pages/lounge/book/book.jsp
+
+2011-11-14 11:09 荣文强 休息室：提交数据过多引起的bug
+WebContent/WEB-INF/pages/lounge/prod/search.jsp
+
+2011-11-14  谷建亮 调整golf详细场地搜索样式及功能
+Path
+WebContent/WEB-INF/pages/golf/prod/siteSearch.jsp
+WebContent/WEB-INF/pages/golf/prod/view.jsp
+
+2011-11-14 14:15	李巡	添加酒店新版api对应的vo (为了不与旧版冲突,所以将新添加类放到新的包中)
+/club/src/com/hnatourism/club/hotel/prod/web/newapivo
+
+
+2011-11-14 15:53	李巡	添加新酒店接口的管理接口的实现
+club\src\com\hnatourism\club\hotel\api\service\IHotelNewApiManager.java
+club\src\com\hnatourism\club\hotel\api\service\HotelRequestHelper.java
+club\src\com\hnatourism\club\hotel\api\service\impl\HotelNewApiManagerImpl.java
+
+2011-11-11 18:19	荣文强  机票 订单“退票”和“改签”中收缩显示订单状态 调整
+WebContent/WEB-INF/pages/flight/cancel/cancelTicket.jsp
+WebContent/WEB-INF/flight/modifyFlight/ticketModifySecond.jsp
+
+2011-11-14  李游  高尔夫常用旅客 数据过多 导致重叠
+WebContent\WEB-INF\pages\golf\order\book.jsp
+
+2011-11-14  李游  机场休息室常用人联动
+WebContent\WEB-INF\pages\lounge\book\book.jsp
+
+2011-11-14  李游  修改高尔夫改期多次问题
+WebContent\WEB-INF\pages\golf\order\view.jsp
+
+2011-11-15 11:31	荣文强  个人中心：订单状态跟踪按钮鼠标显示问题
+WebContent/WEB-INF/pages/flight/cancel/cancelTicket.jsp
+WebContent/WEB-INF/flight/modifyFlight/ticketModifySecond.jsp
+WebContent/WEB-INF/pages/flight/order/orderFlightDetail.jsp
+WebContent/WEB-INF/pages/golf/order/view.jsp
+WebContent/WEB-INF/pages/lounge/order/view.jsp
+2011-11-15  栾晓东	bug:6231,页眉页角。
+/WebContent/WEB-INF/pages/member/oftenaddress.jsp
+
+2011-11-15 14:49	荣文强  休息室推荐链接样式由默认蓝色改成灰色
+WebContent/WEB-INF/pages/lounge/index.jsp
+
+2011-11-15  谷建亮  解决返回参数少一位问题
+Path
+src/com/hnatourism/club/pay/PayInterfaceApi.java
+
+2011-11-15 15:35	荣文强  页脚标页码，逻辑更改;改期时间整数时间即可
+WebContent/WEB-INF/pages/golf/prod/search.jsp
+WebContent/WEB-INF/pages/golf/order/view.jsp
+
+2011-11-15 15:54	荣文强  页脚标页码，逻辑更改(显示分页条条件改为 页面数大于1)
+WebContent/WEB-INF/pages/golf/prod/search.jsp
+
+2011-11-15 17:00 张晗 酒店更换新版api
+	/club_2011-9-5/WebContent/WEB-INF/pages/member/order/include/hotelOrderTable.jsp
+	/club_2011-9-5/WebContent/WEB-INF/pages/hotel/order/view.jsp
+	/club_2011-9-5/WebContent/WEB-INF/pages/hotel/book/book.jsp
+	/club_2011-9-5/WebContent/WEB-INF/pages/hotel/book/success.jsp
+	/club_2011-9-5/strutsconf/struts_hotel.xml
+	/club_2011-9-5/src/com/hnatourism/club/hotel/prod/web/action/HotelBookAction.java
+	/club_2011-9-5/src/com/hnatourism/club/hotel/prod/web/newapivo/HotelOrderDetailsVo.java
+	/club_2011-9-5/src/com/hnatourism/club/hotel/order/action/HotelOrderAction.java
+	/club_2011-9-5/src/com/hnatourism/club/hotel/api/service/IHotelNewApiManager.java
+	/club_2011-9-5/src/com/hnatourism/club/hotel/api/service/impl/HotelNewApiManagerImpl.java
+	
+2011-11-15 17:49 荣文强	高尔夫和机场休息室进入详情页面改成一致
+WebContent/WEB-INF/pages/lounge/prod/search.jsp
+2011-11-15 18:30 栾晓东    使机场休息室贵宾姓名按顺序排列。  
+WebContent/WEB-INF/pages/lounge/order/view.jsp
+
+2011-11-15  李游  高尔夫预订时判断打位数小于球包数
+WebContent\WEB-INF\pages\golf\order\book.jsp
+
+2011-11-15  李游  机场休息室常用人联动类型
+WebContent\WEB-INF\pages\lounge\book\book.jsp
+
+2011-11-15  李游  修改高尔夫改期多次问题
+WebContent\WEB-INF\pages\golf\order\view.jsp
+
+2011-11-15  李游  修改酒店查询无结果提示信息
+WebContent\hotel\js\hotelSearchCotrol.js
+	
+2011-11-16 11:15 荣文强  订单详细中的订单退改记录只显示最新的那条，点击下拉可显示历史退改记录
+WebContent/WEB-INF/pages/golf/order/view.jsp
+2011-11-16 15:15        栾晓东	修改所有的弹出框为自动弹出。
+/club_2011-9-5/WebContent/WEB-INF/pages/lounge/index.jsp
+/club_2011-9-5/WebContent/WEB-INF/pages/lounge/prod/search.jsp
+/club_2011-9-5/WebContent/WEB-INF/pages/golf/index.jsp
+/club_2011-9-5/WebContent/WEB-INF/pages/hotel/prod/search.jsp
+/club_2011-9-5/WebContent/WEB-INF/pages/golf/prod/search.jsp
+/club_2011-9-5/WebContent/hotel/js/hotelSearchCotrol.js
+/club_2011-9-5/WebContent/WEB-INF/pages/hotel/prod/hotetSerachForm.jsp
+2011-11-16 16:15        栾晓东	修改贵宾姓名样式问题。
+/club_2011-9-5/WebContent/WEB-INF/pages/lounge/order/view.jsp
+
+2011-11-16 16:09 荣文强 将页面的样式调整
+WebContent\WEB-INF\pages\golf\prod\view.jsp
+WebContent\WEB-INF\pages\golf\prod\search.jsp
+WebContent\WEB-INF\pages\golf\prod\siteSearch.jsp
+WebContent\WEB-INF\pages\golf\prod\siteSearch.jsp
+
+2011-11-16  谷建亮 添加高尔夫详细联系方式
+Path
+conf/ibatis_sqlmap_cfg.xml
+src/com/hnatourism/club/golf/api/golf_info_api.xml
+src/com/hnatourism/club/golf/prod/vo/GolfInfoVo.java
+WebContent/WEB-INF/pages/golf/prod/view.jsp
+src/com/hnatourism/club/common/dao/impl/sys_contact.xml
+src/com/hnatourism/club/common/domain/SysContact.java
+
+
+2011-11-16  李游  修改个人中心修改密码，密码判断
+WebContent\WEB-INF\pages\member\pwd.jsp
+
+2011-11-16  李游  修改会员登录页面
+WebContent\WEB-INF\pages\member\login.jsp
+
+2011-11-16  李游  修改高尔夫改期问题
+\club\src\com\hnatourism\club\golf\api\golf_order_exception_api.xml
+
+2011-11-17  谷建亮 修改高尔夫详细
+Path
+src/com/hnatourism/club/common/dao/impl/sys_contact.xml
+src/com/hnatourism/club/golf/api/golf_info_api.xml
+src/com/hnatourism/club/golf/prod/vo/GolfInfoVo.java
+WebContent/WEB-INF/pages/golf/prod/view.jsp
+
+<<<<<<< .mine
+2011-11-17 张晓春 修改BUG，前台预定失败或者成功页面无显示. 已修改
+				  去掉alert提示信息=======
+2011-11-17 张晓春 修改BUG，前台预定失败或者成功后没有提示，并且页面无显示. 已修改
+
+2011-11-17 17:42 荣文强  订单详细中的订单退改记录只显示最新的那条，点击下拉可显示历史退改记录
+WebContent/WEB-INF/pages/golf/order/view.jsp
+WebContent/WEB-INF/pages/lounge/order/view.jsp
+
+2011-11-17  李游  修改个人中常用旅客修改
+WebContent\WEB-INF\pages\member\often.jsp
+
+2011-11-17  李游  修改会员申请页面
+WebContent\WEB-INF\pages\member\onLineMemberApply.jsp
+
+2011-11-18 11:46 荣文强 高尔夫详情概况：默认显示6行.查看详细再全部展开
+WebContent\WEB-INF\pages\golf\prod\view.jsp
+2011-11-18 14:37 栾晓东      
+/club_2011-9-5/src/com/hnatourism/club/golf/prod/vo/GolfPriceVo.java
+/club_2011-9-5/src/com/hnatourism/club/golf/prod/action/GolfPracBookAction.java
+/club_2011-9-5/src/com/hnatourism/club/golf/domain/GolfPrice.java
+/club_2011-9-5/src/com/hnatourism/club/golf/dao/impl/golf_price.xml
+
+2011-11-18 15:27 张晗 修改订单预定成功页面机票搜索条件输入不正常bug，订单预定成功页面跳转报错bug，
+	预定成功后订单详情无取消按钮bug，酒店订单状态不争权bug，酒店预订成功后没有记录订单账单bug
+/club_2011-9-5/WebContent/WEB-INF/pages/member/order.jsp
+/club_2011-9-5/WebContent/WEB-INF/pages/member/order/include/hotelOrderTable.jsp
+/club_2011-9-5/WebContent/WEB-INF/pages/hotel/order/view.jsp
+/club_2011-9-5/WebContent/WEB-INF/pages/hotel/book/success.jsp
+/club_2011-9-5/src/com/hnatourism/club/personal/member/service/impl/OrderBillServiceImpl.java
+/club_2011-9-5/src/com/hnatourism/club/hotel/prod/web/newapivo/HotelOrderDetailsVo.java
+/club_2011-9-5/src/com/hnatourism/club/hotel/prod/web/action/HotelBookAction.java
+
+
+2011-11-18  谷建亮  修改会员在线申请所属总公司code
+Path
+conf/sysProps.properties
+src/com/hnatourism/club/golf/api/ApiClient.java
+src/com/hnatourism/club/golf/prod/action/GolfPracBookAction.java
+src/com/hnatourism/club/lounge/prod/action/OrderLoungeAction.java
+src/com/hnatourism/club/pay/PayInterfaceApi.java
+src/com/hnatourism/club/personal/member/web/action/MemberInfoAction.java
+
+2011-11-19 11:40 荣文强 高尔夫预定成功的开发
+WebContent\WEB-INF\pages\golf\book\book.jsp
+WebContent\WEB-INF\pages\golf\book\success.jsp
+WebContent\WEB-INF\pages\golf\book\search.jsp
+WebContent\WEB-INF\pages\golf\book\siteSearch.jsp
+
+2011-11-19 张晗 修改酒店bug
+/club_2011-9-5/src/com/hnatourism/club/hotel/prod/web/action/HotelBookAction.java
+/club_2011-9-5/src/com/hnatourism/club/hotel/prod/web/newapivo/HotelOrderDetailsVo.java
+/club_2011-9-5/src/com/hnatourism/club/personal/member/service/impl/OrderBillServiceImpl.java
+/club_2011-9-5/src/com/hnatourism/club/personal/member/service/IOrderBillService.java
+/club_2011-9-5/WebContent/WEB-INF/pages/hotel/order/view.jsp
+
+2011-11-19  谷建亮 修改高二预定失败bug
+Path
+src/com/hnatourism/club/pay/action/PayBackAction.java
+src/com/hnatourism/club/pay/PayInterfaceApi.java
+strutsconf/struts_golf.xml
+WebContent/WEB-INF/pages/golf/book/book.jsp
+ 
+2011-11-21 14:56 荣文强 休息室预定成功的开发,remove掉所有成功页面的session所存的不再使用的值
+WebContent\WEB-INF\pages\golf\book\success.jsp
+WebContent\WEB-INF\pages\lounge\book\success.jsp
+WebContent\WEB-INF\pages\golf\order\view.jsp
+WebContent\WEB-INF\pages\lounge\order\view.jsp
+2011-11-21 15:33 栾晓东
+	将所有的查询按钮置灰
+
+2011-11-21 谷建亮  解决账单显示两条问题
+Path
+src/com/hnatourism/club/personal/member/service/impl/OrderBillServiceImpl.java
+
+2011-11-21 谷建亮  解决充值回调问题
+Path
+src/com/hnatourism/club/personal/member/service/impl/OrderBillServiceImpl.java
+src/com/hnatourism/club/pay/action/PayBackAction.java
+
+2011-11-21 张晓春 修改高尔夫，会员确认后没有操作人员
+
+2011-11-21 谷建亮  解决休息室搜索显示兼容问题
+Path
+WebContent/WEB-INF/pages/lounge/prod/search.jsp
+
+2011-11-22  谷建亮  酒店 机票扣除积分
+Path
+src/com/hnatourism/club/order/dao/impl/order_points_exchange.xml
+
+2011-11-22 11:35 荣文强 修改成功页面的空白区域、改错别字
+WebContent\WEB-INF\pages\golf\book\success.jsp
+WebContent\WEB-INF\pages\lounge\book\success.jsp
+WebContent\WEB-INF\pages\golf\book\book.jsp
+WebContent\WEB-INF\pages\lounge\book\book.jsp
+
+2011-11-22 15:33 荣文强 修改地址空白也可以修改
+WebContent\WEB-INF\pages\member\member.jsp
+
+2011-11-22 谷建亮 显示当前交易积分 和 支付前判断余额
+Path
+springconf/applicationContext_pay.xml
+src/com/hnatourism/club/order/service/impl/OrderPointsExchangeServiceImpl.java
+src/com/hnatourism/club/order/service/IOrderPointsExchangeService.java
+src/com/hnatourism/club/pay/IPayInterfaceApiServer.java
+src/com/hnatourism/club/pay/PayInterfaceApiServerImpl.java
+src/com/hnatourism/club/personal/member/web/action/OrderBillAction.java
+WebContent/WEB-INF/pages/member/account.jsp
+
+2011-11-22 15:33 荣文强 修改练习场添加日记
+src/com/hnatourism/club/golf/prod/action/GolfConfirmAction.java
+src/com/hnatourism/club/golf/prod/service/IGolfConfirmService.java
+src/com/hnatourism/club.golf/prod/impl/GolfConfirmServiceImpl.java
+src/com/hnatourism/club.golf/order/action/GolfSubmitAction.java
+src/com/hnatourism/club.golf/order/service/impl/OrderGolfSubRunServiceImpl.java
+
+2011-11-23  谷建亮 修改 会员无法确认bug
+Path
+src/com/hnatourism/club/golf/order/action/GolfSubmitAction.java
+src/com/hnatourism/club/golf/prod/action/GolfConfirmAction.java
+src/com/hnatourism/club/golf/prod/service/IGolfConfirmService.java
+src/com/hnatourism/club/golf/prod/service/impl/GolfConfirmServiceImpl.java
+
+2011-11-23 11:12 荣文强 修改机场两舱日志
+src/com/hnatourism/club/loungeserver/order/LoungeOrderApiServiceImpl.java
+src/com/hnatourism/club/lounge/prod/action/OrderLoungeAction.java
+
+2011-11-23 15:17 荣文强 高尔夫成功页面的调整
+WebContent/WEB-INF/pages/lounge/book/success.jsp
+src/com/hnatourism/club/lounge/prod/action/OrderLoungeAction.java
+
+2011-11-23 16:10 荣文强 修改机场两舱日志(恢复到以前那样)
+src/com/hnatourism/club/loungeserver/order/LoungeOrderApiServiceImpl.java
+src/com/hnatourism/club/lounge/prod/action/OrderLoungeAction.java
+
+2011-11-23 14:56 荣文强 酒店预定成功页面的兼容性问题解决
+WebContent\WEB-INF\pages\hotel\book\success.jsp
+
+2011-11-23 张晓春 修改前台搜索页面,jquery改为dom形式
+
+2011-11-24 14:56 荣文强 高尔夫详细页面和机场详细页面调整
+WebContent\WEB-INF\pages\lounge\loungeDetail.jsp
+WebContent\WEB-INF\pages\golf\prod\siteSearch.jsp
+
+2011-11-24  谷建亮   订单已经支付中文乱码问题
+Path
+src/com/hnatourism/club/pay/PayInterfaceApi.java
+
+2011-11-25  谷建亮  解决节假日价格问题
+Path
+WebContent/WEB-INF/pages/golf/book/book.jsp
+
+2011-11-25  谷建亮 添加代扣签约
+Path
+src/com/hnatourism/club/pay/IPayInterfaceApiServer.java
+src/com/hnatourism/club/pay/PayInterfaceApi.java
+src/com/hnatourism/club/pay/PayInterfaceApiServerImpl.java
+
+2011-11-28  谷建亮  解决从详细页面预订失败bug
+Modified:WebContent\WEB-INF\pages\golf\prod\siteSearch.jsp  
+
+2011-11-28 14:21 荣文强 高尔夫\机场:预订页面总价格显示调整
+WebContent\WEB-INF\pages\lounge\book\book.jsp
+WebContent\WEB-INF\pages\golf\book\book.jsp
+WebContent\WEB-INF\pages\lounge\member\order\view.jsp
+
+
+2011-11-28 15:15 高杰  订单提交失败，练习场球数依然被扣
+Path
+com.hnatourism.club.golf.order.action.GolfSubmitAction.java
+pages/golf/book/success.jsp
+
+2011-11-28 15:19 荣文强 高尔夫\机场:预订成功页面显示调整
+WebContent/WEB-INF/pages/golf/book/success.jsp
+WebContent/WEB-INF/pages/hotel/book/success.jsp
+
+2011-11-28 15:29 高杰  优化修改订单提交失败，练习场球数依然被扣
+Path
+com.hnatourism.club.golf.order.action.GolfSubmitAction.java
+
+
+2011-11-29 11:13 高杰  练习场预订的日志状态变更
+Path
+com.hnatourism.club.golf.api.ParameterHandler.java
+com.hnatourism.club.golf.order.action.GolfSubmitAction.java
+com.hnatourism.club.golf.order.service.impl.OrderGolfSubRunServiceImpl.java
+WebContent/WEB-INF/pages/golf/book/success.jsp
+
+
+2011-11-29  谷建亮  解决账单表 酒店显示问题
+Modified: \src\com\hnatourism\club\personal\member\service\impl\OrderBillServiceImpl.java
+
+2011-11-29 11:13 高杰  bug6889,机场休息室搜索
+Path
+WebContent/WEB-INF/pages/lounge/prod/search.jsp
+WebContent/WEB-INF/pages/lounge/search.jsp
+
+2011-11-29 20:12 高杰  bug6461，练习场余额不足的提示
+Path
+WebContent/WEB-INF/pages/golf/book/success.jsp
+com.hnatourism.club.pay.PayInterfaceApiServerImpl.java
+com.hnatourism.club.golf.order.action.GolfSubmitAction.java
+
+
+2011-11-29 19:47 荣文强 将球场模式pattern字段由以前的Long型改成String
+com.hnatourism.club.golf.domain.GolfInfo
+com.hnatourism.club.golf.domain.GolfSite
+
+2011-11-30 14:36 高杰  bug6939，高尔夫首页图片显示
+Path
+WebContent/web/html/golf/index_center.jsp
+
+
+2011-11-30 14:43 高杰  bug6461，粮仓休息室余额不足提示
+Path
+WebContent/WEB-INF/pages/lounge/book/success.jsp
+com.hnatourism.club.loungeserver.order.LoungeOrderVerifyApiServiceImpl.java
+com.hnatourism.club.lounge.prod.action.OrderLoungeAction.java

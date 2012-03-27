@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+	<!-- 个人订单管理 ，李巡 -->
+<!--	<bean id="MemberOrderAction" class="com.hnatourism.club.member.order.action.MemberOrderAction" scope="prototype"></bean>-->
+	<!-- 分润规则 ，谷建亮 -->
+	<bean id="RuleConfigDaoImpl" class="com.hnatourism.club.member.rule.dao.impl.RuleConfigDaoImpl" parent="baseIBatisDaoSupport"></bean>
+	<bean id="ruleConfigService" class="com.hnatourism.club.member.rule.service.impl.RuleConfigServiceImpl" >
+		<property name="ruleConfigDao" ref="RuleConfigDaoImpl"/>
+	</bean>
+
+
+	<!--【1.初始化Dao】 -->
+	<bean id="memberStsDao"
+		class="com.hnatourism.club.personal.member.dao.impl.MemberStsDaoImpl" parent="baseIBatisDaoSupport">
+	</bean>
+	<!--【2.初始化Service】 -->
+	<bean id="memberStsService"
+		class="com.hnatourism.club.personal.member.service.impl.MemberStsServiceImpl">
+		<property name="memberStsDao" ref="memberStsDao" />
+		<!--  <property name="logOperateDao" ref="logOperateDao" /> -->
+		
+	</bean>
+    <bean id="memberService" class="com.hnatourism.club.personal.member.service.impl.MemberServiceImpl">
+        <property name="memberInfoDao" ref="memberInfoDao" />
+        <property name="passwordEncoder" ref="passwordEncoder"></property>
+        <property name="memberAccountDao" ref="memberAccountDao" />
+        <property name="memberInvoiceDao" ref="memberInvoiceDao" />
+        <property name="memberStsDao" ref="memberStsDao" />
+        <property name="payAccountBalanceDao" ref="payAccountBalanceDao" />
+        <property name="xlbBalanceDao" ref="xlbBalanceDao" />
+        <property name="sysSecuMemRoleDao" ref="sysSecuMemRoleDao" />
+    </bean> 
+    <!-- 会员同步信息  dao 配置-->
+    <!-- 网站账号 -->
+    <bean id="payAccountBalanceDao"
+        class="com.hnatourism.club.personal.member.dao.impl.PayAccountBalanceDaoImpl"
+        parent="baseIBatisDaoSupport">
+    </bean>
+    <!-- 金币账号-->
+    <bean id="xlbBalanceDao"
+        class="com.hnatourism.club.personal.member.dao.impl.XlbBalanceDaoImpl"
+        parent="baseIBatisDaoSupport">
+    </bean>
+    <!-- 角色  目前C站注册用户 -->
+    <bean id="sysSecuMemRoleDao"
+        class="com.hnatourism.club.base.dao.impl.SysSecuMemRoleDaoImpl"
+        parent="baseIBatisDaoSupport">
+    </bean>
+
+	<bean id="passwordEncoder" class="org.acegisecurity.providers.encoding.Md5PasswordEncoder" scope="prototype">
+	</bean>
+	<!-- 常用客户列表显示 ，高杰 -->
+	<bean id="memberPassengerAction" class="com.hnatourism.club.personal.member.web.action.MemberPassengerAction" scope="prototype">
+		<property name="memberPassengerServ" ref="memberPassengerService"></property>
+	</bean>
+	<!-- 客户账单列表 ，高杰 -->
+	<bean id="OrderBillDaoImpl" class="com.hnatourism.club.personal.member.dao.impl.OrderBillDaoImpl" parent="baseIBatisDaoSupport">
+	</bean>
+	<bean id="orderBillService" class="com.hnatourism.club.personal.member.service.impl.OrderBillServiceImpl">
+		<property name="orderBillDao" ref="OrderBillDaoImpl" />
+		<property name="sysRoleService" ref="sysRoleService" />
+	</bean>
+	<!-- 服务对象 -->
+</beans>

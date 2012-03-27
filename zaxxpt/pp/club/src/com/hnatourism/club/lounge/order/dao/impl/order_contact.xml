@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="orderContact">
+	<typeAlias alias="orderContact" type="com.hnatourism.club.lounge.order.domain.OrderContact" />
+	<resultMap id="orderContactResultMap" class="orderContact">
+		<result column="ID" property="id" />
+		<result column="NAME" property="name" />
+		<result column="PHONE" property="phone" />
+		<result column="MOBILE" property="mobile" />
+		<result column="EMAIL" property="email" />
+		<result column="CONFIRM_MODE" property="confirmMode" />
+		<result column="RMK" property="rmk" />
+		<result column="CREATE_USER" property="createUser" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="ORDER_ID" property="orderId" />
+		<result column="ORDER_CODE" property="orderCode" />
+		<result column="PROD_TYPE" property="prodType" />
+		<result column="UPDATE_USER" property="updateUser" />
+		<result column="UPDATE_TIME" property="updateTime" />
+		<result column="ADDRESS" property="address" />
+		<result column="CITY" property="city" />
+	</resultMap>
+	<sql id="selectOrderContactSql">
+		<![CDATA[
+			SELECT T.ID,T.NAME,T.PHONE,T.MOBILE,T.EMAIL,T.CONFIRM_MODE,T.RMK,T.CREATE_USER,T.CREATE_TIME,T.ORDER_ID,T.ORDER_CODE,T.PROD_TYPE,T.UPDATE_USER,T.UPDATE_TIME,T.ADDRESS,T.CITY 
+			FROM ORDER_CONTACT T
+		]]>
+	</sql>
+	<select id="findOrderContactByWhere" parameterClass="orderContact" resultMap="orderContactResultMap">
+		<include refid="selectOrderContactSql"/>	
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="name">
+				T.NAME=#name#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="phone">
+				T.PHONE=#phone#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="mobile">
+				T.MOBILE=#mobile#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="email">
+				T.EMAIL=#email#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="confirmMode">
+				T.CONFIRM_MODE=#confirmMode#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="rmk">
+				T.RMK=#rmk#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createUser">
+				T.CREATE_USER=#createUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createTime">
+				T.CREATE_TIME=#createTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="orderId">
+				T.ORDER_ID=#orderId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="orderCode">
+				T.ORDER_CODE=#orderCode#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="prodType">
+				T.PROD_TYPE=#prodType#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateUser">
+				T.UPDATE_USER=#updateUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateTime">
+				T.UPDATE_TIME=#updateTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="address">
+				T.ADDRESS=#address#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="city">
+				T.CITY=#city#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<select id="findOrderContactById" parameterClass="java.lang.String" resultMap="orderContactResultMap">
+		<include refid="selectOrderContactSql"/>	
+		<![CDATA[
+			$data.getById()
+		]]>
+	</select>
+	<insert id="insertOrderContact" parameterClass="orderContact">
+		INSERT INTO ORDER_CONTACT
+		<dynamic prepend="(">
+			<isNotEmpty prepend="," property="id">
+				ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="name">
+				NAME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="phone">
+				PHONE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="mobile">
+				MOBILE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="email">
+				EMAIL
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="confirmMode">
+				CONFIRM_MODE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="rmk">
+				RMK
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createUser">
+				CREATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createTime">
+				CREATE_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="orderId">
+				ORDER_ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="orderCode">
+				ORDER_CODE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="prodType">
+				PROD_TYPE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateUser">
+				UPDATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateTime">
+				UPDATE_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="address">
+				ADDRESS
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="city">
+				CITY
+			</isNotEmpty>
+
+		</dynamic>		
+		<dynamic prepend=") VALUES (">
+
+			<isNotEmpty prepend="," property="id">
+				#id#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="name">
+				#name#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="phone">
+				#phone#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="mobile">
+				#mobile#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="email">
+				#email#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="confirmMode">
+				#confirmMode#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="rmk">
+				#rmk#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createUser">
+				#createUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createTime">
+				#createTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="orderId">
+				#orderId#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="orderCode">
+				#orderCode#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="prodType">
+				#prodType#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateUser">
+				#updateUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateTime">
+				#updateTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="address">
+				#address#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="city">
+				#city#
+			</isNotEmpty>
+
+		 </dynamic>	)
+	</insert>
+	
+	<update id="updateOrderContact" parameterClass="orderContact">
+		UPDATE ORDER_CONTACT
+        <dynamic prepend="set">
+		   <isNotEmpty prepend="," property="name">
+              NAME=#name#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="phone">
+              PHONE=#phone#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="mobile">
+              MOBILE=#mobile#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="email">
+              EMAIL=#email#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="confirmMode">
+              CONFIRM_MODE=#confirmMode#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="rmk">
+              RMK=#rmk#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createUser">
+              CREATE_USER=#createUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createTime">
+              CREATE_TIME=#createTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="orderId">
+              ORDER_ID=#orderId#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="orderCode">
+              ORDER_CODE=#orderCode#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="prodType">
+              PROD_TYPE=#prodType#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateUser">
+              UPDATE_USER=#updateUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateTime">
+              UPDATE_TIME=#updateTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="address">
+              ADDRESS=#address#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="city">
+              CITY=#city#
+           </isNotEmpty>
+        </dynamic>
+		WHERE 
+               ID=#id#
+	</update>	
+	<delete id="deleteOrderContact" parameterClass="java.lang.String">
+		DELETE FROM ORDER_CONTACT
+		WHERE 
+               ID=#id#
+	</delete>	
+</sqlMap>

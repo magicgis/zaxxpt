@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="sysOrganization">
+	<typeAlias alias="sysOrganization" type="com.hnatourism.club.common.domain.SysOrganization" />
+	<resultMap id="sysOrganizationResultMap" class="sysOrganization">
+		<result column="ID" property="id" />
+		<result column="L_NAME" property="lName" />
+		<result column="CODE" property="code" />
+		<result column="NAME" property="name" />
+		<result column="AREA" property="area" />
+		<result column="STS" property="sts" />
+		<result column="ADDRESS" property="address" />
+		<result column="ZIP_CODE" property="zipCode" />
+		<result column="CREATE_USER" property="createUser" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="UPDATE_USER" property="updateUser" />
+		<result column="UPDATE_TIME" property="updateTime" />
+		<result column="PHONE" property="phone" />
+		<result column="EMAIL" property="email" />
+		<result column="ROLE_TYPE" property="roleType" />
+		<result column="PROD_TYPE" property="prodType" />
+		<result column="TYPE" property="type" />
+		<result column="BUSINESS_LICENCE_NO" property="businessLicenceNo" />
+		<result column="ORGANIZATION_NO" property="organizationNo" />
+		<result column="TAX_REGISTRATION_NO" property="taxRegistrationNo" />
+		<result column="REGISTERED_CAPITAL" property="registeredCapital" />
+		<result property="cityVo"   column="AREA"  select="api_findHnaProCityById" />
+	</resultMap>
+	<sql id="selectSysOrganizationSql">
+		<![CDATA[
+			SELECT T.ID,T.L_NAME,T.CODE,T.NAME,T.AREA,T.STS,T.ADDRESS,T.ZIP_CODE,T.CREATE_USER,T.CREATE_TIME,T.UPDATE_USER,T.UPDATE_TIME,T.PHONE,T.EMAIL,T.ROLE_TYPE,T.PROD_TYPE,T.TYPE,T.BUSINESS_LICENCE_NO,T.ORGANIZATION_NO,T.TAX_REGISTRATION_NO,T.REGISTERED_CAPITAL 
+			FROM SYS_ORGANIZATION T
+		]]>
+	</sql>
+	<select id="findSysOrganizationByWhere" parameterClass="sysOrganization" resultMap="sysOrganizationResultMap">
+		<include refid="selectSysOrganizationSql"/>	
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="lName">
+				LOWER(T.L_NAME)=LOWER(#lName#)
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="code">
+				T.CODE=#code#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="name">
+				T.NAME=#name#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="area">
+				T.AREA=#area#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="sts">
+				T.STS=#sts#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="address">
+				T.ADDRESS=#address#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="zipCode">
+				T.ZIP_CODE=#zipCode#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createUser">
+				T.CREATE_USER=#createUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createTime">
+				T.CREATE_TIME=#createTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateUser">
+				T.UPDATE_USER=#updateUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateTime">
+				T.UPDATE_TIME=#updateTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="phone">
+				T.PHONE=#phone#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="email">
+				T.EMAIL=#email#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="roleType">
+				T.ROLE_TYPE=#roleType#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="prodType">
+				T.PROD_TYPE=#prodType#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="type">
+				T.TYPE=#type#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="businessLicenceNo">
+				T.BUSINESS_LICENCE_NO=#businessLicenceNo#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="organizationNo">
+				T.ORGANIZATION_NO=#organizationNo#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="taxRegistrationNo">
+				T.TAX_REGISTRATION_NO=#taxRegistrationNo#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="registeredCapital">
+				T.REGISTERED_CAPITAL=#registeredCapital#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<select id="findSysOrganizationByType" parameterClass="java.lang.String" resultMap="sysOrganizationResultMap">
+		<include refid="selectSysOrganizationSql"/>	
+		<![CDATA[
+			WHERE T.TYPE=#type# and T.PROD_TYPE='1' and T.STS=1
+		]]>
+	</select>
+</sqlMap>

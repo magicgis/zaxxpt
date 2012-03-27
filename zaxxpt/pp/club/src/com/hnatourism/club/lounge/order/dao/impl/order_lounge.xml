@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="orderLounge">
+	<typeAlias alias="orderLounge" type="com.hnatourism.club.lounge.order.domain.OrderLounge" />
+	<resultMap id="orderLoungeResultMap" class="orderLounge">
+		<result column="ID" property="id" />
+		<result column="ROOM_ID" property="roomId" />
+		<result column="START_TIME" property="startTime" />
+		<result column="END_TIME" property="endTime" />
+		<result column="STS" property="sts" />
+		<result column="PAY_STS" property="paySts" />
+		<result column="PRICE" property="price" />
+<!--		<result column="NAME" property="name" />   表中name字段已删除    lixun-->
+		<result column="FLIGHT_NO" property="flightNo" />
+		<result column="ADDITIONAL_ITEM_ID" property="additionalItemId" />
+		<result column="ADDITIONAL_FEE" property="additionalFee" />
+		<result column="OPERATE_STS" property="operateSts" />
+		<result column="CONSUMER_STS" property="consumerSts" />
+		<result column="CREATE_USER" property="createUser" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="UPDATE_USER" property="updateUser" />
+		<result column="UPDATE_TIME" property="updateTime" />
+		<result column="rmk" property="rmk" />
+		<result column="MEMBER_ID" property="memberId" />
+		<result column="SOURCE" property="source" />
+		<result column="BILL_ID" property="billId" /><!--  添加字段 高杰-->
+		<result column="PROFIT" property="profit" /><!--  添加字段 高杰-->
+		<result column="PROFIT_AMOUNT" property="profitAmount" /><!--  添加字段 高杰-->
+		<result column="SIGNING_PRICE" property="signPrice" /><!--  添加字段 高杰-->
+		<result column="CODE" property="code" /><!--  添加字段 谷建亮-->
+		<result column="CONFIRM_TIME" property="confirmTime" /><!--  添加字段 谷建亮-->
+		<result column="CONFIRM_END_TIME" property="confirmEndTime" /><!--  添加字段 谷建亮-->
+		<result column="ADDITIONAL_SIGN_PRICE" property="additionalSignPrice" /><!--  添加字段 高杰-->
+		<result column="ROOM_ID" property="loungeName" select="getLoungeNameByLoungeId"/> <!--  添加字段lixun 配置管理休息室的名字-->
+		<result column="ROOM_ID" property="loungeType" select="getLoungeRoomTypeById"/><!--  添加字段lixun 配置管理休息室的类型-->
+	</resultMap>
+	
+	<!-- 查询休息室名字 -->
+	<select id="getLoungeNameByLoungeId" parameterClass="java.lang.String" resultClass="java.lang.String">
+		<![CDATA[
+			SELECT T.NAME from LOUNGE_INFO T
+			WHERE T.ID=(SELECT DISTINCT LR.LOUNGE_ID  FROM LOUNGE_ROOM LR WHERE LR.ID=#id#)
+		]]>
+	</select>
+	<!-- 查询休息室房间类型 -->
+	<select id="getLoungeRoomTypeById" parameterClass="java.lang.String" resultClass="java.lang.String">
+		<![CDATA[
+			SELECT T.TYPE from LOUNGE_ROOM T
+			WHERE T.ID=#id#
+		]]>
+	</select>
+	
+	<sql id="selectOrderLoungeSql">
+		<![CDATA[
+			SELECT T.ADDITIONAL_SIGN_PRICE,T.ID,T.CODE,T.CONFIRM_TIME,T.CONFIRM_END_TIME,T.ROOM_ID,T.START_TIME,T.END_TIME,T.STS,T.PAY_STS,T.PRICE,T.FLIGHT_NO,T.ADDITIONAL_ITEM_ID,T.ADDITIONAL_FEE,T.OPERATE_STS,T.CONSUMER_STS,T.CREATE_USER,T.CREATE_TIME,T.UPDATE_USER,T.UPDATE_TIME,T.SOURCE,T.RMK,T.MEMBER_ID,T.BILL_ID,T.PROFIT,T.PROFIT_AMOUNT,T.SIGNING_PRICE 
+			FROM ORDER_LOUNGE T 
+		]]>
+	</sql>
+	<select id="findOrderLoungeByWhere" parameterClass="orderLounge" resultMap="orderLoungeResultMap">
+		<include refid="selectOrderLoungeSql"/>	
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="roomId">
+				T.ROOM_ID=#roomId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="startTime">
+				T.START_TIME=#startTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="endTime">
+				T.END_TIME=#endTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="sts">
+				T.STS=#sts#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="paySts">
+				T.PAY_STS=#paySts#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="price">
+				T.PRICE=#price#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="flightNo">
+				T.FLIGHT_NO=#flightNo#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="additionalItemId">
+				T.ADDITIONAL_ITEM_ID=#additionalItemId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="additionalFee">
+				T.ADDITIONAL_FEE=#additionalFee#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="operateSts">
+				T.OPERATE_STS=#operateSts#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="consumerSts">
+				T.CONSUMER_STS=#consumerSts#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createUser">
+				T.CREATE_USER=#createUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createTime">
+				T.CREATE_TIME=#createTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateUser">
+				T.UPDATE_USER=#updateUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateTime">
+				T.UPDATE_TIME=#updateTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="code">
+				T.CODE=#code#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="memberId">
+				T.MEMBER_ID=#memberId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="additionalSignPrice">
+				T.ADDITIONAL_SIGN_PRICE=#additionalSignPrice#
+			</isNotEmpty>
+		</dynamic>
+		order by T.CREATE_TIME DESC
+	</select>
+	<select id="findOrderLoungeById" parameterClass="java.lang.String" resultMap="orderLoungeResultMap">
+		<include refid="selectOrderLoungeSql"/>	
+		<![CDATA[
+			WHERE T.ID=#id#
+		]]>
+	</select>
+	<select id="findOrderLoungeByBill" parameterClass="java.lang.String" resultMap="orderLoungeResultMap">
+		<include refid="selectOrderLoungeSql"/>	
+		<![CDATA[
+			WHERE T.BILL_ID=#billId#
+		]]>
+	</select>
+	<insert id="saveOrderLounge" parameterClass="orderLounge">
+		INSERT INTO ORDER_LOUNGE
+		<dynamic prepend="(">
+			<isNotEmpty prepend="," property="id">
+				ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="roomId">
+				ROOM_ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="startTime">
+				START_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="endTime">
+				END_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="sts">
+				STS
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="paySts">
+				PAY_STS
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="price">
+				PRICE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="flightNo">
+				FLIGHT_NO
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="additionalItemId">
+				ADDITIONAL_ITEM_ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="additionalFee">
+				ADDITIONAL_FEE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="operateSts">
+				OPERATE_STS
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="consumerSts">
+				CONSUMER_STS
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createUser">
+				CREATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createTime">
+				CREATE_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateUser">
+				UPDATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateTime">
+				UPDATE_TIME
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="rmk">
+				RMK
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="memberId">
+				MEMBER_ID
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="source">
+				SOURCE
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="confirmTime">
+				CONFIRM_TIME
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="confirmEndTime">
+				CONFIRM_END_TIME
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="code">
+				CODE
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="profit">
+				PROFIT
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="profitAmount">
+				PROFIT_AMOUNT
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="signPrice">
+				SIGNING_PRICE
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="additionalSignPrice">
+				ADDITIONAL_SIGN_PRICE
+			</isNotEmpty>
+		</dynamic>		
+		<dynamic prepend=") VALUES (">
+
+			<isNotEmpty prepend="," property="id">
+				#id#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="roomId">
+				#roomId#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="startTime">
+				#startTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="endTime">
+				#endTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="sts">
+				#sts#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="paySts">
+				#paySts#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="price">
+				#price#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="flightNo">
+				#flightNo#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="additionalItemId">
+				#additionalItemId#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="additionalFee">
+				#additionalFee#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="operateSts">
+				#operateSts#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="consumerSts">
+				#consumerSts#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createUser">
+				#createUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createTime">
+				#createTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateUser">
+				#updateUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateTime">
+				#updateTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="rmk">
+				#rmk#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="memberId">
+				#memberId#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="source">
+				#source#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="confirmTime">
+				#confirmTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="confirmEndTime">
+				#confirmEndTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="code">
+				#code#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="profit">
+				#profit#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="profitAmount">
+				#profitAmount#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="signPrice">
+				#signPrice#
+			</isNotEmpty>
+			
+			<isNotEmpty prepend="," property="additionalSignPrice">
+				#additionalSignPrice#
+			</isNotEmpty>
+		 </dynamic>	)
+	</insert>
+	
+	<update id="updateOrderLounge" parameterClass="orderLounge">
+		UPDATE ORDER_LOUNGE
+        <dynamic prepend="set">
+		   <isNotEmpty prepend="," property="roomId">
+              ROOM_ID=#roomId#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="startTime">
+              START_TIME=#startTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="endTime">
+              END_TIME=#endTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="sts">
+              STS=#sts#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="paySts">
+              PAY_STS=#paySts#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="price">
+              PRICE=#price#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="flightNo">
+              FLIGHT_NO=#flightNo#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="additionalItemId">
+              ADDITIONAL_ITEM_ID=#additionalItemId#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="additionalFee">
+              ADDITIONAL_FEE=#additionalFee#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="operateSts">
+              OPERATE_STS=#operateSts#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="consumerSts">
+              CONSUMER_STS=#consumerSts#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createUser">
+              CREATE_USER=#createUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createTime">
+              CREATE_TIME=#createTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateUser">
+              UPDATE_USER=#updateUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateTime">
+              UPDATE_TIME=#updateTime#
+           </isNotEmpty>
+            <isNotEmpty prepend="," property="code">
+              CODE=#code#
+           </isNotEmpty>
+			<isNotEmpty prepend="," property="profit">
+				PROFIT=#profit#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="profitAmount">
+				PROFIT_AMOUNT=#profitAmount#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="signPrice">
+				SIGNING_PRICE=#signPrice#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="additionalSignPrice">
+				ADDITIONAL_SIGN_PRICE=#additionalSignPrice#
+			</isNotEmpty>
+        </dynamic>
+		WHERE 
+               ID=#id#
+	</update>	
+	<delete id="deleteOrderLounge" parameterClass="java.lang.String">
+		DELETE FROM ORDER_LOUNGE
+		WHERE 
+               ID=#id#
+	</delete>	
+</sqlMap>

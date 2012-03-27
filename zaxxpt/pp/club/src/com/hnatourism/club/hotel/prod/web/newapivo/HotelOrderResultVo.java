@@ -1,0 +1,24 @@
+package com.hnatourism.club.hotel.prod.web.newapivo;
+
+import java.util.List;
+
+/**
+ * 项目名称:海航旅业B2C系统系统
+ * 
+ * 功能描述:酒店订单查询返回结果
+ * 
+ * 历史版本: 2011-11-14 v1.0.0 (lixun) 创建
+ * 
+ */
+public class HotelOrderResultVo extends HotelResultVo{
+	List<HotelOrderInfoVo> resultList;
+
+	public List<HotelOrderInfoVo> getResultList() {
+		return resultList;
+	}
+
+	public void setResultList(List<HotelOrderInfoVo> resultList) {
+		this.resultList = resultList;
+	}
+	
+}

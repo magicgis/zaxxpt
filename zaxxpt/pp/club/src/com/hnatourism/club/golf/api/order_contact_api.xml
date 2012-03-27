@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="orderContact">
+	<typeAlias alias="api_orderContactVo" type="com.hnatourism.club.golf.order.vo.OrderContactVo" />
+	<typeAlias alias="orderContact" type="com.hnatourism.club.lounge.order.domain.OrderContact" />
+	<resultMap id="api_orderContactResultMap" class="api_orderContactVo">
+		<result column="ID" property="id" />
+		<result column="NAME" property="name" />
+		<result column="PHONE" property="phone" />
+		<result column="MOBILE" property="mobile" />
+		<result column="EMAIL" property="email" />
+		<result column="CONFIRM_MODE" property="confirmMode" />
+		<result column="RMK" property="rmk" />
+		<result column="CREATE_USER" property="createUser" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="UPDATE_USER" property="updateUser" />
+		<result column="UPDATE_TIME" property="updateTime" />
+		<result column="ORDER_ID" property="orderId" />
+		<result column="ORDER_CODE" property="orderCode" />
+		<result column="PROD_TYPE" property="prodType" />
+		<result column="ADDRESS" property="address" />
+		<result column="CITY" property="city" />
+	</resultMap>
+	
+	<parameterMap class="java.util.HashMap" id="parameterMap">   
+      <parameter property="id"/>
+    </parameterMap> 
+    
+	<sql id="api_selectOrderContactSql">
+		<![CDATA[
+			SELECT T.ID,T.NAME,T.PHONE,T.MOBILE,T.EMAIL,T.CONFIRM_MODE,T.RMK,T.CREATE_USER,T.CREATE_TIME,T.UPDATE_USER,T.UPDATE_TIME,T.ORDER_ID,T.ORDER_CODE,T.PROD_TYPE,T.ADDRESS,T.CITY
+			FROM ORDER_CONTACT T
+		]]>
+	</sql>
+	
+	<!-- 根据订单id查询-->
+	<select id="api_findContactByOrderId" parameterClass="java.lang.String" resultMap="api_orderContactResultMap">
+		<include refid="api_selectOrderContactSql"/>
+		WHERE T.ORDER_ID=#id#
+	</select>
+	<parameterMap class="java.util.HashMap" id="insertParameterMap">   
+        <parameter property="id" />
+		<parameter property="name" />
+		<parameter property="phone" />
+		<parameter property="mobile" />
+		<parameter property="email" />
+		<parameter property="confirmMode" />
+		<parameter property="rmk" />
+		<parameter property="createUser" />
+		<parameter property="createTime" />
+		<parameter property="updateUser" />
+		<parameter property="updateTime" />
+		<parameter property="orderId" />
+		<parameter property="orderCode" />
+		<parameter property="prodType" />
+		<parameter property="address" />
+		<parameter property="city" />
+    </parameterMap>
+    <insert id="api_saveOrderContact" parameterMap="insertParameterMap">
+		INSERT INTO ORDER_CONTACT
+		<dynamic prepend="(">
+			<isNotEmpty prepend="," property="id">
+				ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="name">
+				NAME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="phone">
+				PHONE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="mobile">
+				MOBILE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="email">
+				EMAIL
+			</isNotEmpty>
+			
+			<isNotEmpty prepend="," property="confirmMode">
+				CONFIRM_MODE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="rmk">
+				RMK
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createUser">
+				CREATE_USER
+			</isNotEmpty>
+			
+			<isNotEmpty prepend="," property="createTime">
+				CREATE_TIME
+			</isNotEmpty>
+			
+			<isNotEmpty prepend="," property="updateUser">
+				UPDATE_USER
+			</isNotEmpty>
+			
+			<isNotEmpty prepend="," property="updateTime">
+				UPDATE_TIME
+			</isNotEmpty>
+			
+			<isNotEmpty prepend="," property="orderId">
+				ORDER_ID
+			</isNotEmpty>
+			
+			<isNotEmpty prepend="," property="orderCode">
+				ORDER_CODE
+			</isNotEmpty>
+			
+			<isNotEmpty prepend="," property="prodType">
+				PROD_TYPE
+			</isNotEmpty>
+			
+			<isNotEmpty prepend="," property="address">
+				ADDRESS
+			</isNotEmpty>
+			
+			<isNotEmpty prepend="," property="city">
+				CITY
+			</isNotEmpty>
+		</dynamic>
+		
+		<dynamic prepend=") VALUES (">
+
+			<isNotEmpty prepend="," property="id">
+				#id#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="name">
+				#name#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="phone">
+				#phone#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="mobile">
+				#mobile#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="email">
+				#email#
+			</isNotEmpty>
+		
+			<isNotEmpty prepend="," property="confirmMode">
+				#confirmMode#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="rmk">
+				#rmk#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createUser">
+				#createUser#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createTime">
+				#createTime#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateUser">
+				#updateUser#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateTime">
+				#updateTime#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="orderId">
+				#orderId#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="orderCode">
+				#orderCode#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="prodType">
+				#prodType#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="address">
+				#address#
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="city">
+				#city#
+			</isNotEmpty>
+		 </dynamic>	)
+	</insert>
+	
+</sqlMap>

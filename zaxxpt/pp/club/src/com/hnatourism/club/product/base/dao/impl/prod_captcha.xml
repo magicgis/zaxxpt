@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="prodCaptcha">
+	<typeAlias alias="prodCaptcha" type="com.hnatourism.club.product.base.domain.ProdCaptcha" />
+	<resultMap id="prodCaptchaResultMap" class="prodCaptcha">
+		<result column="ID" property="id" />
+		<result column="CODE" property="code" />
+		<result column="STS" property="sts" />
+		<result column="TYPE" property="type" />
+		<result column="PROD_ID" property="prodId" />
+		<result column="PROD_CODE" property="prodCode" />
+		<result column="ORDER_CODE" property="orderCode" />
+		<result column="RMK" property="rmk" />
+		<result column="MEMBER_ID" property="memberId" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="CREATE_USER" property="createUser" />
+		<result column="UPDATE_TIME" property="updateTime" />
+		<result column="UPDATE_USER" property="updateUser" />
+	</resultMap>
+	<sql id="selectProdCaptchaSql">
+		<![CDATA[
+			SELECT T.ID,T.CODE,T.STS,T.TYPE,T.PROD_ID,T.PROD_CODE,T.ORDER_CODE,T.RMK,T.MEMBER_ID,T.CREATE_TIME,T.CREATE_USER,T.UPDATE_TIME,T.UPDATE_USER 
+			FROM PROD_CAPTCHA T
+		]]>
+	</sql>
+	<select id="findProdCaptchaByWhere" parameterClass="prodCaptcha" resultMap="prodCaptchaResultMap">
+		<include refid="selectProdCaptchaSql"/>	
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="code">
+				T.CODE=#code#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="sts">
+				T.STS=#sts#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="type">
+				T.TYPE=#type#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="prodId">
+				T.PROD_ID=#prodId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="prodCode">
+				T.PROD_CODE=#prodCode#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="orderCode">
+				T.ORDER_CODE=#orderCode#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="rmk">
+				T.RMK=#rmk#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="memberId">
+				T.MEMBER_ID=#memberId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createTime">
+				T.CREATE_TIME=#createTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createUser">
+				T.CREATE_USER=#createUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateTime">
+				T.UPDATE_TIME=#updateTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateUser">
+				T.UPDATE_USER=#updateUser#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<select id="findProdCaptchaById" parameterClass="java.lang.String" resultMap="prodCaptchaResultMap">
+		<include refid="selectProdCaptchaSql"/>	
+		<![CDATA[
+			WHERE T.ID=#id#
+		]]>
+	</select>
+	<insert id="insertProdCaptcha" parameterClass="prodCaptcha">
+		INSERT INTO PROD_CAPTCHA
+		<dynamic prepend="(">
+			<isNotEmpty prepend="," property="id">
+				ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="code">
+				CODE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="sts">
+				STS
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="type">
+				TYPE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="prodId">
+				PROD_ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="prodCode">
+				PROD_CODE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="orderCode">
+				ORDER_CODE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="rmk">
+				RMK
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="memberId">
+				MEMBER_ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createTime">
+				CREATE_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createUser">
+				CREATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateTime">
+				UPDATE_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateUser">
+				UPDATE_USER
+			</isNotEmpty>
+
+		</dynamic>		
+		<dynamic prepend=") VALUES (">
+
+			<isNotEmpty prepend="," property="id">
+				#id#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="code">
+				#code#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="sts">
+				#sts#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="type">
+				#type#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="prodId">
+				#prodId#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="prodCode">
+				#prodCode#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="orderCode">
+				#orderCode#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="rmk">
+				#rmk#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="memberId">
+				#memberId#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createTime">
+				#createTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createUser">
+				#createUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateTime">
+				#updateTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateUser">
+				#updateUser#
+			</isNotEmpty>
+
+		 </dynamic>	)
+	</insert>
+	
+	<update id="updateProdCaptcha" parameterClass="prodCaptcha">
+		UPDATE PROD_CAPTCHA
+        <dynamic prepend="set">
+		   <isNotEmpty prepend="," property="code">
+              CODE=#code#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="sts">
+              STS=#sts#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="type">
+              TYPE=#type#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="prodId">
+              PROD_ID=#prodId#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="prodCode">
+              PROD_CODE=#prodCode#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="orderCode">
+              ORDER_CODE=#orderCode#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="rmk">
+              RMK=#rmk#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="memberId">
+              MEMBER_ID=#memberId#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createTime">
+              CREATE_TIME=#createTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createUser">
+              CREATE_USER=#createUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateTime">
+              UPDATE_TIME=#updateTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateUser">
+              UPDATE_USER=#updateUser#
+           </isNotEmpty>
+        </dynamic>
+		WHERE 
+               ID=#id#
+	</update>	
+	<delete id="deleteProdCaptcha" parameterClass="java.lang.String">
+		DELETE FROM PROD_CAPTCHA
+		WHERE 
+               ID=#id#
+	</delete>	
+</sqlMap>

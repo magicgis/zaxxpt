@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="loungeInfo">
+	<typeAlias alias="loungeInfo" type="com.hnatourism.club.lounge.prod.domain.LoungeInfo" />
+	<resultMap id="loungeInfoResultMap" class="loungeInfo">
+		<result column="ID" property="id" />
+		<result column="NAME" property="name" />
+		<result column="AIRPORT_CODE" property="airportCode" />
+		<result column="ADDRESS" property="address" />
+		<result column="AIRLINE_CORP" property="airlineCorp" />
+		<result column="STS" property="sts" />
+		<result column="CREATE_USER" property="createUser" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="UPDATE_USER" property="updateUser" />
+		<result column="UPDATE_TIME" property="updateTime" />
+		<result column="ORGANIZATION_ID" property="organizationId" />
+	</resultMap>
+	<resultMap id="loungeInfoResultMapComm" class="loungeInfo">
+		<result column="ID" property="id" />
+		<result column="NAME" property="name" />
+		<result column="AIRPORT_CODE" property="airportCode" />
+	</resultMap>
+	<sql id="selectLoungeInfoSql">
+		<![CDATA[
+			SELECT T.ID,T.NAME,T.AIRPORT_CODE,T.ADDRESS,T.AIRLINE_CORP,T.STS,T.CREATE_USER,T.CREATE_TIME,T.UPDATE_USER,T.UPDATE_TIME,T.ORGANIZATION_ID 
+			FROM LOUNGE_INFO T
+		]]>
+	</sql>
+	<select id="findLoungeInfoById" parameterClass="java.lang.String" resultMap="loungeInfoResultMap">
+		<include refid="selectLoungeInfoSql"/>	
+		<![CDATA[
+			WHERE T.ID=#id# AND T.STS=1
+		]]>
+	</select>
+	<select id="findLoungeInfoBySearch" parameterClass="java.util.HashMap" resultMap="loungeInfoResultMap">
+		<include refid="selectLoungeInfoSql"/>
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="id">
+				T.ID=#id# AND T.STS=1
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="airportCode">
+				T.AIRPORT_CODE=#airportCode# AND T.STS=1
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="name">
+				T.NAME LIKE '%$name$%' AND T.STS=1
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="type">
+				T.ID IN (SELECT R.LOUNGE_ID FROM LOUNGE_ROOM R WHERE R.TYPE=#type#) AND T.STS=1
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<select id="findLoungeInfoBySearchCity" parameterClass="java.util.HashMap" resultMap="loungeInfoResultMap">
+		<include refid="selectLoungeInfoSql"/>
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="id">
+				T.ID=#id# AND T.STS=1
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="cityDeCode">
+				t.AIRPORT_CODE in (select ap.code from flight_airport@B2C_LINK ap where ap.city=#cityDeCode#) AND T.STS=1
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="name">
+				T.NAME LIKE '%$name$%' AND T.STS=1
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="type">
+				T.ID IN (SELECT R.LOUNGE_ID FROM LOUNGE_ROOM R WHERE R.TYPE=#type#) AND T.STS=1
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<select id="findLoungeInfoBySearchPage" parameterClass="java.util.HashMap" resultMap="loungeInfoResultMap">
+		<include refid="selectLoungeInfoSql"/>
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="id">
+				T.ID=#id# AND T.STS=1
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="airportCode">
+				T.AIRPORT_CODE=#airportCode# AND T.STS=1
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="name">
+				T.NAME LIKE '%$name$%'
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="startnum">
+				<![CDATA[ROWNUM>#startnum# AND T.STS=1]]> 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="endnum">
+				<![CDATA[ROWNUM<=#endnum# AND T.STS=1]]>
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<select id="findLoungeInfoBySearchCityPage" parameterClass="java.util.HashMap" resultMap="loungeInfoResultMap">
+		<include refid="selectLoungeInfoSql"/>
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="id">
+				T.ID=#id# AND T.STS=1
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="cityDeCode">
+				T.STS=1 AND t.AIRPORT_CODE in (select ap.code from flight_airport@B2C_LINK ap where ap.city=#cityDeCode#) AND T.STS=1
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="name">
+				T.NAME LIKE '%$name$%' AND T.STS=1
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="startnum">
+				<![CDATA[ROWNUM>#startnum# AND T.STS=1]]>
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="endnum">
+				<![CDATA[ROWNUM<=#endnum# AND T.STS=1]]>
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<select id="findLoungeInfoByWhere" parameterClass="loungeInfo" resultMap="loungeInfoResultMap">
+		<include refid="selectLoungeInfoSql"/>	
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="name">
+				T.NAME=#name# 
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="airportCode">
+				T.AIRPORT_CODE=#airportCode#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="address">
+				T.ADDRESS=#address#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="airlineCorp">
+				T.AIRLINE_CORP=#airlineCorp#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="sts">
+				T.STS=#sts#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createUser">
+				T.CREATE_USER=#createUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createTime">
+				T.CREATE_TIME=#createTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateUser">
+				T.UPDATE_USER=#updateUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateTime">
+				T.UPDATE_TIME=#updateTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="organizationId">
+				T.ORGANIZATION_ID=#organizationId#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<insert id="insertLoungeInfo" parameterClass="loungeInfo">
+		INSERT INTO LOUNGE_INFO
+		<dynamic prepend="(">
+			<isNotEmpty prepend="," property="id">
+				ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="name">
+				NAME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="airportCode">
+				AIRPORT_CODE
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="address">
+				ADDRESS
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="airlineCorp">
+				AIRLINE_CORP
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="sts">
+				STS
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createUser">
+				CREATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createTime">
+				CREATE_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateUser">
+				UPDATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateTime">
+				UPDATE_TIME
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="organizationId">
+				ORGANIZATION_ID
+			</isNotEmpty>
+
+		</dynamic>		
+		<dynamic prepend=") VALUES (">
+
+			<isNotEmpty prepend="," property="id">
+				#id#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="name">
+				#name#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="airportCode">
+				#airportCode#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="address">
+				#address#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="airlineCorp">
+				#airlineCorp#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="sts">
+				#sts#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createUser">
+				#createUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createTime">
+				#createTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateUser">
+				#updateUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateTime">
+				#updateTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="organizationId">
+				#organizationId#
+			</isNotEmpty>
+
+		 </dynamic>	)
+	</insert>
+	
+	<update id="updateLoungeInfo" parameterClass="loungeInfo">
+		UPDATE LOUNGE_INFO
+        <dynamic prepend="set">
+		   <isNotEmpty prepend="," property="name">
+              NAME=#name#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="airportCode">
+              AIRPORT_CODE=#airportCode#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="address">
+              ADDRESS=#address#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="airlineCorp">
+              AIRLINE_CORP=#airlineCorp#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="sts">
+              STS=#sts#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createUser">
+              CREATE_USER=#createUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createTime">
+              CREATE_TIME=#createTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateUser">
+              UPDATE_USER=#updateUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateTime">
+              UPDATE_TIME=#updateTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="organizationId">
+              ORGANIZATION_ID=#organizationId#
+           </isNotEmpty>
+        </dynamic>
+		WHERE 
+               ID=#id#
+	</update>	
+	<delete id="deleteLoungeInfo" parameterClass="java.lang.String">
+		DELETE FROM LOUNGE_INFO
+		WHERE 
+               ID=#id#
+	</delete>	
+</sqlMap>

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="xlbBalance">
+	<typeAlias alias="xlbBalance" type="com.hnatourism.club.personal.member.domain.XlbBalance" />
+	<resultMap id="xlbBalanceResultMap" class="xlbBalance">
+		<result column="ID" property="id" />
+		<result column="MEMBER_ID" property="memberId" />
+		<result column="AMOUNT" property="amount" />
+		<result column="INVITE_NO" property="inviteNo" />
+		<result column="STATUS" property="status" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="CREATE_USER" property="createUser" />
+		<result column="UPDATE_TIME" property="updateTime" />
+		<result column="UPDATE_USER" property="updateUser" />
+		<result column="FILED1" property="filed1" />
+		<result column="FILED2" property="filed2" />
+		<result column="FILED3" property="filed3" />
+		<result column="FILED4" property="filed4" />
+		<result column="FILED5" property="filed5" />
+	</resultMap>
+	<sql id="selectXlbBalanceSql">
+		<![CDATA[
+			SELECT T.ID,T.MEMBER_ID,T.AMOUNT,T.INVITE_NO,T.STATUS,T.CREATE_TIME,T.CREATE_USER,T.UPDATE_TIME,T.UPDATE_USER,T.FILED1,T.FILED2,T.FILED3,T.FILED4,T.FILED5 
+			FROM XLB_BALANCE@b2c_link T
+		]]>
+	</sql>
+	<select id="findXlbBalanceByWhere" parameterClass="xlbBalance" resultMap="xlbBalanceResultMap">
+		<include refid="selectXlbBalanceSql"/>	
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="memberId">
+				T.MEMBER_ID=#memberId#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="amount">
+				T.AMOUNT=#amount#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="inviteNo">
+				T.INVITE_NO=#inviteNo#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="status">
+				T.STATUS=#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createTime">
+				T.CREATE_TIME=#createTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="createUser">
+				T.CREATE_USER=#createUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateTime">
+				T.UPDATE_TIME=#updateTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="updateUser">
+				T.UPDATE_USER=#updateUser#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="filed1">
+				T.FILED1=#filed1#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="filed2">
+				T.FILED2=#filed2#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="filed3">
+				T.FILED3=#filed3#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="filed4">
+				T.FILED4=#filed4#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="filed5">
+				T.FILED5=#filed5#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<select id="findXlbBalanceById" parameterClass="java.lang.String" resultMap="xlbBalanceResultMap">
+		<include refid="selectXlbBalanceSql"/>	
+		<![CDATA[
+			WHERE T.ID=#id#
+		]]>
+	</select>
+	<select id="findXlbBalanceByMemberId" parameterClass="java.lang.String" resultMap="xlbBalanceResultMap">
+		<include refid="selectXlbBalanceSql" />
+		<![CDATA[
+			WHERE T.MEMBER_ID=#memberId#
+		]]>
+	</select>
+	<insert id="insertXlbBalance" parameterClass="xlbBalance">
+		INSERT INTO XLB_BALANCE@b2c_link
+		<dynamic prepend="(">
+			<isNotEmpty prepend="," property="id">
+				ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="memberId">
+				MEMBER_ID
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="amount">
+				AMOUNT
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="inviteNo">
+				INVITE_NO
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="status">
+				STATUS
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createTime">
+				CREATE_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="createUser">
+				CREATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateTime">
+				UPDATE_TIME
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="updateUser">
+				UPDATE_USER
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="filed1">
+				FILED1
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="filed2">
+				FILED2
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="filed3">
+				FILED3
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="filed4">
+				FILED4
+			</isNotEmpty>
+
+			<isNotEmpty prepend="," property="filed5">
+				FILED5
+			</isNotEmpty>
+
+		</dynamic>		
+		<dynamic prepend=") VALUES (">
+
+			<isNotEmpty prepend="," property="id">
+				#id#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="memberId">
+				#memberId#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="amount">
+				#amount#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="inviteNo">
+				#inviteNo#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="status">
+				#status#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createTime">
+				#createTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="createUser">
+				#createUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateTime">
+				#updateTime#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="updateUser">
+				#updateUser#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="filed1">
+				#filed1#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="filed2">
+				#filed2#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="filed3">
+				#filed3#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="filed4">
+				#filed4#
+			</isNotEmpty>
+
+
+			<isNotEmpty prepend="," property="filed5">
+				#filed5#
+			</isNotEmpty>
+
+		 </dynamic>	)
+	</insert>
+	
+	<update id="updateXlbBalance" parameterClass="xlbBalance">
+		UPDATE XLB_BALANCE@b2c_link
+        <dynamic prepend="set">
+		   <isNotEmpty prepend="," property="memberId">
+              MEMBER_ID=#memberId#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="amount">
+              AMOUNT=#amount#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="inviteNo">
+              INVITE_NO=#inviteNo#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="status">
+              STATUS=#status#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createTime">
+              CREATE_TIME=#createTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="createUser">
+              CREATE_USER=#createUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateTime">
+              UPDATE_TIME=#updateTime#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="updateUser">
+              UPDATE_USER=#updateUser#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="filed1">
+              FILED1=#filed1#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="filed2">
+              FILED2=#filed2#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="filed3">
+              FILED3=#filed3#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="filed4">
+              FILED4=#filed4#
+           </isNotEmpty>
+		   <isNotEmpty prepend="," property="filed5">
+              FILED5=#filed5#
+           </isNotEmpty>
+        </dynamic>
+		WHERE 
+               ID=#id#
+	</update>	
+	<delete id="deleteXlbBalance" parameterClass="java.lang.String">
+		DELETE FROM XLB_BALANCE@b2c_link
+		WHERE 
+               ID=#id#
+	</delete>	
+</sqlMap>

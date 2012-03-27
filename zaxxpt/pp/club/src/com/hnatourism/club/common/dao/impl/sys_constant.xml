@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="sysConstant">
+	<typeAlias alias="sysConstant" type="com.hnatourism.club.common.domain.SysConstant" />
+	<resultMap id="sysConstantResultMap" class="sysConstant">
+		<result column="ID" property="id" />
+		<result column="CON_TYP" property="conTyp" />
+		<result column="CON_NAM" property="conNam" />
+		<result column="CON_VAL" property="conVal" />
+		<result column="STATUS" property="status" />
+		<result column="CODE" property="code" />
+	</resultMap>
+	<sql id="selectSysConstantSql">
+		<![CDATA[
+			SELECT T.ID,T.CON_TYP,T.CON_NAM,T.CON_VAL,T.STATUS,T.CODE
+			FROM SYS_CONSTANT T 
+		]]>
+	</sql>
+	<select id="findSysConstantByWhere" parameterClass="sysConstant" resultMap="sysConstantResultMap">
+		<include refid="selectSysConstantSql"/>	
+		<dynamic prepend="WHERE">
+			<isNotEmpty prepend="AND" property="conTyp">
+				T.CON_TYP=#conTyp#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="conNam">
+				T.CON_NAM=#conNam#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="conVal">
+				T.CON_VAL=#conVal#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="status">
+				T.STATUS=#status#
+			</isNotEmpty>
+			<isNotEmpty prepend="AND" property="code">
+				T.CODE=#code#
+			</isNotEmpty>
+		</dynamic>
+		ORDER BY T.ID ASC
+	</select>
+	<select id="findSysConstantById" parameterClass="java.lang.String" resultMap="sysConstantResultMap">
+		<include refid="selectSysConstantSql"/>	
+		<![CDATA[
+			WHERE T.ID=#id#
+		]]>
+	</select>
+	<select id="findByType" parameterClass="java.lang.String" resultMap="sysConstantResultMap">
+		<include refid="selectSysConstantSql"/>	
+		<![CDATA[
+			WHERE T.CON_TYP=#TYPE#
+		]]>
+	</select>
+	<insert id="insertSysConstant" parameterClass="sysConstant">
+		<![CDATA[
+			INSERT INTO SYS_CONSTANT (ID,CON_TYP,CON_NAM,CON_VAL,STATUS,CODE) 
+			VALUES (#id#,#conTyp#,#conNam#,#conVal#,#status#,#code#)
+		]]>
+	</insert>
+	<update id="updateSysConstant" parameterClass="sysConstant">
+		<![CDATA[
+			UPDATE SYS_CONSTANT T 
+			SET T.CON_TYP=#conTyp#,T.CON_NAM=#conNam#,T.CON_VAL=#conVal#,T.STATUS=#status#,T.CODE=#code#
+			WHERE T.ID=#id#
+		]]>
+	</update>	
+	<delete id="deleteSysConstant" parameterClass="java.lang.String">
+		<![CDATA[
+			DELETE FROM SYS_CONSTANT T 
+			WHERE T.ID=#id#
+		]]>
+	</delete>	
+</sqlMap>
