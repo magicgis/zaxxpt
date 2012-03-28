@@ -4,12 +4,12 @@
   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-  <classPathEntry location="E:\Project\google\zaxxpt\zaxxpt\WebRoot\WEB-INF\lib\ojdbc14.jar" />
+  <classPathEntry location="E:\zaxxpt\zaxxpt\WebRoot\WEB-INF\lib\ojdbc14.jar" />
 
   <context id="OracleTables" targetRuntime="MyBatis3">
     <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
         connectionURL="jdbc:oracle:thin:@localhost:1521:orcl"
-        userId="tests"
+        userId="test"
         password="Root123456789">
     </jdbcConnection>
 
@@ -22,26 +22,26 @@
 	
 	<!-- Model生成配置 targetPackage：生成包路径，可自己生成目录 targetProject：项目路经，
 	我试过写成"\mybatis"，但总是报找不到，不知原因。我换成写绝对目录，行的通。 -->
-	<javaModelGenerator targetPackage="com.test.entity" targetProject="E:\Project\google\zaxxpt\zaxxpt\src\">
+	<javaModelGenerator targetPackage="com.test.entity" targetProject="E:\zaxxpt\zaxxpt\src\">
 		<property name="enableSubPackages" value="true" />
 		<property name="trimStrings" value="true" />
 	</javaModelGenerator>
 	
 	<!-- sqlMap配置 重复配置，不再提示，下同 -->
-	<sqlMapGenerator targetPackage="com.test.entity" targetProject="E:\Project\google\zaxxpt\zaxxpt\src\">
+	<sqlMapGenerator targetPackage="com.test.entity" targetProject="E:\zaxxpt\zaxxpt\src\">
 		<property name="enableSubPackages" value="true" />
 	</sqlMapGenerator>
 	
 	<!-- DAO接口的生成 -->
-	<javaClientGenerator type="XMLMAPPER" targetPackage="com.test.entity" targetProject="E:\Project\google\zaxxpt\zaxxpt\src\">
+	<javaClientGenerator type="XMLMAPPER" targetPackage="com.test.entity" targetProject="E:\zaxxpt\zaxxpt\src\">
 		<property name="enableSubPackages" value="true" />
 	</javaClientGenerator>
 	
 	<!-- table 数据库table的用户配置，用于配置哪些表需要。 domainObjectName:生成表前缀 -->
-	<table tableName="SYSTEM_FIELD_POPEDOM" domainObjectName="SystemFieldPopedom">
+	<table tableName="SYSTEM_USERS" domainObjectName="SystemUsers">
 		<!-- 下面是不同数据库表特性 参见 mybatis-generator-core.**.jar 里面的 Database SpecificInformation -->
 		<property name="ignoreQualifiersAtRuntime" value="true" />
-		<property name="runtimeTableName" value="SYSTEM_FIELD_POPEDOM" />
+		<property name="runtimeTableName" value="SYSTEM_USERS" />
 		<!-- 主键生成 如果用了这个 generatedKey ,MBG将在sqlmpper.xml里生成一个 selectKey元素在用在<insert>元素里 。 -->
 		<generatedKey column="COUNTRY_ID" sqlStatement="JDBC" identity="true" />
 	</table>

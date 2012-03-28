@@ -4,21 +4,20 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.google.common.collect.Collections2;
 import com.sunshine.framework.entity.BaseDomain;
 import com.sunshine.framework.entity.SystemRole;
 import com.sunshine.framework.entity.SystemUsersRole;
 
 /***
  *@author wenz
- *@Date 2012-3-27ÏÂÎç03:14:25
+ *@Date 2012-3-27ï¿½ï¿½ï¿½ï¿½03:14:25
  *@version 1.0
  *@see com.sunshine.framework.service.AbstractPopedom
  ***/
 public abstract class AbstractPopedom implements Popedom {
 
 	/**
-	 * ²é¿´ListÖÐÊÇ·ñ°üº¬BaseDomainÖÐÍ¬IDµÄ¶ÔÏó
+	 * ï¿½é¿´Listï¿½ï¿½ï¿½Ç·ï¿½ï¿½BaseDomainï¿½ï¿½Í¬IDï¿½Ä¶ï¿½ï¿½ï¿½
 	 * @param list
 	 * @param baseDomain
 	 * @return boolean
@@ -35,7 +34,7 @@ public abstract class AbstractPopedom implements Popedom {
 	
 	
 	/**
-	 * ¹ýÂËsourceÖÐ°üº¬targetÖÐ¶ÔÏóµÄ¼¯ºÏ
+	 * ï¿½ï¿½ï¿½ï¿½sourceï¿½Ð°ï¿½targetï¿½Ð¶ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 	 * @param source
 	 * @param target
 	 * @return List<BaseDomain>
