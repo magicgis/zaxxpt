@@ -1,5 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.sunshine.com/tag" prefix="p"%> 
+<%@ taglib uri="/struts-tags" prefix="s"%> 
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -27,12 +30,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   <body> <form action="<%=basePath %>platform/login_enter.action" name="loginFrom" method="post">
      <div style=" marign-top:300px;marign-left: 300px;width:300px;height:200px;">
-     	<h4  style="margin-left: 80px;">用户登录</h4>
+     	<h4  style="margin-left: 80px;">用户登录<input type="text" <p:fpopedomProperty value="aaa " displayValue='readonly="readonly"' displayMode="write" /> > </h4>
      	<div style="margin-left: 30px;">
      		<table align="center" ><tr><td>用户名：</td><td><input name="userEntity.username" value="cesss"/></td></tr>
      		<tr><td>密码：</td><td><input name="userEntity.password" type="password" value="123456"/></td></tr>
      		<tr><td>&nbsp;</td><td><input type="submit" value="登  陆">
      					<input type="reset" value="取 消">
+     					<p:sPopeDomiIerator value="{'1','2','b'}" var="sw" id='char' > <s:property value="%{sw}"/>  </p:sPopeDomiIerator>
      				</td></tr>
      		</table>
      	</div>

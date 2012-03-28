@@ -20,7 +20,6 @@ import com.sunshine.framework.entity.annotation.FieldMethod;
 import com.sunshine.framework.entity.annotation.TableMethod;
 import com.sunshine.framework.util.BeanUtils;
 import com.sunshine.framework.util.SysLogger;
-import com.system.user.entity.UserEntity;
 /***
  * 默认数据库访问DAO
  * @author ralphone.zhuo
@@ -328,11 +327,6 @@ public  class BaseDao extends JdbcTemplate{
 	}
 
 	
-	public static void main(String[] args) throws DataException {
-		BaseDao d=new BaseDao();
-		UserEntity user=new UserEntity();
-		d.select(user);
-	}
 
 	public void modifyBySql(String sql,Object[] args) throws DataException {
 		try{

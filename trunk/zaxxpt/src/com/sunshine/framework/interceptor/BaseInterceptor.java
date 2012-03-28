@@ -1,7 +1,9 @@
 package com.sunshine.framework.interceptor;
 
+import java.sql.Statement;
 import java.util.List;
 
+import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.struts2.ServletActionContext;
 
 
@@ -21,9 +23,9 @@ public class BaseInterceptor extends AbstractInterceptor {
 	public String intercept(ActionInvocation invocation) throws ActionException {
 		String invokeResult = null;
 		BaseAction action = (BaseAction) invocation.getAction();	
-		action.setRequest(ServletActionContext.getRequest());
-		action.setResponse(ServletActionContext.getResponse());
-		action.setSession(ServletActionContext.getRequest().getSession());
+//		action.setRequest(ServletActionContext.getRequest());
+//		action.setResponse(ServletActionContext.getResponse());
+//		action.setSession(ServletActionContext.getRequest().getSession());
 		String actionName = action.getClass().getName();
 		String path = ServletActionContext.getRequest().getContextPath();
 		ServletActionContext.getRequest().getSession().setAttribute("path", path);

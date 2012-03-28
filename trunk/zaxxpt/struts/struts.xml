@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="GBK"/>
+	<constant name="struts.multipart.maxSize" value="325058560"/>
+	<constant name="struts.multipart.saveDir" value="C:/Temp"/>  <!-- Linux Ϊ/tmp -->
+	<constant name="struts.action.extension" value="action,htm" />
+	<constant name="struts.objectFactory" value="spring" />  
+	<package name="core" extends="struts-default" abstract="true">
+		<interceptors>
+           <interceptor name="baseStack" class="com.sunshine.framework.interceptor.BaseInterceptor"/>
+           <interceptor-stack name="defaultStackAction">
+              <interceptor-ref name="defaultStack"/>
+              <interceptor-ref name="baseStack"/>
+           </interceptor-stack>   
+	   </interceptors>
+	   <default-interceptor-ref name="defaultStackAction"/>
+	   <global-results>
+			<result name="window">/resources/common/search.jsp</result>
+			<result name="export">/resources/common/export.jsp</result>
+			
+            <result name="actionError">/resources/error/action.jsp  </result>
+            <result name="daoError">/resources/error/dao.jsp  </result>
+
+            <result name="overtime">/resources/error/overtime.jsp</result>
+                                    
+            <result name="nopower">/resources/error/power.jsp</result>
+            <result name="replace">/resources/error/replace.jsp</result>
+            
+            <result name="message">/resources/common/message.jsp</result>
+       </global-results>
+       
+	   <global-exception-mappings>
+          <exception-mapping result="actionError" exception="com.sunshine.framework.entity.ActionException"></exception-mapping>
+          <exception-mapping result="daoError"    exception="com.sunshine.framework.entity.DataException"></exception-mapping>               
+       </global-exception-mappings>
+       
+    </package>
+    
+</struts>
