@@ -139,8 +139,8 @@ public class FieldProperty extends Component {
 	        			// exception: don't call findString(), since we don't want the
 	        			//            expression parsed in this one case. it really
 	        			//            doesn't make sense, in fact.
-	        			Property
-	        			String actualValue = (String) getStack().findValue(value, String.class, throwExceptionOnELFailure);
+	        		    
+	        			String actualValue = (String) getStack().findValue(value, String.class,this.throwExceptionOnELFailure);
 	        			if (actualValue != null) {
 	        				writer.write(prepare(actualValue));
 	        			} else if (defaultValue != null) {
