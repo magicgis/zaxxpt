@@ -1,40 +1,29 @@
 package com.test;
 
-import java.sql.Connection;
+import java.util.List;
 
-import javax.sql.DataSource;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.jdbc.SimpleJdbcTestUtils;
 
-import com.test.service.UserService;
+import com.sunshine.framework.entity.SystemUsers;
+import com.test.service.UsersService;
 
 public class TestProject  extends SimpleJdbcTestUtils{
 
 	
 	
 	
-	public void testIbatis(){
-		
-		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		UserService userService=(UserService)context.getBean("userService");
-		int count=userService.countAll();
-		System.out.println(count);
-	}
-	
-	
 	public static void main(String[] args) {
 		try {
 			ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-			UserService userService=(UserService)context.getBean("userService");
-			int count=userService.countAll();
-			System.out.println(count);
-//			DataSource dataSource=(DataSource)context.getBean("dataSource");
-//			Connection conn=dataSource.getConnection();
-//			System.out.println(conn);
+			UsersService usersService=(UsersService)context.getBean("usersService");
+			List<SystemUsers> list=usersService.getUsersAll();
+			System.out.println(list);
+			System.out.println(usersService.getUsers("123456789aaa"));
+			usersService.testMybatis(); 
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
