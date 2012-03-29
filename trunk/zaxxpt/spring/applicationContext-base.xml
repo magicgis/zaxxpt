@@ -27,8 +27,8 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <bean id="systemUsersMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.test.entity.SystemUsersMapper"></property>
+    <bean id="baseDomainMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.test.entity.BaseDomainMapper"></property>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
     </bean>
 	
