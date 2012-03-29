@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-  <classPathEntry location="E:\Project\google\zaxxpt\zaxxpt\WebRoot\WEB-INF\lib\ojdbc14.jar" />
+  <classPathEntry location="E:\Project\google\zaxxpt\zaxxpt\WebRoot\WEB-INF\lib\ojdbc6.jar" />
 
   <context id="OracleTables" targetRuntime="MyBatis3">
     <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
@@ -38,10 +38,10 @@
 	</javaClientGenerator>
 	
 	<!-- table 数据库table的用户配置，用于配置哪些表需要。 domainObjectName:生成表前缀 -->
-	<table tableName="SYSTEM_FIELD_POPEDOM" domainObjectName="SystemFieldPopedom">
+	<table tableName="SYSTEM_USERS_ROLE" domainObjectName="SystemUsersRole">
 		<!-- 下面是不同数据库表特性 参见 mybatis-generator-core.**.jar 里面的 Database SpecificInformation -->
 		<property name="ignoreQualifiersAtRuntime" value="true" />
-		<property name="runtimeTableName" value="SYSTEM_FIELD_POPEDOM" />
+		<property name="runtimeTableName" value="SYSTEM_USERS_ROLE" />
 		<!-- 主键生成 如果用了这个 generatedKey ,MBG将在sqlmpper.xml里生成一个 selectKey元素在用在<insert>元素里 。 -->
 		<generatedKey column="COUNTRY_ID" sqlStatement="JDBC" identity="true" />
 	</table>
